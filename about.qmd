@@ -1,0 +1,69 @@
+---
+title: "Daniel Pickem"
+subtitle: "Staff Software Engineer at NVIDIA"
+image: https://pbs.twimg.com/media/C3Zce3pUkAAfxDT?format=jpg&name=4096x4096
+page-layout: full
+about:
+  template: jolla
+  image-shape: round
+  image-width: 15em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/danielpickem/
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/dpickem
+    - icon: github
+      text: Github
+      href: https://github.com/dpickem
+format:
+  html:
+    css: styles.css
+---
+
+<div style="text-align: left;">
+
+Currently, I am a Staff Software Engineer at NVIDIA, where I focus on *defining and developing metrics for autonomous vehicle (AV) software, building data-driven evaluation products, and incorporating LLMs and VLMs into evaluation workflows*. Just like AV planning systems move from rule-based systems to end-to-end learned planners, I am convinvced the systems tasked with evaluating AV planning stacks need to move to a data-driven approach that incorporates the nuanced world understanding and context AV systems themselves need to be able to reason about.
+
+Prior to NVIDIA (and fresh out of grad school), I was a Senior Machine Learning Engineer at Apple, working on robotics and decision making for autonomous vehicles. That is a fairly coarse summary for the 7+ years I've been with Apple's SPG project tasked to work on autonomous systems. I've worked on everything from machine learned semantic map annotation, to the the initial rule-based planning system (and its transition to a hybrid rule-based/learned planner), to high signal-to-noise evaluation systems for said planner (with the goal of identifying test progressions and preventing regressions).
+
+I've received a B.S. degree in Electrical Engineering from the Vienna University of Technology, an M.S. degree in Electrical and Computer Engineering, and a Ph.D. degree in Robotics from the Georgia Institute of Technology. My doctoral research focused on self-reconfigurable multi-robot systems.
+
+I'm a recipient of the Fulbright scholarship and have held research positions at Carnegie Mellon University, Georgia Institute of Technology, and industry roles at Qualcomm, BMW, and Apple. My work on the Robotarium received the [Best Paper Award on Multi-Robot Systems at the IEEE International Conference on Robotics and Automation (ICRA) in 2017](https://www.ieee-ras.org/awards-recognition/conference-awards/ieee-icra-best-paper-award-on-multi-robot-systems-sponsored-by-amazon-robotics), and I was a [Student Best Paper Finalist at the IEEE Conference on Decision and Control in 2015](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7393937).
+
+
+## Research Interests
+
+* **Foundation models**: LLMs, VLMs, multi-modal models, diffusion models (for image, video, and audio generation), mechanistic interpretability and alignment via RLHF (reinforcement learning from human feedback), RLAIF (reinforcement learning from AI feedback), RLVR (reinforcement learning from verifiable rewards)
+* **Machine Learning**: Reinforcement learning
+* **Autonomous Vehicles**: Building the next generation of AV evaluation systems based on foundation models that enable detailed scene understanding and reasoning, adverse scenario generation, scene similarity computation based on embeddings, VLA models that enable interpretable reasoning about AV behavior
+* **Robotics**: Multi-robot systems, self-reconfigurable robotics, swarm robotics (though this is a field I haven't had the chance to work in for a while now)
+
+## Experience
+
+**NVIDIA** | Staff Software Engineer | 2024-Present  
+*Focus on defining and developing metrics for autonomous vehicle software, building data-driven evaluation products, and incorporating LLMs into evaluation workflows*
+
+**Apple** | Senior Machine Learning Engineer | 2017-2024
+*Worked on robotics and decision making for autonomous vehicles*
+
+**Various Research Positions** | 2012-2017  
+*Research positions at Carnegie Mellon University and Georgia Institute of Technology*
+
+## Education
+
+**Georgia Institute of Technology** | Ph.D., Robotics | 2016
+*Dissertation: Self-reconfigurable multi-robot systems*
+
+**Georgia Institute of Technology** | M.S., Electrical and Computer Engineering | 2012
+
+**Vienna University of Technology** | B.S., Electrical Engineering | 2010
+
+## Awards & Honors
+
+* **Best Paper Award on Multi-Robot Systems** | IEEE ICRA | 2017
+* **Student Best Paper Finalist** | IEEE CDC | 2015
+* **Fulbright Scholarship** | 2010-2012
+
+</div>

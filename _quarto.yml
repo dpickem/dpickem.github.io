@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Daniel Pickem"
+  description: "Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general."
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: publications
+        text: Publications
+      - href: posts
+        text: Blog
+      - href: about.qmd
+        text: About
+  page-footer:
+    left: "© Daniel Pickem, 2025 - [Disclaimer](disclaimer)"
+  twitter-card: true
+  open-graph: true
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    toc_smooth_scroll: true
+    toc_highlight: true
+    fig-align: center

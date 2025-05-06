@@ -1,0 +1,40 @@
+---
+title: "Welcome to Layer by Layer"
+subtitle: "Exploring the depth of machine learning, one layer at a time."
+page-layout: article
+toc: false
+comments: false
+format:
+  html:
+    css: styles.css
+---
+
+::: {.column-page .alert .alert-warning style="text-align: center; margin-bottom: 2em; padding: 1em; border: 2px solid #f0ad4e; background-color: #fcf8e3; border-radius: 5px;"}
+<i class="bi bi-exclamation-triangle-fill" style="font-size: 1.5em; vertical-align: middle; margin-right: 0.5em;"></i> <span style="font-weight: bold; font-size: 1.2em;">This site is currently under construction. Content may be incomplete or change frequently (including the logo).</span>
+:::
+
+::: {.column-page style="text-align: center; margin-bottom: 2em;"}
+![](images/layer_by_layer_logo.png){width=25%}
+
+<div style="font-size: 1.5em; margin-top: 1em;">
+<a href="https://www.linkedin.com/danielpickem/" target="_blank"><i class="bi bi-linkedin"></i></a>
+<a href="https://twitter.com/dpickem" target="_blank"><i class="bi bi-twitter" style="margin-left: 0.5em;"></i></a>
+<a href="https://github.com/dpickem" target="_blank"><i class="bi bi-github" style="margin-left: 0.5em;"></i></a>
+</div>
+:::
+
+Welcome to **Layer by Layer**, where I try to peel back the complexity of modern machine learning to reveal insights, patterns, and understanding - or mostly just share things in the ML space that I find interesting and also document my own learning journey, one layer at a time ;)
+
+I'm fascinated (though also intimidated and sometimes overwhelmed) by how rapidly the machine learning field is evolving - just reading AI newsletters is often tough to fit into a busy work schedule (let alone drinking from the firehose of all the papers that are coming out). My goal here is simple: to explore interesting ideas and ML fundamentals, break down complex concepts, and post by post build an ML engineering foundation that will hopefully make it easier to break into this exciting field. This blog is meant as an extension of my own learning journey.
+
+You'll find a mix of content here (or at least that is the aspiration):
+
+- **In-depth tutorials** that break down complex ML techniques into digestible steps - tutorials that I wish existed when I was learning certain techniques
+- **Practical guides** for implementing state-of-the-art models and methodologies
+- **Accessible summaries** of recent research papers that highlight key contributions but also notes I've found helpful or interesting
+- **Thoughts** on tools and frameworks I've tried, and the ecosystem powering modern ML
+- **Discussions** about trends and where ML might be heading
+
+I'm writing for fellow enthusiasts - people who are curious and excited about machine learning and want to understand it better, whether you're just starting out or have been in the field for a while.
+
+This isn't about presenting myself as an expert but about becoming one - and sharing what I'm learning and thinking about along the way. I hope you'll join me on this journey as we build knowledge together — layer by layer.

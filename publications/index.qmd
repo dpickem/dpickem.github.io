@@ -1,0 +1,41 @@
+---
+title: "Publications"
+page-layout: full
+format:
+  html:
+    css: ../styles.css
+---
+
+A full list of my publications can be found [on Google Scholar](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=daniel+pickem&btnG=)
+
+## Conference Proceedings
+
+* **The robotarium: A remotely accessible swarm robotics research testbed**  
+  D. Pickem, P. Glotfelter, L. Wang, M. Mote, et al.  
+  *IEEE International Conference on Robotics and Automation (ICRA)*, 2017  
+
+* **The GRITSBot in its natural habitat-a multi-robot testbed**  
+  D. Pickem, M. Lee, M. Egerstedt  
+  *IEEE International Conference on Robotics and Automation (ICRA)*, 2015  
+
+* **Realizing simultaneous lane keeping and adaptive speed regulation on accessible mobile robot testbeds**  
+  X. Xu, T. Waters, D. Pickem, P. Glotfelter, et al.  
+  *IEEE Conference on Control Technology and Applications (CCTA)*, 2017  
+
+* **A game-theoretic formulation of the homogeneous self-reconfiguration problem**  
+  D. Pickem, M. Egerstedt  
+  *IEEE Conference on Decision and Control (CDC)*, 2015  
+
+* **Self-reconfiguration using graph grammars for modular robotics**  
+  D. Pickem, M. Egerstedt  
+  *IFAC Proceedings Volumes*, 2012  
+
+* **Complete heterogeneous self-reconfiguration: Deadlock avoidance using hole-free assemblies**  
+  D. Pickem, M. Egerstedt, J.S. Shamma  
+  *IFAC Proceedings Volumes*, 2013  
+
+## Various
+
+* **Captain hindsight: An autonomous surface vessel**  
+  D. Pickem, D. Morioniti, C. Taylor, et al.  
+  *Georgia Institute of Technology Technical Report*, 2012  

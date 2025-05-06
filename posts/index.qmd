@@ -1,0 +1,16 @@
+---
+title: "Layer by Layer"
+listing:
+  contents: .
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+format:
+  html:
+    css: ../styles.css
+---
+
+This blog is all about me learning in public and sharing what I discover along the way. If something I write helps even one person understand a concept better, I'll consider this blog a success.

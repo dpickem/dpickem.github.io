@@ -1,0 +1,53 @@
+---
+title: "Tech Stack for This Website"
+author: "Daniel Pickem"
+date: "2025-05-06"
+categories: [website]
+image: https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg
+---
+
+For the longest time I have been hosting some version of my website using WordPress, which was the style at the time (this is 2012 onwards but pre-ChatGPT). While I really enjoyed the flexibility and ease of use of WordPress, it's always been cumbersome to actually host the website. My last setup was to use the most basic AWS EC2 instance and redirect my domain to it. That setup always came with a high maintenance burden given the fact that the container had to be kept up to date and the website content (i.e. the DB backing the website) had to be manually backed up.
+
+# The Tech Stack
+
+After consulting [ChatGPT](https://chatgpt.com/share/681ae5a6-92b4-800f-9ee2-5f28aecdc2d8) I decided to go with a static website whose content is hosted on [GitHub](https://github.com/dpickem/dpickem.github.io) and rendered using [Quarto](https://quarto.org/). Instead of deploying the website directly via GitHub, I'm using [Netlify](https://www.netlify.com/) to handle builds and deployment. The actual domain name, which I registered on [Dreamhost](https://www.dreamhost.com/), is just redirected to the Netlify URL.
+
+## Pros
+
+- Full control, blazing fast, easy to integrate MDX (Markdown + React), perfect for code-heavy tutorials.
+- Custom Domain: Easy to connect on both Vercel and Netlify.
+
+## Cons
+
+- Needs some dev setup. You write in Markdown or MDX.
+
+## A note about deployment
+
+Publishing updates to the website is trivial with Quarto. Their [publishing workflow](https://quarto.org/docs/publishing/netlify.html) is well-documented and well-integrated with Netlify. Overall, Quarto's documenation is extensive which makes it easy to get started and get support. All that's required is to create a <code>_publish.yml</code> file in the root directory of the repository and executing the following command:
+
+```bash
+quarto publish netlify
+```
+
+The contents of the <code>_publish.yml</code> file look something like the following:
+
+```yaml
+- source: project
+  netlify:
+    - id: "5f3abafe-68f9-4c1d-835b-9d668b892001"
+      url: "https://danielpickem.com"
+```
+
+This tells Quarto to publish the website to Netlify and use the ID and URL from Netlify's "Site settings" dashboard (see image below).
+
+![Netlify Site Settings](https://quarto.org/docs/publishing/images/netlify-control-panel.png)
+
+## Quarto templates
+
+Quarto also boasts an extensive [gallery of templates](https://quarto.org/docs/gallery/) for various use-cases (such as books, blogs, presentations, etc.). This website is using a blog template, in particular the one by [Chris von Csefalvay](https://chrisvoncsefalvay.com/) - thanks Chris! Modifying an existing template gets you up and running really quickly, especially if you have an AI-assisted code editor like [Cursor](https://www.cursor.com/) - but that's a topic for another post.
+
+![Quarto Blog Template](https://quarto.org/docs/gallery/websites/websites-chris-von-csefalvay.png)
+
+*Stay curious,*
+
+Daniel

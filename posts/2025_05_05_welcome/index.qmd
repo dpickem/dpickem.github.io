@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Layer by Layer"
 author: "Daniel Pickem"
-date: "2025-05-04"
+date: "2025-05-05"
 categories: [news, introduction]
 image: "../../images/layer_by_layer_logo.png"
 ---

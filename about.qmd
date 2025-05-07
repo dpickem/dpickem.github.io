@@ -10,7 +10,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/danielpickem/
+      href: https://www.linkedin.com/in/danielpickem/
     - icon: twitter
       text: Twitter
       href: https://twitter.com/dpickem

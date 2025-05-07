@@ -42,6 +42,8 @@ This tells Quarto to publish the website to Netlify and use the ID and URL from 
 
 ![Netlify Site Settings](https://quarto.org/docs/publishing/images/netlify-control-panel.png)
 
+This blog post is already a useful tutorial as I just had to look up how to deploy the updated website to Netlify!
+
 ## Quarto templates
 
 Quarto also boasts an extensive [gallery of templates](https://quarto.org/docs/gallery/) for various use-cases (such as books, blogs, presentations, etc.). This website is using a blog template, in particular the one by [Chris von Csefalvay](https://chrisvoncsefalvay.com/) - thanks Chris! Modifying an existing template gets you up and running really quickly, especially if you have an AI-assisted code editor like [Cursor](https://www.cursor.com/) - but that's a topic for another post.

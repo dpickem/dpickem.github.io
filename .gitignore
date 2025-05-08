@@ -1,5 +1,4 @@
 *.html
-_publish.yml
 _freeze
 /.quarto/
 /_site/

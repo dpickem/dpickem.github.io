@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 42ad63eb-34e9-4725-80c3-45d67ccbc264
+      url: https://danielpickem.com

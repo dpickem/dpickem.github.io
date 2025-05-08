@@ -1,0 +1,7 @@
+# Netlify redirects file
+
+# Custom 404 page rule
+# This tells Netlify to serve your /404.html page
+# when a requested resource is not found.
+# Make sure you have a 404.html file in your publish directory (e.g., _site/404.html).
+/*    /index.html   200

@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html",
+    "href": "posts/2025_05_06_website_tech_stack/index.html",
+    "title": "Tech Stack for This Website",
+    "section": "",
+    "text": "For the longest time I have been hosting some version of my website using WordPress, which was the style at the time (this is 2012 onwards but pre-ChatGPT). While I really enjoyed the flexibility and ease of use of WordPress, it’s always been cumbersome to actually host the website. My last setup was to use the most basic AWS EC2 instance and redirect my domain to it. That setup always came with a high maintenance burden given the fact that the container had to be kept up to date and the website content (i.e. the DB backing the website) had to be manually backed up."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#pros",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#pros",
+    "title": "Tech Stack for This Website",
+    "section": "Pros",
+    "text": "Pros\n\nFull control, blazing fast, easy to integrate MDX (Markdown + React), perfect for code-heavy tutorials.\nCustom Domain: Easy to connect on both Vercel and Netlify."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#cons",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#cons",
+    "title": "Tech Stack for This Website",
+    "section": "Cons",
+    "text": "Cons\n\nNeeds some dev setup. You write in Markdown or MDX."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
+    "title": "Tech Stack for This Website",
+    "section": "A note about deployment",
+    "text": "A note about deployment\nPublishing updates to the website is trivial with Quarto. Their publishing workflow is well-documented and well-integrated with Netlify. Overall, Quarto’s documenation is extensive which makes it easy to get started and get support. All that’s required is to create a _publish.yml file in the root directory of the repository and executing the following command:\nquarto publish netlify\nThe contents of the _publish.yml file look something like the following:\n- source: project\n  netlify:\n    - id: \"5f3abafe-68f9-4c1d-835b-9d668b892001\"\n      url: \"https://danielpickem.com\"\nThis tells Quarto to publish the website to Netlify and use the ID and URL from Netlify’s “Site settings” dashboard (see image below).\n\n\n\nNetlify Site Settings\n\n\nThis blog post is already a useful tutorial as I just had to look up how to deploy the updated website to Netlify!"
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
+    "title": "Tech Stack for This Website",
+    "section": "Quarto templates",
+    "text": "Quarto templates\nQuarto also boasts an extensive gallery of templates for various use-cases (such as books, blogs, presentations, etc.). This website is using a blog template, in particular the one by Chris von Csefalvay - thanks Chris! Modifying an existing template gets you up and running really quickly, especially if you have an AI-assisted code editor like Cursor - but that’s a topic for another post.\n\n\n\nQuarto Blog Template\n\n\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Layer by Layer",
+    "section": "",
+    "text": "This blog is all about me learning in public and sharing what I discover along the way. If something I write helps even one person understand a concept better, I’ll consider this blog a success.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLLMs From Scratch - Part 1: Tokenization\n\n\n\nllms\n\ntokenization\n\ntutorial\n\n\n\n\n\n\n\n\n\nMay 7, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nTech Stack for This Website\n\n\n\nwebsite\n\n\n\n\n\n\n\n\n\nMay 6, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Layer by Layer\n\n\n\nnews\n\nintroduction\n\n\n\n\n\n\n\n\n\nMay 5, 2025\n\n\nDaniel Pickem\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications/index.html",
+    "href": "publications/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "A full list of my publications can be found on Google Scholar"
+  },
+  {
+    "objectID": "publications/index.html#conference-proceedings",
+    "href": "publications/index.html#conference-proceedings",
+    "title": "Publications",
+    "section": "Conference Proceedings",
+    "text": "Conference Proceedings\n\nThe robotarium: A remotely accessible swarm robotics research testbed\nD. Pickem, P. Glotfelter, L. Wang, M. Mote, et al.\nIEEE International Conference on Robotics and Automation (ICRA), 2017\nThe GRITSBot in its natural habitat-a multi-robot testbed\nD. Pickem, M. Lee, M. Egerstedt\nIEEE International Conference on Robotics and Automation (ICRA), 2015\nRealizing simultaneous lane keeping and adaptive speed regulation on accessible mobile robot testbeds\nX. Xu, T. Waters, D. Pickem, P. Glotfelter, et al.\nIEEE Conference on Control Technology and Applications (CCTA), 2017\nA game-theoretic formulation of the homogeneous self-reconfiguration problem\nD. Pickem, M. Egerstedt\nIEEE Conference on Decision and Control (CDC), 2015\nSelf-reconfiguration using graph grammars for modular robotics\nD. Pickem, M. Egerstedt\nIFAC Proceedings Volumes, 2012\nComplete heterogeneous self-reconfiguration: Deadlock avoidance using hole-free assemblies\nD. Pickem, M. Egerstedt, J.S. Shamma\nIFAC Proceedings Volumes, 2013"
+  },
+  {
+    "objectID": "publications/index.html#various",
+    "href": "publications/index.html#various",
+    "title": "Publications",
+    "section": "Various",
+    "text": "Various\n\nCaptain hindsight: An autonomous surface vessel\nD. Pickem, D. Morioniti, C. Taylor, et al.\nGeorgia Institute of Technology Technical Report, 2012"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "Welcome to Layer by Layer, where I try to peel back the complexity of modern machine learning to reveal insights, patterns, and understanding - or mostly just share things in the ML space that I find interesting and also document my own learning journey, one layer at a time.\nI’m fascinated (though also intimidated and sometimes overwhelmed) by how rapidly the machine learning field is evolving - just reading AI newsletters is often tough to fit into a busy work schedule (let alone drinking from the firehose of all the papers that are coming out). My goal here is simple: to explore interesting ideas and ML fundamentals, break down complex concepts, and post by post build an ML engineering foundation that will hopefully make it easier to break into this exciting field. This blog is meant as an extension of my own learning journey.\nYou’ll find a mix of content here (or at least that is the aspiration):\n\nIn-depth tutorials that break down complex ML techniques into digestible steps - tutorials that I wish existed when I was learning certain techniques\nPractical guides for implementing state-of-the-art models and methodologies\nAccessible summaries of recent research papers that highlight key contributions but also notes I’ve found helpful or interesting\nThoughts on tools and frameworks I’ve tried, and the ecosystem powering modern ML\nDiscussions about trends and where ML might be heading\n\nI’m writing for fellow enthusiasts - people who are curious and excited about machine learning and want to understand it better, whether you’re just starting out or have been in the field for a while.\nThis isn’t about presenting myself as an expert but about becoming one - and sharing what I’m learning and thinking about along the way. I hope you’ll join me on this journey as we build knowledge together — layer by layer."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Daniel Pickem",
+    "section": "",
+    "text": "Currently, I am a Staff Software Engineer at NVIDIA, where I focus on defining and developing metrics for autonomous vehicle (AV) software, building data-driven evaluation products, and incorporating LLMs and VLMs into evaluation workflows. Just like AV planning systems move from rule-based systems to end-to-end learned planners, I am convinvced the systems tasked with evaluating AV planning stacks need to move to a data-driven approach that incorporates the nuanced world understanding and context AV systems themselves need to be able to reason about.\nPrior to NVIDIA (and fresh out of grad school), I was a Senior Machine Learning Engineer at Apple, working on robotics and decision making for autonomous vehicles. That is a fairly coarse summary for the 7+ years I’ve been with Apple’s SPG project tasked to work on autonomous systems. I’ve worked on everything from machine learned semantic map annotation, to the the initial rule-based planning system (and its transition to a hybrid rule-based/learned planner), to high signal-to-noise evaluation systems for said planner (with the goal of identifying test progressions and preventing regressions).\nI’ve received a B.S. degree in Electrical Engineering from the Vienna University of Technology, an M.S. degree in Electrical and Computer Engineering, and a Ph.D. degree in Robotics from the Georgia Institute of Technology. My doctoral research focused on self-reconfigurable multi-robot systems.\nI’m a recipient of the Fulbright scholarship and have held research positions at Carnegie Mellon University, Georgia Institute of Technology, and industry roles at Qualcomm, BMW, and Apple. My work on the Robotarium received the Best Paper Award on Multi-Robot Systems at the IEEE International Conference on Robotics and Automation (ICRA) in 2017, and I was a Student Best Paper Finalist at the IEEE Conference on Decision and Control in 2015.\n\n\n\nFoundation models: LLMs, VLMs, multi-modal models, diffusion models (for image, video, and audio generation), mechanistic interpretability and alignment via RLHF (reinforcement learning from human feedback), RLAIF (reinforcement learning from AI feedback), RLVR (reinforcement learning from verifiable rewards)\nMachine Learning: Reinforcement learning\nAutonomous Vehicles: Building the next generation of AV evaluation systems based on foundation models that enable detailed scene understanding and reasoning, adverse scenario generation, scene similarity computation based on embeddings, VLA models that enable interpretable reasoning about AV behavior\nRobotics: Multi-robot systems, self-reconfigurable robotics, swarm robotics (though this is a field I haven’t had the chance to work in for a while now)\n\n\n\n\nNVIDIA | Staff Software Engineer | 2024-Present\nFocus on defining and developing metrics for autonomous vehicle software, building data-driven evaluation products, and incorporating LLMs into evaluation workflows\nApple | Senior Machine Learning Engineer | 2017-2024 Worked on robotics and decision making for autonomous vehicles\nVarious Research Positions | 2012-2017\nResearch positions at Carnegie Mellon University and Georgia Institute of Technology\n\n\n\nGeorgia Institute of Technology | Ph.D., Robotics | 2016 Dissertation: Self-reconfigurable multi-robot systems\nGeorgia Institute of Technology | M.S., Electrical and Computer Engineering | 2012\nVienna University of Technology | B.S., Electrical Engineering | 2010\n\n\n\n\nBest Paper Award on Multi-Robot Systems | IEEE ICRA | 2017\nStudent Best Paper Finalist | IEEE CDC | 2015\nFulbright Scholarship | 2010-2012"
+  },
+  {
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "Daniel Pickem",
+    "section": "",
+    "text": "Foundation models: LLMs, VLMs, multi-modal models, diffusion models (for image, video, and audio generation), mechanistic interpretability and alignment via RLHF (reinforcement learning from human feedback), RLAIF (reinforcement learning from AI feedback), RLVR (reinforcement learning from verifiable rewards)\nMachine Learning: Reinforcement learning\nAutonomous Vehicles: Building the next generation of AV evaluation systems based on foundation models that enable detailed scene understanding and reasoning, adverse scenario generation, scene similarity computation based on embeddings, VLA models that enable interpretable reasoning about AV behavior\nRobotics: Multi-robot systems, self-reconfigurable robotics, swarm robotics (though this is a field I haven’t had the chance to work in for a while now)"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Daniel Pickem",
+    "section": "",
+    "text": "NVIDIA | Staff Software Engineer | 2024-Present\nFocus on defining and developing metrics for autonomous vehicle software, building data-driven evaluation products, and incorporating LLMs into evaluation workflows\nApple | Senior Machine Learning Engineer | 2017-2024 Worked on robotics and decision making for autonomous vehicles\nVarious Research Positions | 2012-2017\nResearch positions at Carnegie Mellon University and Georgia Institute of Technology"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Daniel Pickem",
+    "section": "",
+    "text": "Georgia Institute of Technology | Ph.D., Robotics | 2016 Dissertation: Self-reconfigurable multi-robot systems\nGeorgia Institute of Technology | M.S., Electrical and Computer Engineering | 2012\nVienna University of Technology | B.S., Electrical Engineering | 2010"
+  },
+  {
+    "objectID": "about.html#awards-honors",
+    "href": "about.html#awards-honors",
+    "title": "Daniel Pickem",
+    "section": "",
+    "text": "Best Paper Award on Multi-Robot Systems | IEEE ICRA | 2017\nStudent Best Paper Finalist | IEEE CDC | 2015\nFulbright Scholarship | 2010-2012"
+  },
+  {
+    "objectID": "disclaimer/index.html",
+    "href": "disclaimer/index.html",
+    "title": "Disclaimer",
+    "section": "",
+    "text": "Opinions expressed on this Site are the author’s own in his personal capacity. They do not reflect the views of the United States Government, NVIDIA Inc. or of any organisation, company or board he is associated with."
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html",
+    "href": "posts/2025_05_05_welcome/index.html",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "Hello and welcome to Layer by Layer - and experiment in learning in public where I’ll be sharing my exploration of machine learning concepts, techniques, and research.\n\n\nThe machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator.\n\n\n\n\nI’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium\n\n\n\n\n\nI hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
+    "href": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "The machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator."
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#about-me",
+    "href": "posts/2025_05_05_welcome/index.html#about-me",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "I’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium"
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
+    "href": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "I hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "",
+    "text": "Tokenization is a fundamental process in Natural Language Processing (NLP) that involves breaking text into smaller units called “tokens.” These tokens serve as the basic building blocks that machine learning models can process.\nFor Large Language Models (LLMs), tokenization is a critical first step that converts human-readable text into numerical formats the model can understand. When you send a prompt to an LLM such as GPT or Claude, the model doesn’t directly read your text - it processes sequences of tokens that represent your text.\nThere are several approaches to tokenization:\n\nWord tokenization: Splitting text by words (separated by spaces or punctuation)\nSubword tokenization: Breaking words into meaningful subunits (most common in modern LLMs)\nCharacter tokenization: Dividing text into individual characters\n\nTokenization presents various challenges, including handling punctuation, contractions, compound words, and rare words. The choice of tokenization method significantly impacts an LLM’s performance, vocabulary size, and ability to handle different languages.\nThis notebook explores tokenization techniques based on Sebastian Raschka’s book (Chapter 2), implementing various tokenization approaches and analyzing their effects.\n\n\n\nBorrowed from Manning’s Live Books\n\n\n\nTokenization Process\n\n\n\n\n\nAll concepts, architectures, and implementation approaches are credited to Sebastian Raschka’s work. This repository serves as my personal implementation and notes while working through the book’s content.\n\n\n\n\nSebastian Raschka’s GitHub\nBook Information\n\n\n# Install dependencies.\n%pip install tiktoken\n\n\nimport re\nfrom typing import Dict, List\nimport urllib.request\n\nfrom importlib.metadata import version\nimport tiktoken\n\n\n# Verify library versions.\nprint(\"tiktoken version:\", version(\"tiktoken\"))  # expected: 0.7.0\n\ntiktoken version: 0.7.0"
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#what-is-tokenization",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#what-is-tokenization",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "",
+    "text": "Tokenization is a fundamental process in Natural Language Processing (NLP) that involves breaking text into smaller units called “tokens.” These tokens serve as the basic building blocks that machine learning models can process.\nFor Large Language Models (LLMs), tokenization is a critical first step that converts human-readable text into numerical formats the model can understand. When you send a prompt to an LLM such as GPT or Claude, the model doesn’t directly read your text - it processes sequences of tokens that represent your text.\nThere are several approaches to tokenization:\n\nWord tokenization: Splitting text by words (separated by spaces or punctuation)\nSubword tokenization: Breaking words into meaningful subunits (most common in modern LLMs)\nCharacter tokenization: Dividing text into individual characters\n\nTokenization presents various challenges, including handling punctuation, contractions, compound words, and rare words. The choice of tokenization method significantly impacts an LLM’s performance, vocabulary size, and ability to handle different languages.\nThis notebook explores tokenization techniques based on Sebastian Raschka’s book (Chapter 2), implementing various tokenization approaches and analyzing their effects."
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#tokenization-process",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#tokenization-process",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "",
+    "text": "Borrowed from Manning’s Live Books\n\n\n\nTokenization Process"
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#acknowledgment",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#acknowledgment",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "",
+    "text": "All concepts, architectures, and implementation approaches are credited to Sebastian Raschka’s work. This repository serves as my personal implementation and notes while working through the book’s content."
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#resources",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#resources",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "",
+    "text": "Sebastian Raschka’s GitHub\nBook Information\n\n\n# Install dependencies.\n%pip install tiktoken\n\n\nimport re\nfrom typing import Dict, List\nimport urllib.request\n\nfrom importlib.metadata import version\nimport tiktoken\n\n\n# Verify library versions.\nprint(\"tiktoken version:\", version(\"tiktoken\"))  # expected: 0.7.0\n\ntiktoken version: 0.7.0"
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#algorithm-explained-via-a-simple-example",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#algorithm-explained-via-a-simple-example",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "Algorithm explained via a simple example",
+    "text": "Algorithm explained via a simple example\n\n\n\nBPE algorithm explained via a simple example"
+  },
+  {
+    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#example-of-bpe-tokenization-for-unknown-words",
+    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#example-of-bpe-tokenization-for-unknown-words",
+    "title": "LLMs From Scratch - Part 1: Tokenization",
+    "section": "Example of BPE tokenization for unknown words",
+    "text": "Example of BPE tokenization for unknown words\n\n\n\nBPE tokenization for unknown words\n\n\n\ntokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntext = (\n    \"Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces\"\n    \"of someunknownPlace.\"\n)\nprint(text)\nintegers = tokenizer.encode(text, allowed_special={\"&lt;|endoftext|&gt;\"})\nprint(integers)\nstrings = tokenizer.decode(integers)\nprint(strings)\n\nHello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace.\n[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 13]\nHello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace.\n\n\n\ntokenizer.decode(tokenizer.encode(\"Akwirw ier\"))\n\n'Akwirw ier'"
+  }
+]

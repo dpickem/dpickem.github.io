@@ -4,6 +4,9 @@ project:
   resources:
     - _redirects
 
+execute:
+  freeze: auto
+
 website:
   title: "Daniel Pickem"
   description: "Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general."

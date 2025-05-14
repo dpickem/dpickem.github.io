@@ -1,0 +1,46 @@
+---
+title: "Build a Large Language Model (From Scratch)"
+author: "Daniel Pickem"
+date: "2025-05-13"
+categories: [LLMs]
+image: https://learning.oreilly.com/covers/urn:orm:book:9781633437166/400w/
+---
+
+I recently finished reading (or rather working through) my technical book of the month - [Build a Large Language Model (From Scratch)](https://www.manning.com/books/build-a-large-language-model-from-scratch) by Sebastian Raschka and wanted to share my notes and codeing-along Jupyter notebooks here.
+
+# My take
+
+First, I want to emphasize what an awesome read this was. It presumes very little prior knowledge (other than being able to code in Python) and does a great job of building up the concepts, theory, and intuition for LLMs - all the way to training your own GPT-2 model and instruction fine-tuning it.
+
+Most of my previous technical books have been O'Reilly books, which also impressed me - especially [Generative Deep Learning, 2nd Edition](https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/) by David Foster. That book and most O'Reilly books I've read have provide a good balance of theory and practice / coding but Sebastian's book does a better job of building from the ground up. In that sense, "Building a Large Language Model from Scratch" reminds me more of Andrej Karpathy's [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html), which I can also highly recommend. The latter goes even more into detail on the math and theory (including through derivations of backpropagation, which Sebastian skips in favor of focusing on the code).
+
+Overall, I can highly recommend Sebastian's book to anyone who wants to understand LLMs and wants to follow a well-structured longform tutorial on building LLMs.
+
+# Book summary (by Gemini)
+
+The book "Build a Large Language Model (From Scratch)" by Sebastian Raschka guides readers through the process of creating, training, and fine-tuning Large Language Models (LLMs) from the ground up. This hands-on book aims to demystify LLMs by teaching readers how to build one step-by-step, without relying on existing LLM libraries. The core idea is that by building an LLM (comparable to GPT-2 in capabilities) yourself, you gain a deep understanding of its internal workings, limitations, and customization methods. The resulting LLM can be run on a standard laptop.
+
+Key learnings from the book include:
+
+*   **Planning and Coding:** Learn to design and code all components of an LLM.
+*   **Dataset Preparation:** Understand how to prepare datasets suitable for LLM training.
+*   **Training Pipeline:** Construct a complete training pipeline.
+*   **Pretraining and Fine-tuning:** Pretrain the model on a general corpus and then fine-tune it for specific tasks like text classification or with custom data.
+*   **Instruction Following:** Use human feedback to ensure the LLM adheres to instructions.
+*   **Loading Pretrained Weights:** Learn how to load pretrained weights into an LLM.
+
+By working through the book, readers can expect to build a GPT-style LLM, evolve it into a text classifier, and ultimately create a chatbot that can follow conversational instructions.
+
+The target audience for this book is individuals with intermediate Python skills and some existing knowledge of machine learning. While a GPU is recommended for faster training, it is optional.
+
+The book is praised for its practical, code-driven approach that makes complex concepts accessible. You can find more details on the Manning Publications website: [https://www.manning.com/books/build-a-large-language-model-from-scratch](https://www.manning.com/books/build-a-large-language-model-from-scratch).
+
+# Jupyter notebooks
+
+Over the next few days, I'll be adding Jupyter notebooks to this blog - one notebook for each chapter of the book. Besides functional code that mostly follows the book (but improves upon it in terms of type annotation, structure, and readability), these notebooks also contain additional material that expand upon certain concepts I wanted to explore more deeply than the book does.
+
+The full set of notebooks is also available on my [GitHub repo](https://github.com/dpickem/ml_engineering_interview_prep/tree/main/modeling/llm/build_a_large_language_model_from_scratch).
+
+*Stay curious,*
+
+Daniel

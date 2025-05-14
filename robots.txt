@@ -1,1 +1,1 @@
-Sitemap: https://danielpickem.com/sitemap.xml
+Sitemap: https://dpickem.github.io/sitemap.xml

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Daniel Pickem">
+<meta name="dcterms.date" content="2025-05-13">
 
-<title>Layer by Layer – Daniel Pickem</title>
+<title>Build a Large Language Model (From Scratch) – Daniel Pickem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e36ce5c26c48eccda62d8cde5e438854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e36ce5c26c48eccda62d8cde5e438854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,74 +69,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Layer by Layer – Daniel Pickem">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Build a Large Language Model (From Scratch) – Daniel Pickem">
 <meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta property="og:image" content="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg">
+<meta property="og:image" content="https://learning.oreilly.com/covers/urn:orm:book:9781633437166/400w/">
 <meta property="og:site_name" content="Daniel Pickem">
-<meta name="twitter:title" content="Layer by Layer – Daniel Pickem">
+<meta name="twitter:title" content="Build a Large Language Model (From Scratch) – Daniel Pickem">
 <meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta name="twitter:image" content="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg">
+<meta name="twitter:image" content="https://learning.oreilly.com/covers/urn:orm:book:9781633437166/400w/">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -147,7 +89,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Daniel Pickem</span>
     </a>
   </div>
@@ -158,19 +100,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../publications"> 
+    <a class="nav-link" href="../../publications"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts"> 
+    <a class="nav-link" href="../../posts"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -183,160 +125,90 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Layer by Layer</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Build a Large Language Model (From Scratch)</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel Pickem </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 13, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="aW50cm9kdWN0aW9u">introduction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2Vic2l0ZQ==">website <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-<p>This blog is all about me learning in public and sharing what I discover along the way. If something I write helps even one person understand a concept better, I’ll consider this blog a success.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-      <option value="listing-author" data-direction="asc">
-        Author
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#my-take" id="toc-my-take" class="nav-link active" data-scroll-target="#my-take">My take</a></li>
+  <li><a href="#book-summary-by-gemini" id="toc-book-summary-by-gemini" class="nav-link" data-scroll-target="#book-summary-by-gemini">Book summary (by Gemini)</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter notebooks</a></li>
+  </ul>
+</nav>
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcw==" data-listing-date-sort="1747094400000" data-listing-file-modified-sort="1747192922701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="567">
-<div class="thumbnail"><a href="../posts/2025_05_13_llms_from_scratch/index.html" class="no-external">
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<img loading="lazy" src="https://learning.oreilly.com/covers/urn:orm:book:9781633437166/400w/" class="thumbnail-image">
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/2025_05_13_llms_from_scratch/index.html" class="no-external">Build a Large Language Model (From Scratch)</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
 
-</div>
-<div class="delink listing-description"><a href="../posts/2025_05_13_llms_from_scratch/index.html" class="no-external">
-I recently finished reading (or rather working through) my technical book of the month - Build a Large Language Model (From Scratch) by Sebastian Raschka and wanted to share…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/2025_05_13_llms_from_scratch/index.html" class="no-external">
-<div class="listing-date">
-May 13, 2025
-</div>
-<div class="listing-author">
-Daniel Pickem
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="d2Vic2l0ZQ==" data-listing-date-sort="1746489600000" data-listing-file-modified-sort="1747192922701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="404">
-<div class="thumbnail"><a href="../posts/2025_05_06_website_tech_stack/index.html" class="no-external">
 
-<img loading="lazy" src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image">
+<p>I recently finished reading (or rather working through) my technical book of the month - <a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">Build a Large Language Model (From Scratch)</a> by Sebastian Raschka and wanted to share my notes and codeing-along Jupyter notebooks here.</p>
+<section id="my-take" class="level1">
+<h1>My take</h1>
+<p>First, I want to emphasize what an awesome read this was. It presumes very little prior knowledge (other than being able to code in Python) and does a great job of building up the concepts, theory, and intuition for LLMs - all the way to training your own GPT-2 model and instruction fine-tuning it.</p>
+<p>Most of my previous technical books have been O’Reilly books, which also impressed me - especially <a href="https://www.oreilly.com/library/view/generative-deep-learning/9781098134174/">Generative Deep Learning, 2nd Edition</a> by David Foster. That book and most O’Reilly books I’ve read have provide a good balance of theory and practice / coding but Sebastian’s book does a better job of building from the ground up. In that sense, “Building a Large Language Model from Scratch” reminds me more of Andrej Karpathy’s <a href="https://karpathy.ai/zero-to-hero.html">Neural Networks: Zero to Hero</a>, which I can also highly recommend. The latter goes even more into detail on the math and theory (including through derivations of backpropagation, which Sebastian skips in favor of focusing on the code).</p>
+<p>Overall, I can highly recommend Sebastian’s book to anyone who wants to understand LLMs and wants to follow a well-structured longform tutorial on building LLMs.</p>
+</section>
+<section id="book-summary-by-gemini" class="level1">
+<h1>Book summary (by Gemini)</h1>
+<p>The book “Build a Large Language Model (From Scratch)” by Sebastian Raschka guides readers through the process of creating, training, and fine-tuning Large Language Models (LLMs) from the ground up. This hands-on book aims to demystify LLMs by teaching readers how to build one step-by-step, without relying on existing LLM libraries. The core idea is that by building an LLM (comparable to GPT-2 in capabilities) yourself, you gain a deep understanding of its internal workings, limitations, and customization methods. The resulting LLM can be run on a standard laptop.</p>
+<p>Key learnings from the book include:</p>
+<ul>
+<li><strong>Planning and Coding:</strong> Learn to design and code all components of an LLM.</li>
+<li><strong>Dataset Preparation:</strong> Understand how to prepare datasets suitable for LLM training.</li>
+<li><strong>Training Pipeline:</strong> Construct a complete training pipeline.</li>
+<li><strong>Pretraining and Fine-tuning:</strong> Pretrain the model on a general corpus and then fine-tune it for specific tasks like text classification or with custom data.</li>
+<li><strong>Instruction Following:</strong> Use human feedback to ensure the LLM adheres to instructions.</li>
+<li><strong>Loading Pretrained Weights:</strong> Learn how to load pretrained weights into an LLM.</li>
+</ul>
+<p>By working through the book, readers can expect to build a GPT-style LLM, evolve it into a text classifier, and ultimately create a chatbot that can follow conversational instructions.</p>
+<p>The target audience for this book is individuals with intermediate Python skills and some existing knowledge of machine learning. While a GPU is recommended for faster training, it is optional.</p>
+<p>The book is praised for its practical, code-driven approach that makes complex concepts accessible. You can find more details on the Manning Publications website: <a href="https://www.manning.com/books/build-a-large-language-model-from-scratch">https://www.manning.com/books/build-a-large-language-model-from-scratch</a>.</p>
+</section>
+<section id="jupyter-notebooks" class="level1">
+<h1>Jupyter notebooks</h1>
+<p>Over the next few days, I’ll be adding Jupyter notebooks to this blog - one notebook for each chapter of the book. Besides functional code that mostly follows the book (but improves upon it in terms of type annotation, structure, and readability), these notebooks also contain additional material that expand upon certain concepts I wanted to explore more deeply than the book does.</p>
+<p>The full set of notebooks is also available on my <a href="https://github.com/dpickem/ml_engineering_interview_prep/tree/main/modeling/llm/build_a_large_language_model_from_scratch">GitHub repo</a>.</p>
+<p><em>Stay curious,</em></p>
+<p>Daniel</p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/2025_05_06_website_tech_stack/index.html" class="no-external">Tech Stack for This Website</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('d2Vic2l0ZQ=='); return false;">website</div>
+</section>
 
-</div>
-<div class="delink listing-description"><a href="../posts/2025_05_06_website_tech_stack/index.html" class="no-external">
-For the longest time I have been hosting some version of my website using WordPress, which was the style at the time (this is 2012 onwards but pre-ChatGPT). While I really…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/2025_05_06_website_tech_stack/index.html" class="no-external">
-<div class="listing-date">
-May 6, 2025
-</div>
-<div class="listing-author">
-Daniel Pickem
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="bmV3cyUyQ2ludHJvZHVjdGlvbg==" data-listing-date-sort="1746403200000" data-listing-file-modified-sort="1747192922701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="363">
-<div class="thumbnail"><a href="../posts/2025_05_05_welcome/index.html" class="no-external">
-
-<img loading="lazy" src="../images/layer_by_layer_logo.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/2025_05_05_welcome/index.html" class="no-external">Welcome to Layer by Layer</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('aW50cm9kdWN0aW9u'); return false;">introduction</div>
-
-</div>
-<div class="delink listing-description"><a href="../posts/2025_05_05_welcome/index.html" class="no-external">
-Hello and welcome to <strong>Layer by Layer</strong> - and experiment in learning in public where I’ll be sharing my exploration of machine learning concepts, techniques, and research.
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/2025_05_05_welcome/index.html" class="no-external">
-<div class="listing-date">
-May 5, 2025
-</div>
-<div class="listing-author">
-Daniel Pickem
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

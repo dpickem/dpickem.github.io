@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "posts/2025_05_06_website_tech_stack/index.html",
-    "href": "posts/2025_05_06_website_tech_stack/index.html",
-    "title": "Tech Stack for This Website",
-    "section": "",
-    "text": "For the longest time I have been hosting some version of my website using WordPress, which was the style at the time (this is 2012 onwards but pre-ChatGPT). While I really enjoyed the flexibility and ease of use of WordPress, it’s always been cumbersome to actually host the website. My last setup was to use the most basic AWS EC2 instance and redirect my domain to it. That setup always came with a high maintenance burden given the fact that the container had to be kept up to date and the website content (i.e. the DB backing the website) had to be manually backed up."
-  },
-  {
-    "objectID": "posts/2025_05_06_website_tech_stack/index.html#pros",
-    "href": "posts/2025_05_06_website_tech_stack/index.html#pros",
-    "title": "Tech Stack for This Website",
-    "section": "Pros",
-    "text": "Pros\n\nFull control, blazing fast, easy to integrate MDX (Markdown + React), perfect for code-heavy tutorials.\nCustom Domain: Easy to connect on both Vercel and Netlify."
-  },
-  {
-    "objectID": "posts/2025_05_06_website_tech_stack/index.html#cons",
-    "href": "posts/2025_05_06_website_tech_stack/index.html#cons",
-    "title": "Tech Stack for This Website",
-    "section": "Cons",
-    "text": "Cons\n\nNeeds some dev setup. You write in Markdown or MDX."
-  },
-  {
-    "objectID": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
-    "href": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
-    "title": "Tech Stack for This Website",
-    "section": "A note about deployment",
-    "text": "A note about deployment\nPublishing updates to the website is trivial with Quarto. Their publishing workflow is well-documented and well-integrated with Netlify. Overall, Quarto’s documenation is extensive which makes it easy to get started and get support. All that’s required is to create a _publish.yml file in the root directory of the repository and executing the following command:\nquarto publish netlify\nThe contents of the _publish.yml file look something like the following:\n- source: project\n  netlify:\n    - id: \"5f3abafe-68f9-4c1d-835b-9d668b892001\"\n      url: \"https://danielpickem.com\"\nThis tells Quarto to publish the website to Netlify and use the ID and URL from Netlify’s “Site settings” dashboard (see image below).\n\n\n\nNetlify Site Settings\n\n\nThis blog post is already a useful tutorial as I just had to look up how to deploy the updated website to Netlify!"
-  },
-  {
-    "objectID": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
-    "href": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
-    "title": "Tech Stack for This Website",
-    "section": "Quarto templates",
-    "text": "Quarto templates\nQuarto also boasts an extensive gallery of templates for various use-cases (such as books, blogs, presentations, etc.). This website is using a blog template, in particular the one by Chris von Csefalvay - thanks Chris! Modifying an existing template gets you up and running really quickly, especially if you have an AI-assisted code editor like Cursor - but that’s a topic for another post.\n\n\n\nQuarto Blog Template\n\n\nStay curious,\nDaniel"
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "Layer by Layer",
-    "section": "",
-    "text": "This blog is all about me learning in public and sharing what I discover along the way. If something I write helps even one person understand a concept better, I’ll consider this blog a success.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nLLMs From Scratch - Part 1: Tokenization\n\n\n\nllms\n\ntokenization\n\ntutorial\n\n\n\n\n\n\n\n\n\nMay 7, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nTech Stack for This Website\n\n\n\nwebsite\n\n\n\n\n\n\n\n\n\nMay 6, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Layer by Layer\n\n\n\nnews\n\nintroduction\n\n\n\n\n\n\n\n\n\nMay 5, 2025\n\n\nDaniel Pickem\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "publications/index.html",
     "href": "publications/index.html",
     "title": "Publications",
@@ -68,6 +26,90 @@
     "title": "Welcome to Layer by Layer",
     "section": "",
     "text": "Welcome to Layer by Layer, where I try to peel back the complexity of modern machine learning to reveal insights, patterns, and understanding - or mostly just share things in the ML space that I find interesting and also document my own learning journey, one layer at a time.\nI’m fascinated (though also intimidated and sometimes overwhelmed) by how rapidly the machine learning field is evolving - just reading AI newsletters is often tough to fit into a busy work schedule (let alone drinking from the firehose of all the papers that are coming out). My goal here is simple: to explore interesting ideas and ML fundamentals, break down complex concepts, and post by post build an ML engineering foundation that will hopefully make it easier to break into this exciting field. This blog is meant as an extension of my own learning journey.\nYou’ll find a mix of content here (or at least that is the aspiration):\n\nIn-depth tutorials that break down complex ML techniques into digestible steps - tutorials that I wish existed when I was learning certain techniques\nPractical guides for implementing state-of-the-art models and methodologies\nAccessible summaries of recent research papers that highlight key contributions but also notes I’ve found helpful or interesting\nThoughts on tools and frameworks I’ve tried, and the ecosystem powering modern ML\nDiscussions about trends and where ML might be heading\n\nI’m writing for fellow enthusiasts - people who are curious and excited about machine learning and want to understand it better, whether you’re just starting out or have been in the field for a while.\nThis isn’t about presenting myself as an expert but about becoming one - and sharing what I’m learning and thinking about along the way. I hope you’ll join me on this journey as we build knowledge together — layer by layer."
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html",
+    "href": "posts/2025_05_05_welcome/index.html",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "Hello and welcome to Layer by Layer - and experiment in learning in public where I’ll be sharing my exploration of machine learning concepts, techniques, and research.\n\n\nThe machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator.\n\n\n\n\nI’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium\n\n\n\n\n\nI hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
+    "href": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "The machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator."
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#about-me",
+    "href": "posts/2025_05_05_welcome/index.html#about-me",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "I’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium"
+  },
+  {
+    "objectID": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
+    "href": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
+    "title": "Welcome to Layer by Layer",
+    "section": "",
+    "text": "I hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Layer by Layer",
+    "section": "",
+    "text": "This blog is all about me learning in public and sharing what I discover along the way. If something I write helps even one person understand a concept better, I’ll consider this blog a success.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBuild a Large Language Model (From Scratch)\n\n\n\nLLMs\n\n\n\n\n\n\n\n\n\nMay 13, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nTech Stack for This Website\n\n\n\nwebsite\n\n\n\n\n\n\n\n\n\nMay 6, 2025\n\n\nDaniel Pickem\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to Layer by Layer\n\n\n\nnews\n\nintroduction\n\n\n\n\n\n\n\n\n\nMay 5, 2025\n\n\nDaniel Pickem\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html",
+    "href": "posts/2025_05_06_website_tech_stack/index.html",
+    "title": "Tech Stack for This Website",
+    "section": "",
+    "text": "For the longest time I have been hosting some version of my website using WordPress, which was the style at the time (this is 2012 onwards but pre-ChatGPT). While I really enjoyed the flexibility and ease of use of WordPress, it’s always been cumbersome to actually host the website. My last setup was to use the most basic AWS EC2 instance and redirect my domain to it. That setup always came with a high maintenance burden given the fact that the container had to be kept up to date and the website content (i.e. the DB backing the website) had to be manually backed up."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#pros",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#pros",
+    "title": "Tech Stack for This Website",
+    "section": "Pros",
+    "text": "Pros\n\nFull control, blazing fast, easy to integrate MDX (Markdown + React), perfect for code-heavy tutorials.\nCustom Domain: Easy to connect on both Vercel and Netlify."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#cons",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#cons",
+    "title": "Tech Stack for This Website",
+    "section": "Cons",
+    "text": "Cons\n\nNeeds some dev setup. You write in Markdown or MDX."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#a-note-about-deployment",
+    "title": "Tech Stack for This Website",
+    "section": "A note about deployment",
+    "text": "A note about deployment\nPublishing updates to the website is trivial with Quarto. Their publishing workflow is well-documented and well-integrated with Netlify. Overall, Quarto’s documenation is extensive which makes it easy to get started and get support. All that’s required is to create a _publish.yml file in the root directory of the repository and executing the following command:\nquarto publish netlify\nThe contents of the _publish.yml file look something like the following:\n- source: project\n  netlify:\n    - id: \"5f3abafe-68f9-4c1d-835b-9d668b892001\"\n      url: \"https://danielpickem.com\"\nThis tells Quarto to publish the website to Netlify and use the ID and URL from Netlify’s “Site settings” dashboard (see image below).\n\n\n\nNetlify Site Settings\n\n\nThis blog post is already a useful tutorial as I just had to look up how to deploy the updated website to Netlify!\nAnother useful resource was this blogpost about deploying a Github page via Netlify."
+  },
+  {
+    "objectID": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
+    "href": "posts/2025_05_06_website_tech_stack/index.html#quarto-templates",
+    "title": "Tech Stack for This Website",
+    "section": "Quarto templates",
+    "text": "Quarto templates\nQuarto also boasts an extensive gallery of templates for various use-cases (such as books, blogs, presentations, etc.). This website is using a blog template, in particular the one by Chris von Csefalvay - thanks Chris! Modifying an existing template gets you up and running really quickly, especially if you have an AI-assisted code editor like Cursor - but that’s a topic for another post.\n\n\n\nQuarto Blog Template\n\n\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "posts/2025_05_13_llms_from_scratch/index.html",
+    "href": "posts/2025_05_13_llms_from_scratch/index.html",
+    "title": "Build a Large Language Model (From Scratch)",
+    "section": "",
+    "text": "I recently finished reading (or rather working through) my technical book of the month - Build a Large Language Model (From Scratch) by Sebastian Raschka and wanted to share my notes and codeing-along Jupyter notebooks here.\n\nMy take\nFirst, I want to emphasize what an awesome read this was. It presumes very little prior knowledge (other than being able to code in Python) and does a great job of building up the concepts, theory, and intuition for LLMs - all the way to training your own GPT-2 model and instruction fine-tuning it.\nMost of my previous technical books have been O’Reilly books, which also impressed me - especially Generative Deep Learning, 2nd Edition by David Foster. That book and most O’Reilly books I’ve read have provide a good balance of theory and practice / coding but Sebastian’s book does a better job of building from the ground up. In that sense, “Building a Large Language Model from Scratch” reminds me more of Andrej Karpathy’s Neural Networks: Zero to Hero, which I can also highly recommend. The latter goes even more into detail on the math and theory (including through derivations of backpropagation, which Sebastian skips in favor of focusing on the code).\nOverall, I can highly recommend Sebastian’s book to anyone who wants to understand LLMs and wants to follow a well-structured longform tutorial on building LLMs.\n\n\nBook summary (by Gemini)\nThe book “Build a Large Language Model (From Scratch)” by Sebastian Raschka guides readers through the process of creating, training, and fine-tuning Large Language Models (LLMs) from the ground up. This hands-on book aims to demystify LLMs by teaching readers how to build one step-by-step, without relying on existing LLM libraries. The core idea is that by building an LLM (comparable to GPT-2 in capabilities) yourself, you gain a deep understanding of its internal workings, limitations, and customization methods. The resulting LLM can be run on a standard laptop.\nKey learnings from the book include:\n\nPlanning and Coding: Learn to design and code all components of an LLM.\nDataset Preparation: Understand how to prepare datasets suitable for LLM training.\nTraining Pipeline: Construct a complete training pipeline.\nPretraining and Fine-tuning: Pretrain the model on a general corpus and then fine-tune it for specific tasks like text classification or with custom data.\nInstruction Following: Use human feedback to ensure the LLM adheres to instructions.\nLoading Pretrained Weights: Learn how to load pretrained weights into an LLM.\n\nBy working through the book, readers can expect to build a GPT-style LLM, evolve it into a text classifier, and ultimately create a chatbot that can follow conversational instructions.\nThe target audience for this book is individuals with intermediate Python skills and some existing knowledge of machine learning. While a GPU is recommended for faster training, it is optional.\nThe book is praised for its practical, code-driven approach that makes complex concepts accessible. You can find more details on the Manning Publications website: https://www.manning.com/books/build-a-large-language-model-from-scratch.\n\n\nJupyter notebooks\nOver the next few days, I’ll be adding Jupyter notebooks to this blog - one notebook for each chapter of the book. Besides functional code that mostly follows the book (but improves upon it in terms of type annotation, structure, and readability), these notebooks also contain additional material that expand upon certain concepts I wanted to explore more deeply than the book does.\nThe full set of notebooks is also available on my GitHub repo.\nStay curious,\nDaniel"
+  },
+  {
+    "objectID": "disclaimer/index.html",
+    "href": "disclaimer/index.html",
+    "title": "Disclaimer",
+    "section": "",
+    "text": "Opinions expressed on this Site are the author’s own in his personal capacity. They do not reflect the views of the United States Government, NVIDIA Inc. or of any organisation, company or board he is associated with."
   },
   {
     "objectID": "about.html",
@@ -103,89 +145,5 @@
     "title": "Daniel Pickem",
     "section": "",
     "text": "Best Paper Award on Multi-Robot Systems | IEEE ICRA | 2017\nStudent Best Paper Finalist | IEEE CDC | 2015\nFulbright Scholarship | 2010-2012"
-  },
-  {
-    "objectID": "disclaimer/index.html",
-    "href": "disclaimer/index.html",
-    "title": "Disclaimer",
-    "section": "",
-    "text": "Opinions expressed on this Site are the author’s own in his personal capacity. They do not reflect the views of the United States Government, NVIDIA Inc. or of any organisation, company or board he is associated with."
-  },
-  {
-    "objectID": "posts/2025_05_05_welcome/index.html",
-    "href": "posts/2025_05_05_welcome/index.html",
-    "title": "Welcome to Layer by Layer",
-    "section": "",
-    "text": "Hello and welcome to Layer by Layer - and experiment in learning in public where I’ll be sharing my exploration of machine learning concepts, techniques, and research.\n\n\nThe machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator.\n\n\n\n\nI’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium\n\n\n\n\n\nI hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
-  },
-  {
-    "objectID": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
-    "href": "posts/2025_05_05_welcome/index.html#why-i-started-this-blog",
-    "title": "Welcome to Layer by Layer",
-    "section": "",
-    "text": "The machine learning landscape is evolving at a breathtaking pace. From transformers to diffusion models, from reinforcement learning to neural radiance fields - there’s an overwhelming amount of innovation happening. As someone navigating this field, I often find myself wanting to document my learning journey, break down complex ideas, and create resources I wish had existed when I was starting out.\nThis blog is my attempt to:\n\nDocument my learning process - Writing helps me solidify my understanding\nDevelop and share practical tutorials - With code examples that actually work. This is inspired by a few of the ML blogging greats: Sebastian Raschka’s blog, Andrej Karpathy’s blog, Lilian Weng’s blog, and many more.\nSummarize interesting papers - Distilling key ideas from research into accessible explanations (in the spirit of Two Minute Papers but in longer written form). This is inspired by Jay Alammar’s Illustrated Transformer his Illustrated Deep Seek R1 and overall his Illustrated* series now available at Substack.\nBuild in public - Showing both successes and the inevitable struggles, and also post project walkthroughs.\nLink to resources - Occasionally, I’ll be posting links to useful resources - though I don’t want to make this another newslettter or news aggregator."
-  },
-  {
-    "objectID": "posts/2025_05_05_welcome/index.html#about-me",
-    "href": "posts/2025_05_05_welcome/index.html#about-me",
-    "title": "Welcome to Layer by Layer",
-    "section": "",
-    "text": "I’m Daniel Pickem, a researcher and engineer with a background in robotics and multi-agent systems. I completed my PhD at Georgia Tech where I developed the Robotarium, a remotely accessible swarm robotics testbed. My swarm robotics days are somewhat behind me - or maybe just on pause until swarm robotics has more practical applications. Until then, I am really excited and curious about machine learning - most of all foundation models of all modalities.\n\n\n\nRobotarium"
-  },
-  {
-    "objectID": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
-    "href": "posts/2025_05_05_welcome/index.html#join-me-on-this-journey",
-    "title": "Welcome to Layer by Layer",
-    "section": "",
-    "text": "I hope you’ll find the content here useful, whether you’re just starting out in ML or are already well into your own journey. Feel free to reach out with questions, corrections, or suggestions for topics you’d like to see covered.\nLet’s explore the fascinating world of machine learning together, one layer at a time.\nStay curious,\nDaniel"
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "",
-    "text": "Tokenization is a fundamental process in Natural Language Processing (NLP) that involves breaking text into smaller units called “tokens.” These tokens serve as the basic building blocks that machine learning models can process.\nFor Large Language Models (LLMs), tokenization is a critical first step that converts human-readable text into numerical formats the model can understand. When you send a prompt to an LLM such as GPT or Claude, the model doesn’t directly read your text - it processes sequences of tokens that represent your text.\nThere are several approaches to tokenization:\n\nWord tokenization: Splitting text by words (separated by spaces or punctuation)\nSubword tokenization: Breaking words into meaningful subunits (most common in modern LLMs)\nCharacter tokenization: Dividing text into individual characters\n\nTokenization presents various challenges, including handling punctuation, contractions, compound words, and rare words. The choice of tokenization method significantly impacts an LLM’s performance, vocabulary size, and ability to handle different languages.\nThis notebook explores tokenization techniques based on Sebastian Raschka’s book (Chapter 2), implementing various tokenization approaches and analyzing their effects.\n\n\n\nBorrowed from Manning’s Live Books\n\n\n\nTokenization Process\n\n\n\n\n\nAll concepts, architectures, and implementation approaches are credited to Sebastian Raschka’s work. This repository serves as my personal implementation and notes while working through the book’s content.\n\n\n\n\nSebastian Raschka’s GitHub\nBook Information\n\n\n# Install dependencies.\n%pip install tiktoken\n\n\nimport re\nfrom typing import Dict, List\nimport urllib.request\n\nfrom importlib.metadata import version\nimport tiktoken\n\n\n# Verify library versions.\nprint(\"tiktoken version:\", version(\"tiktoken\"))  # expected: 0.7.0\n\ntiktoken version: 0.7.0"
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#what-is-tokenization",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#what-is-tokenization",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "",
-    "text": "Tokenization is a fundamental process in Natural Language Processing (NLP) that involves breaking text into smaller units called “tokens.” These tokens serve as the basic building blocks that machine learning models can process.\nFor Large Language Models (LLMs), tokenization is a critical first step that converts human-readable text into numerical formats the model can understand. When you send a prompt to an LLM such as GPT or Claude, the model doesn’t directly read your text - it processes sequences of tokens that represent your text.\nThere are several approaches to tokenization:\n\nWord tokenization: Splitting text by words (separated by spaces or punctuation)\nSubword tokenization: Breaking words into meaningful subunits (most common in modern LLMs)\nCharacter tokenization: Dividing text into individual characters\n\nTokenization presents various challenges, including handling punctuation, contractions, compound words, and rare words. The choice of tokenization method significantly impacts an LLM’s performance, vocabulary size, and ability to handle different languages.\nThis notebook explores tokenization techniques based on Sebastian Raschka’s book (Chapter 2), implementing various tokenization approaches and analyzing their effects."
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#tokenization-process",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#tokenization-process",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "",
-    "text": "Borrowed from Manning’s Live Books\n\n\n\nTokenization Process"
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#acknowledgment",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#acknowledgment",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "",
-    "text": "All concepts, architectures, and implementation approaches are credited to Sebastian Raschka’s work. This repository serves as my personal implementation and notes while working through the book’s content."
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#resources",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#resources",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "",
-    "text": "Sebastian Raschka’s GitHub\nBook Information\n\n\n# Install dependencies.\n%pip install tiktoken\n\n\nimport re\nfrom typing import Dict, List\nimport urllib.request\n\nfrom importlib.metadata import version\nimport tiktoken\n\n\n# Verify library versions.\nprint(\"tiktoken version:\", version(\"tiktoken\"))  # expected: 0.7.0\n\ntiktoken version: 0.7.0"
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#algorithm-explained-via-a-simple-example",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#algorithm-explained-via-a-simple-example",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "Algorithm explained via a simple example",
-    "text": "Algorithm explained via a simple example\n\n\n\nBPE algorithm explained via a simple example"
-  },
-  {
-    "objectID": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#example-of-bpe-tokenization-for-unknown-words",
-    "href": "posts/2025_05_07_llms_from_scratch_part_1/chapter_01_tokenization.html#example-of-bpe-tokenization-for-unknown-words",
-    "title": "LLMs From Scratch - Part 1: Tokenization",
-    "section": "Example of BPE tokenization for unknown words",
-    "text": "Example of BPE tokenization for unknown words\n\n\n\nBPE tokenization for unknown words\n\n\n\ntokenizer = tiktoken.get_encoding(\"gpt2\")\n\ntext = (\n    \"Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces\"\n    \"of someunknownPlace.\"\n)\nprint(text)\nintegers = tokenizer.encode(text, allowed_special={\"&lt;|endoftext|&gt;\"})\nprint(integers)\nstrings = tokenizer.decode(integers)\nprint(strings)\n\nHello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace.\n[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 13]\nHello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace.\n\n\n\ntokenizer.decode(tokenizer.encode(\"Akwirw ier\"))\n\n'Akwirw ier'"
   }
 ]

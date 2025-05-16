@@ -2,7 +2,9 @@
 title: "Layer by Layer"
 listing:
   contents: .
-  sort: "date desc"
+  sort:
+    - "date desc"
+    - "title desc"
   type: default
   categories: true
   sort-ui: true

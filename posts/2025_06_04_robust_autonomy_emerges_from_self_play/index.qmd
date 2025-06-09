@@ -1,0 +1,36 @@
+---
+title: "Robust Autonomy Emerges from Self-Play"
+author: "Daniel Pickem"
+date: "2025-06-04"
+categories: [paper-review, autonomous-driving]
+image: "../../images/robust_autonomy_emerges_from_self_play.png"
+---
+
+A few weeks ago I came across a paper titled ["Robust Autonomy Emerges from Self-Play"](https://arxiv.org/pdf/2502.03349) in the [TLDR newsletter](https://tldr.tech/) (which is worth subscribing to if you want to stay on top of the latest news in AI, but that's not the point of this post).
+
+The above paper was interesting for many reasons not the least of which was a sentimental one. It was published by former colleagues of mine at Apple and appears to be the latest (and last?) public artifact of [Apples self-driving efforts](https://en.wikipedia.org/wiki/Apple_car_project).
+
+Over ten authors contributed to the paper, but I've only had the pleasure of (tangentially) working with the following: 
+
+- [Brody Huval](https://www.linkedin.com/in/brody-huval-35264428/)
+- [Stuart Bowers](https://www.linkedin.com/in/stuart-bowers/)
+- [Philipp Krähenbühl](https://www.philkr.net/)
+- [Vladlen Koltun](https://www.linkedin.com/in/vladlenkoltun/)
+
+In my opinion, the approach in the paper stands out for several reasons:
+
+- The complete absence of transformers or any attention mechanism. The model only uses MLPs and pooling layers.
+- The relatively small size of the model - it uses a total of just 6M parameters (3M for the actor and 3M for the critic), which seems tiny for a model controlling autonomous vehicles.
+- The fairly minimalistic reward function formulation that combines a handful of components to encode good driving behavior.
+- The enormous throughput of interactions with the simulation environment (4.4 billion state transitions per hour on an 8-GPU node).
+- Last but not least, the emergence of realistic and robust driving behavior for a model that has never seen human-driving data.
+
+My favorite part about this paper, though, was the conditioning input C to the model which modulates the policy's behavior and enables inference-time modifications of agent behavior by simply changing conditioning inputs. More aggressive driving? Simply modify the weights on some reward function components. You want a truck instead of a passenger vehicle behavior? Increase the agent's dimensions and dynamics through C and it will behave like a truck. A single model can be used to simulate a diverse variety of agents and behaviors - which is a powerful capability for realistic agents in simulation (and possibly even for a policy that runs on-vehicle).
+
+I enjoyed reading the paper to the point where I put together the following slide deck and presented it for an autonomous driving reading group.
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRugrTXdLQ9hdwpNfXc85Q_cpR4GiLYYvMZW4Wl14zfA7pAa-ep150mhtJWdq75MfHHsY1_y91GrIl9/pubembed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+*Stay curious,*
+
+Daniel

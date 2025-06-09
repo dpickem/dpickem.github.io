@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2025_06_04_robust_autonomy_emerges_from_self_play/index.html",
       "/posts/2025_05_16_llms_from_scratch_part_7/chapter_07_fine_tuning_to_follow_instructions.html",
       "/posts/2025_05_16_llms_from_scratch_part_6/chapter_06_fine_tuning_for_classification.html",
       "/posts/2025_05_16_llms_from_scratch_part_5/chapter_05_pretraining_on_unlabeled_data.html",

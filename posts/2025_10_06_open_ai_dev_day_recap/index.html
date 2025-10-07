@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Pickem">
-<meta name="dcterms.date" content="2025-09-19">
+<meta name="dcterms.date" content="2025-10-06">
 
-<title>Spinning Up in Reinforcement Learning – Daniel Pickem</title>
+<title>OpenAI Dev Day 2025 Recap – Daniel Pickem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,13 +73,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Spinning Up in Reinforcement Learning – Daniel Pickem">
+<meta property="og:title" content="OpenAI Dev Day 2025 Recap – Daniel Pickem">
 <meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta property="og:image" content="https://learning.oreilly.com/covers/urn:orm:book:9781835882702/">
+<meta property="og:image" content="https://www.zdnet.com/a/img/resize/48ddbc33cdc4af4576e648f2e899238627af3742/2025/10/06/63706bfd-8a4a-410a-976d-e799ce507aee/img-1178-1.jpg?auto=webp&amp;width=1280">
 <meta property="og:site_name" content="Daniel Pickem">
-<meta name="twitter:title" content="Spinning Up in Reinforcement Learning – Daniel Pickem">
+<meta name="twitter:title" content="OpenAI Dev Day 2025 Recap – Daniel Pickem">
 <meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta name="twitter:image" content="https://learning.oreilly.com/covers/urn:orm:book:9781835882702/">
+<meta name="twitter:image" content="https://www.zdnet.com/a/img/resize/48ddbc33cdc4af4576e648f2e899238627af3742/2025/10/06/63706bfd-8a4a-410a-976d-e799ce507aee/img-1178-1.jpg?auto=webp&amp;width=1280">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -129,10 +129,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Spinning Up in Reinforcement Learning</h1>
+      <h1 class="title">OpenAI Dev Day 2025 Recap</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">learning</div>
-                <div class="quarto-category">reinforcement-learning</div>
+                <div class="quarto-category">OpenAI</div>
+                <div class="quarto-category">Dev Day</div>
               </div>
                   </div>
   </div>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 19, 2025</p>
+        <p class="date">October 6, 2025</p>
       </div>
     </div>
     
@@ -161,42 +161,8 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-importance-of-rl" id="toc-the-importance-of-rl" class="nav-link active" data-scroll-target="#the-importance-of-rl">The importance of RL</a></li>
-  <li><a href="#impactful-papers-in-rl" id="toc-impactful-papers-in-rl" class="nav-link" data-scroll-target="#impactful-papers-in-rl">Impactful papers in RL</a>
-  <ul class="collapse">
-  <li><a href="#reward-design-paradigms" id="toc-reward-design-paradigms" class="nav-link" data-scroll-target="#reward-design-paradigms">Reward design paradigms</a>
-  <ul class="collapse">
-  <li><a href="#rlhf-reinforcement-learning-from-human-feedback" id="toc-rlhf-reinforcement-learning-from-human-feedback" class="nav-link" data-scroll-target="#rlhf-reinforcement-learning-from-human-feedback">RLHF (Reinforcement Learning from <strong>Human</strong> Feedback)</a></li>
-  <li><a href="#rlaif-reinforcement-learning-from-ai-feedback" id="toc-rlaif-reinforcement-learning-from-ai-feedback" class="nav-link" data-scroll-target="#rlaif-reinforcement-learning-from-ai-feedback">RLAIF (Reinforcement Learning from <strong>AI</strong> Feedback)</a></li>
-  <li><a href="#rlvr-reinforcement-learning-from-verifiable-rewards" id="toc-rlvr-reinforcement-learning-from-verifiable-rewards" class="nav-link" data-scroll-target="#rlvr-reinforcement-learning-from-verifiable-rewards">RLVR (Reinforcement Learning from <strong>Verifiable</strong> Rewards)</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
-  </ul></li>
-  <li><a href="#optimization-algorithms" id="toc-optimization-algorithms" class="nav-link" data-scroll-target="#optimization-algorithms">Optimization algorithms</a>
-  <ul class="collapse">
-  <li><a href="#ppo---proximal-policy-optimization" id="toc-ppo---proximal-policy-optimization" class="nav-link" data-scroll-target="#ppo---proximal-policy-optimization">PPO - Proximal Policy Optimization</a></li>
-  <li><a href="#dpo---direct-policy-optimization" id="toc-dpo---direct-policy-optimization" class="nav-link" data-scroll-target="#dpo---direct-policy-optimization">DPO - Direct Policy Optimization</a></li>
-  <li><a href="#grpo---group-relative-policy-optimization" id="toc-grpo---group-relative-policy-optimization" class="nav-link" data-scroll-target="#grpo---group-relative-policy-optimization">GRPO - Group-relative policy optimization</a></li>
-  <li><a href="#comparison-1" id="toc-comparison-1" class="nav-link" data-scroll-target="#comparison-1">Comparison</a></li>
-  </ul></li>
-  <li><a href="#notable-combos" id="toc-notable-combos" class="nav-link" data-scroll-target="#notable-combos">Notable combos</a>
-  <ul class="collapse">
-  <li><a href="#rlhf-ppo" id="toc-rlhf-ppo" class="nav-link" data-scroll-target="#rlhf-ppo">RLHF + PPO</a></li>
-  <li><a href="#rlaif-ai-feedback-ppo-preference-optimization" id="toc-rlaif-ai-feedback-ppo-preference-optimization" class="nav-link" data-scroll-target="#rlaif-ai-feedback-ppo-preference-optimization">RLAIF (AI feedback) + PPO / preference optimization</a></li>
-  <li><a href="#rlvr-verifiable-rewards-ppogrpo-style-rl" id="toc-rlvr-verifiable-rewards-ppogrpo-style-rl" class="nav-link" data-scroll-target="#rlvr-verifiable-rewards-ppogrpo-style-rl">RLVR (verifiable rewards) + PPO/GRPO-style RL</a></li>
-  <li><a href="#rlhfrlaif-signals-dpo-no-online-rl-loop" id="toc-rlhfrlaif-signals-dpo-no-online-rl-loop" class="nav-link" data-scroll-target="#rlhfrlaif-signals-dpo-no-online-rl-loop">RLHF/RLAIF signals + DPO (no online RL loop)</a></li>
-  <li><a href="#rlvr-grpo" id="toc-rlvr-grpo" class="nav-link" data-scroll-target="#rlvr-grpo">RLVR + GRPO</a></li>
-  <li><a href="#generalized-preference-optimization-umbrella" id="toc-generalized-preference-optimization-umbrella" class="nav-link" data-scroll-target="#generalized-preference-optimization-umbrella">“Generalized” preference optimization (umbrella)</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#getting-started-with-rl" id="toc-getting-started-with-rl" class="nav-link" data-scroll-target="#getting-started-with-rl">Getting started with RL</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -205,227 +171,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I recently read Maxim Lapan’s book <a href="https://learning.oreilly.com/library/view/deep-reinforcement-learning/9781835882702/">Deep Reinforcement Learning Hands-On - Third Edition</a> and wanted to share my notes and code-along Jupyter notebooks here. This post just presents a brief summary and intro to RL while I’ll publish the deep dives for select chapters in separate posts. My main motivation in reading this book was to get up to speed on RL methods as applied to large language models as well as robotic foundation models. Earlier editions of the book focused on RL for robotic and video game applications (mostly through <a href="https://gymnasium.farama.org/index.html">Gymnasium</a> environments). The third edition of the book, however, has been updated to include more LLM-relevant chapters such as trust region methods (PPO, SAC) but also a chapter on RLHF.</p>
-<p>The book overall covers a lot of ground and provides a good overview of RL (it was published in November 2024). Nonetheless, I recommend supplementing it with OpenAI’s <a href="https://spinningup.openai.com/en/latest/">Spinning Up</a> (which was last updated in January 2020 but contains great reference implementations and a broad collection of papers).</p>
-<p>Two more posts worth pointing out are Sebastian Raschka’s notebook on <a href="https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb">Direct Preference Optimization (DPO) from Scratch</a> which is a hands-on guide to implement this alternative method to Proximal Policy Optimization (PPO) for RLHF and a similar repo on <a href="https://github.com/policy-gradient/GRPO-Zero">Group-relative policy optimization (GRPO)</a>. The latter implements a more recent alternative to PPO for RLHF.</p>
-<p>A recent post on <a href="https://tokens-for-thoughts.notion.site/post-training-101#262b8b68a46d80098b4dec60987a0c17">Post-training 101</a> outlines various RL methods used in foundation model post-training well and is a great starting point with a broad overview of the field. This post draws from Nathan Lambert’s excellent book on <a href="https://rlhfbook.com/">Reinforcement Learning from Human Feedback (RLHF)</a> which is available for free online.</p>
-<p>One last resource I want to mention is a noteworthy collection of papers relating to RLHF - <a href="https://github.com/opendilab/awesome-RLHF">awesome-RLHF</a></p>
-<section id="the-importance-of-rl" class="level1">
-<h1>The importance of RL</h1>
-<p>My original goal with this post was just to announce a series of RL-focused posts. Instead, I’ll also use this post to summarize the most common reward design paradigms and optimization algorithms for RL applied to LLMs - not just RLHF but also RLAIF and RLVR (the latter playing a key role in the latest batch of reasoning models in particular with applications to math and software engineering).</p>
-<p>Reinforcement learning (RL) is a branch of machine learning focused on training agents to make sequences of decisions by interacting with an environment. In RL, an agent observes the current state of the environment, selects an action according to a policy (which maps an observation of the environment to an action, and can be deterministic or stochastic), and receives feedback in the form of a reward signal. The environment then transitions to a new state based on the agent’s action. The key components of RL are:</p>
+<p>After a full day of talks, demos, and AMAs I just wanted to provide a little more color and detail about Open AI’s dev day 2025. I did not exactly know what to expect from this event but it felt like Open AI’s WWDC where a ton of new products were announced and demo’ed - glued together by talks and stage conversations from OpenAI leadership. I’ll just mention the ones that left the biggest impression of me:</p>
 <ul>
-<li><strong>Agent</strong>: The learner or decision maker.</li>
-<li><strong>Environment</strong>: The external system the agent interacts with.</li>
-<li><strong>Policy</strong>: The strategy or mapping from states to actions that the agent uses to decide what to do next.</li>
-<li><strong>Reward signal</strong>: A scalar feedback signal that tells the agent how good or bad its action was in a given state.</li>
-<li><strong>Value function</strong>: An estimate of how good it is for the agent to be in a given state (or to perform a certain action in a state), in terms of expected future rewards.</li>
-<li><strong>Model (optional)</strong>: Some RL methods use a model of the environment to predict future states and rewards.</li>
-</ul>
-<p>The agent’s goal is to learn a policy that maximizes the cumulative reward over time, often by balancing exploration (trying new actions) and exploitation (choosing actions known to yield high rewards). RL is particularly powerful for solving complex, sequential decision-making problems where explicit supervision is difficult or impossible.</p>
-<p>In the context of post-training of LLMs via RLHF, we can think of the base model or instruction-tuned model (mostly via SFT) as the policy acting in an “environment” of prompts. We then learn a scalar reward that captures what we want—such as human preferences, verifiable outcomes, or step-level scores (this would be the reward model in RLHF). The typical RLHF loop is: sample outputs from the policy, score them with the reward model, and update the policy using KL-regularized policy gradients to favor higher-reward behavior, while anchoring to a reference model to prevent drift (see <a href="https://tokens-for-thoughts.notion.site/post-training-101#262b8b68a46d80098b4dec60987a0c17">this post</a> for more details).</p>
-<p>RLHF transformed the development of large language models by making reinforcement learning practical at scale. Introduced by Christiano et al.&nbsp;(2017, <a href="https://arxiv.org/pdf/1706.03741">Deep reinforcement learning from human preferences</a>) and scaled in InstructGPT (Ouyang et al., 2022, <a href="https://arxiv.org/pdf/2203.02155">Training language models to follow instructions with human feedback</a>), it combined supervised fine-tuning, preference-based reward modeling, and reinforcement learning (typically PPO) to align models more closely with human intent. This approach established the modern alignment pipeline behind systems like ChatGPT and marked the pivotal moment when RL became central to LLM training.</p>
-<p>Besides RLHF, the RL toolbox in modern post-training pipelines has been expanded to include the following methods:</p>
+<li><a href="https://openai.github.io/openai-agents-python">Agents SDK</a>: To be quite frank here, my opinion of agents was that they are overrated - a solution looking for a problem. However, the new agents SDK and the accompanying web drag-and-drop UI together with powerful eval and deployment tooling is changing my mind a bit. This SDK will definitely make agents more accessible beyond the software engineering agent use-case. See the Agent Builder UI below: <img src="https://framerusercontent.com/images/Kfshs2OnHh8k132zZRinKo7e9mY.png?width=1200&amp;height=696" class="img-fluid" alt="Agent Builder UI"></li>
+<li><a href="https://developers.openai.com/apps-sdk">Apps SDK</a>: This SDK enables apps to be directly integrated into ChatGPT’s main web (or mobile) UI. Two aspects I want to highlight here are the direct integration of apps into the ChatGPT UI, which enables a seamless experience between chat/reasoning and app-specific interaction and customizable UI elements or widgets as they OpenAI called them (such as maps). The other aspect is the power of MCP extensions that Codex and chat can take advantage of to, for example, take control of physical devices like onstage lighting, cameras, and audio systems. The Codex SDK took this even further where the Codex agent was directly integrated into a mobile fitness tracker app such that the app could “self-evolve” and be changed on-the-fly (triggered by a user prompt to add more trend plots for example)
 <ul>
-<li>RLAIF (Reinforcement Learning from AI Feedback) replaces costly human annotations with feedback from a stronger model, reducing reliance on human labelers while preserving the preference-model + RL pipeline.</li>
-<li>RLVR (Reinforcement Learning from Verifiable Rewards) avoids subjective human or model judgments altogether by using objective, checkable criteria (e.g., correctness of math steps, program execution results, rule satisfaction) as the reward signal.</li>
+<li><a href="https://developers.openai.com/codex/sdk/">Codex SDK</a></li>
+<li><a href="https://developers.openai.com/apps-sdk">Apps SDK</a></li>
+<li><a href="https://github.com/openai/openai-apps-sdk-examples">Officlal example apps</a> and <a href="https://developers.openai.com/apps-sdk/build/examples">full end-to-end example</a> <img src="https://developers.openai.com/images/apps-sdk/pizzaz-map.png" class="img-fluid" alt="Pizzaz Map"></li>
+</ul></li>
+<li>Codex everywhere - in CLI, IDE, and web. Not just for writing code but also for powerful code review capabilities. I’ve seen before how automated code review can introduce a lot of noise with overzealous commenting. Codex review, on the other hand, focuses on providing fewer but higher signal comments. These are supposedly based on Codex writing tests and scripts to “pen test” the PR under review in a sense. In a sense, Codex is writing the code while another Codex instance (with a separate context) is reviewing it. Definitely something I am excited to try out to address the code review bottleneck. Code review was shown via the Codex CLI (via ) but also the Github web UI (see the <a href="https://developers.openai.com/codex/cloud/code-review">Code review setup guide</a>). <img src="https://developers.openai.com/images/codex/code-review/review-example.png" class="img-fluid" alt="Codex Review"></li>
+<li>Codex with Figma MCP integration and also Chrome dev-tools MCP for performance optimization. I enjoyed this demo quite a bit too for the main reason that it almost entirely automated the web-app development - from designs in Figma, to MVP implementation, to performance tuning via the Chrome dev tools MCP server. What’s more, Codex can take screenshots via Playwright to verify that the implementation stays faithful to the original design. A highly practical demonstration of agentic workflows and the reasoning and tool calling power of gpt-5-codex. The demo app “Wanderlust” - an app that proposes travel itineraries in a sleek web UI - has been recreated in this (unofficial?) <a href="https://github.com/ACHultman/wanderlust">repo</a>. See the photo below (borrowed from Simon Willison’s <a href="https://simonwillison.net/2024/Oct/1/openai-devday-2024-live-blog/">blog</a>) <img src="https://static.simonwillison.net/static/2024/wanderlust.jpg" class="img-fluid" alt="Wanderlust"></li>
+<li><a href="https://openai.com/index/introducing-gpt-oss/">gpt-oss</a>: My main takeaway of this talk was the impressive possibilities of running powerful reasoning and agentic models directly on-device. Even the 120B version of the model can run on consumer hardware like a MacBook (via Ollama). This is not unique to OpenAI’s GPT gpt-oss but it was nonetheless impressive to see a demo using tool calling (including outsourcing web UI development to the more capable but cloud-based gpt-5). I’ll definitely be trying out gpt-oss for on device applications. The only thing I wish gpt-oss supported was multimodal (in particular image) inputs.</li>
+<li>Last but not least, the conversation between Sam and Jony Ive was refreshing to listen to. No big product reveals but they did hint at a “product family” and that they have 15-20 promising ideas. That leaves much to speculation as to what the supposed wearable is going to be.</li>
 </ul>
-<p>Both methods are positioned as natural extensions of RLHF: RLAIF scales supervision, while RLVR improves reliability by grounding training in verifiable signals (more on that in the sections below).</p>
-</section>
-<section id="impactful-papers-in-rl" class="level1">
-<h1>Impactful papers in RL</h1>
-<p><a href="https://spinningup.openai.com/en/latest/spinningup/keypapers.html">Spinning up</a> has a great collection of papers that are essential reading for anyone interested in RL. This section mostly aims to highlight the most impactful subset of papers relating to RLHF, RLAIF, and RLVR as well as the underlying alignment methods (PPO, DPO, GRPO). Since Spinning Up was last updated in January 2020, this section also highlights more recent papers (such as GRPO). The following two sections characterize two axes of the RL toolbox: reward design paradigms and optimization algorithms.</p>
-<section id="reward-design-paradigms" class="level2">
-<h2 class="anchored" data-anchor-id="reward-design-paradigms">Reward design paradigms</h2>
-<p>The <strong>reward source</strong> refers to the origin and nature of the feedback signal used to guide the learning process in reinforcement learning. In the context of LLM post-training, the reward source determines <em>how</em> we evaluate and score model outputs, which in turn shapes the agent’s behavior. Each reward source has trade-offs in terms of scalability, reliability, cost, and alignment with desired behaviors. The choice of reward source is a foundational design decision in any RL-based post-training pipeline for LLMs.</p>
-<section id="rlhf-reinforcement-learning-from-human-feedback" class="level3">
-<h3 class="anchored" data-anchor-id="rlhf-reinforcement-learning-from-human-feedback">RLHF (Reinforcement Learning from <strong>Human</strong> Feedback)</h3>
-<p>In this setup, human annotators provide rankings, ratings, or preference judgments on model outputs. This data is used to train a reward model that predicts human preferences, which then serves as the reward function for RL optimization (as in RLHF). RLHF was one of the earliest methods to scale reinforcement learning for LLMs but it is human labor intensive.</p>
-<ul>
-<li><a href="https://arxiv.org/pdf/1706.03741">Deep reinforcement learning from human preferences, 2017</a> by Christiano et al.&nbsp;(original RLHF)</li>
-<li><a href="https://arxiv.org/pdf/1909.08593">Fine-Tuning Language Models from Human Preferences, 2019</a> by Ziegler et al.&nbsp;(direct precursor to InstructGPT)</li>
-<li><a href="https://arxiv.org/pdf/2203.02155">Training language models to follow instructions with human feedback, 2022</a> by Ouyang et al.&nbsp;(InstructGPT)</li>
-</ul>
-</section>
-<section id="rlaif-reinforcement-learning-from-ai-feedback" class="level3">
-<h3 class="anchored" data-anchor-id="rlaif-reinforcement-learning-from-ai-feedback">RLAIF (Reinforcement Learning from <strong>AI</strong> Feedback)</h3>
-<p>Instead of relying on humans, a stronger or more specialized AI model provides the feedback—either by ranking outputs, scoring them, or generating preference data (e.g.&nbsp;preference labels). This approach can scale supervision and reduce costs, but the quality of feedback depends on the teacher model’s capabilities and biases. This method is much cheaper and scalable but the quality depends on the teacher model.</p>
-<ul>
-<li><a href="https://arxiv.org/pdf/2212.08073">Constitutional AI: Harmlessness from AI Feedback, 2022</a> by Bai et al.&nbsp;(Anthropic)</li>
-</ul>
-</section>
-<section id="rlvr-reinforcement-learning-from-verifiable-rewards" class="level3">
-<h3 class="anchored" data-anchor-id="rlvr-reinforcement-learning-from-verifiable-rewards">RLVR (Reinforcement Learning from <strong>Verifiable</strong> Rewards)</h3>
-<p>The reward is computed automatically based on objective, verifiable criteria—such as correctness of a math solution, passing unit tests for code, or satisfying explicit rules. This paradigm (RLVR) removes subjective judgments and grounds the reward in measurable outcomes, which is especially useful for tasks with clear success criteria. OpenAI’s o1-style training is a key example of this paradigm (see <a href="https://openai.com/index/learning-to-reason-with-llms/?utm_source=chatgpt.com">blog post</a>).</p>
-<ul>
-<li><a href="https://arxiv.org/pdf/2501.12948">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning, 2025</a> (DeepSeek)</li>
-<li><a href="https://arxiv.org/pdf/2506.14245">Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs, 2025</a> by Wen et al.&nbsp;(Microsoft)</li>
-<li><a href="https://arxiv.org/pdf/2503.23829v1">Expanding RL with Verifiable Rewards Across Diverse Domains, 2025</a> by Su et al.&nbsp;(Tencent)</li>
-<li><a href="https://arxiv.org/pdf/2411.15124">Tülu 3: Pushing Frontiers in Open Language Model Post-Training, 2025</a> by Lambert et al.&nbsp;(Allen Institute for AI)</li>
-<li><a href="https://arxiv.org/pdf/2504.20571">Reinforcement Learning for Reasoning in Large Language Models with One Training Example, 2025</a> by Wang et al.&nbsp;(Microsoft)</li>
-</ul>
-</section>
-<section id="comparison" class="level3">
-<h3 class="anchored" data-anchor-id="comparison">Comparison</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>Reward Design</strong></th>
-<th><strong>Definition</strong></th>
-<th><strong>Pros</strong></th>
-<th><strong>Cons</strong></th>
-<th><strong>Seminal Paper</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>RLHF</strong> (Reinforcement Learning from Human Feedback)</td>
-<td>Human annotators rank or rate model outputs → reward model → optimization</td>
-<td>- High-quality signal from humans<br>- Captures nuanced human values<br>- Proven to work (InstructGPT, ChatGPT)</td>
-<td>- Very expensive &amp; slow (needs labelers)<br>- Limited scalability<br>- Inconsistent/biased labels</td>
-<td><a href="https://arxiv.org/abs/2203.02155">InstructGPT (OpenAI, 2022)</a></td>
-</tr>
-<tr class="even">
-<td><strong>RLAIF</strong> (Reinforcement Learning from AI Feedback)</td>
-<td>Teacher models provide preference labels, often guided by rules/constitutions</td>
-<td>- Cheaper &amp; scalable<br>- Consistent labeling<br>- Can encode safety rules explicitly</td>
-<td>- Dependent on teacher quality<br>- Risk of propagating teacher’s biases/errors</td>
-<td><a href="https://arxiv.org/abs/2212.08073">Constitutional AI (Anthropic, 2022)</a></td>
-</tr>
-<tr class="odd">
-<td><strong>RLVR</strong> (Reinforcement Learning from Verifiable Rewards)</td>
-<td>Objective, automatically checkable signals (math correctness, passing code tests, factual checks)</td>
-<td>- Fully automatable, infinite data<br>- No human bias<br>- Perfectly scalable for tasks with verifiable outputs</td>
-<td>- Limited to domains with hard checkers<br>- Binary rewards are sparse (unstable for RL)<br>- Requires careful optimization (PPO struggles)</td>
-<td><a href="https://arxiv.org/pdf/2501.12948">DeepSeek-R1, 2025</a></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="optimization-algorithms" class="level2">
-<h2 class="anchored" data-anchor-id="optimization-algorithms">Optimization algorithms</h2>
-<p>This section provides an overview of the key optimization methods used to update a policy (the model) based on reward or preference signals. These approaches are central to RL-based post-training, enabling language models to better align with desired behaviors by effectively leveraging feedback.</p>
-<section id="ppo---proximal-policy-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="ppo---proximal-policy-optimization">PPO - Proximal Policy Optimization</h3>
-<p>PPO is a widely used on-policy policy-gradient algorithm designed to train RL agents in a stable yet efficient way. It introduces a surrogate objective with a KL-style penalty (or clipping) that limits how far the new policy can deviate from the old one, preventing collapse while still allowing meaningful updates. This balance between reward maximization and stability made PPO the algorithm of choice in the original RLHF pipelines at OpenAI (<a href="https://arxiv.org/pdf/2203.02155">InstructGPT</a>) and Anthropic (<a href="https://arxiv.org/pdf/2204.05862">HH-RLHF</a>), and it remains one of the most influential algorithms in modern RL practice.</p>
-<ul>
-<li><a href="https://arxiv.org/pdf/1707.06347">Proximal Policy Optimization Algorithms, 2017</a> by Schulman et al.&nbsp;(OpenAI)</li>
-</ul>
-</section>
-<section id="dpo---direct-policy-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="dpo---direct-policy-optimization">DPO - Direct Policy Optimization</h3>
-<p>DPO reframes RLHF as a supervised learning problem by directly optimizing on human preference pairs (preferred vs.&nbsp;dispreferred responses). Instead of learning an explicit reward model or running PPO training loops, DPO uses a simple objective that encourages the policy to favor preferred outputs. This makes it far easier to implement, more stable in practice, and avoids the complexity of full RL infrastructure while still capturing the benefits of preference-based alignment.</p>
-<p>DPO is not an RL algorithm (therefore also not on-policy and not a policy-gradient method). It’s essentially supervised learning with a cleverly derived loss that mimics the effect of RLHF, but without explicit RL.</p>
-<ul>
-<li><a href="https://arxiv.org/pdf/2305.18290">Direct Preference Optimization: Your Language Model is Secretly a Reward Model, 2023</a> by Rafailov et al.&nbsp;(Stanford)</li>
-</ul>
-</section>
-<section id="grpo---group-relative-policy-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="grpo---group-relative-policy-optimization">GRPO - Group-relative policy optimization</h3>
-<p>Group Relative Policy Optimization (GRPO) is an efficient reinforcement learning algorithm for training large language models that improves upon Proximal Policy Optimization (PPO) by eliminating the need for a separate value network (i.e.&nbsp;the critic model in actor-critic algorithms). GRPO generates multiple responses to a single prompt, calculates their average reward, and then uses each response’s advantage relative to this group average to update the language model’s policy. This “group-based advantage estimation” stabilizes training and enhances reasoning abilities by providing a robust, memory-efficient baseline for policy updates without requiring complex value functions. A comparison of PPO and GRPO is shown below while a more detailed explanation is available <a href="https://medium.com/@sulbha.jindal/proximal-policy-optimization-ppo-vs-group-relative-policy-optimization-grpo-988fa7af0241">here</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eWFPuXgPat7kWmBOBSqx4A.png" class="img-fluid figure-img"></p>
-<figcaption>PPO vs.&nbsp;GRPO comparison from the DeepSeek paper that introduced GRPO: “DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models”</figcaption>
-</figure>
-</div>
-<ul>
-<li><a href="https://arxiv.org/abs/2402.03300">DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models, 2024</a> by DeepSeek</li>
-<li><a href="https://arxiv.org/pdf/2503.11486v1">A Review of DeepSeek Models’ Key Innovative Techniques, 2025</a></li>
-</ul>
-</section>
-<section id="comparison-1" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-1">Comparison</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>Optimizer</strong></th>
-<th><strong>Definition</strong></th>
-<th><strong>Pros</strong></th>
-<th><strong>Cons</strong></th>
-<th><strong>Seminal Paper</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PPO</strong> (Proximal Policy Optimization)</td>
-<td>Policy gradient RL with KL-penalty to keep model close to a reference</td>
-<td>- Stable relative to vanilla policy gradients<br>- Widely implemented &amp; tested<br>- Pairs naturally with reward models</td>
-<td>- Requires critic/reward model<br>- Infrastructure heavy<br>- Struggles with sparse/verifiable rewards</td>
-<td><a href="https://arxiv.org/abs/2203.02155">InstructGPT (OpenAI, 2022)</a></td>
-</tr>
-<tr class="even">
-<td><strong>DPO</strong> (Direct Preference Optimization)</td>
-<td>Reformulates preference alignment as supervised learning over preference pairs</td>
-<td>- No reward model needed<br>- Simple, stable, easy to implement<br>- Efficient offline training</td>
-<td>- Needs lots of high-quality preference pairs<br>- Less flexible than RL for long-horizon tasks</td>
-<td><a href="https://arxiv.org/abs/2305.18290">DPO (Stanford, 2023)</a></td>
-</tr>
-<tr class="odd">
-<td><strong>GRPO</strong> (Group Relative Policy Optimization)</td>
-<td>Uses group baselines among sampled outputs instead of a critic; ideal for 0/1 rewards</td>
-<td>- Handles sparse/verifiable rewards well<br>- No critic/reward model required<br>- Scales better for math/code reasoning</td>
-<td>- Newer, less mature<br>- Needs multiple samples per prompt (compute heavy)</td>
-<td><a href="https://arxiv.org/abs/2402.03300">DeepSeekMath (2024)</a></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="notable-combos" class="level2">
-<h2 class="anchored" data-anchor-id="notable-combos">Notable combos</h2>
-<p>Just to put all these techniques into perspective, in this section I want to highlighht a few notable combinations of reward design paradigms and optimization algorithms that frontier labs have used to train their models.</p>
-<section id="rlhf-ppo" class="level3">
-<h3 class="anchored" data-anchor-id="rlhf-ppo">RLHF + PPO</h3>
-<p>Flagship: InstructGPT (OpenAI, 2022): human preference data → reward model → PPO against a reference model. <a href="https://arxiv.org/abs/2203.02155">Neur IPS Proceedings</a> <a href="https://arxiv.org/abs/2203.02155">arXiv</a></p>
-<p><a href="https://arxiv.org/abs/2402.03300">DeepSeekMath (2024)</a></p>
-</section>
-<section id="rlaif-ai-feedback-ppo-preference-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="rlaif-ai-feedback-ppo-preference-optimization">RLAIF (AI feedback) + PPO / preference optimization</h3>
-<p>Flagship: Constitutional AI (Anthropic, 2022): AI-written critiques &amp; revisions guided by a “constitution”; includes a supervised phase and a reinforcement phase (can be implemented with PPO-style optimization or offline preference objectives). <a href="https://arxiv.org/abs/2212.08073">arXiv</a> <a href="https://arxiv.org/abs/2212.08073">Anthropic</a></p>
-</section>
-<section id="rlvr-verifiable-rewards-ppogrpo-style-rl" class="level3">
-<h3 class="anchored" data-anchor-id="rlvr-verifiable-rewards-ppogrpo-style-rl">RLVR (verifiable rewards) + PPO/GRPO-style RL</h3>
-<p>Trend: Reasoning-era training (math/code) where the reward is a deterministic check (e.g., correct final answer, passing unit tests). OpenAI frames o1-style training as large-scale RL with verifiable signals; community papers analyze RLVR explicitly (often with GRPO). <a href="https://arxiv.org/abs/2402.03300">OpenAI</a></p>
-<p>Examples in the literature: GRPO with verifiable rewards for reasoning; analyses/theory of RLVR dynamics appear in 2025 works. <a href="https://arxiv.org/abs/2402.03300">arXiv</a> <a href="https://arxiv.org/abs/2402.03300">OpenAI</a></p>
-</section>
-<section id="rlhfrlaif-signals-dpo-no-online-rl-loop" class="level3">
-<h3 class="anchored" data-anchor-id="rlhfrlaif-signals-dpo-no-online-rl-loop">RLHF/RLAIF signals + DPO (no online RL loop)</h3>
-<p>Flagship: DPO (Stanford et al., 2023): turns preference alignment into a simple classification-style loss; widely adopted as a drop-in alternative to PPO-based RLHF. (Also extended to other modalities like diffusion.) <a href="https://arxiv.org/abs/2305.18290">arXiv</a></p>
-</section>
-<section id="rlvr-grpo" class="level3">
-<h3 class="anchored" data-anchor-id="rlvr-grpo">RLVR + GRPO</h3>
-<p>Flagship use: GRPO (introduced in DeepSeekMath; later popularized in reasoning LLM training such as DeepSeek-R1): group-relative policy gradients fit naturally with 0/1 verifiable rewards. <a href="https://arxiv.org/abs/2402.03300">arXiv</a></p>
-</section>
-<section id="generalized-preference-optimization-umbrella" class="level3">
-<h3 class="anchored" data-anchor-id="generalized-preference-optimization-umbrella">“Generalized” preference optimization (umbrella)</h3>
-<p>GPO/GRPO family: Google DeepMind’s Generalized Preference Optimization unifies DPO/IPO/SLiC-style offline preference objectives; GRPO can be viewed as a complementary, RL-style optimizer that pairs well with verifiable rewards. <a href="https://arxiv.org/abs/2402.03300">arXiv</a></p>
-</section>
-</section>
-</section>
-<section id="getting-started-with-rl" class="level1">
-<h1>Getting started with RL</h1>
-<p>One of my motivations for working through the book was to get more exposure and practice writing PyTorch code. From what I’ve found so far, implementing RL algorithms is 80% engineering in Python and 20% ML (give or take). Some of the components that need to be in place for making the training of an RL algorithm work are:</p>
-<ul>
-<li>Environment setup and interaction (including wrappers)</li>
-<li>Experience collection</li>
-<li>Replay buffer (experience storage and sampling)</li>
-<li>Agent scaffolding</li>
-<li>Model architecture (this is the 20% ML part)</li>
-<li>Training loop (this is also part of the 20% ML part)</li>
-<li>Evaluation</li>
-<li>Logging</li>
-<li>etc.</li>
-</ul>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p><em>Keep learning!</em></p>
+<p>OpenAI covered a lot of ground during the dev day and any of the topics above warrants more in-depth experimentation and discussions - stay tuned for those in follow-up blog posts.</p>
+<p>Stay curious!</p>
 <p>Daniel</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

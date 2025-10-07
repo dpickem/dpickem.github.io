@@ -1,182 +1,29 @@
 ---
-title: "Spinning Up in Reinforcement Learning"
+title: "OpenAI Dev Day 2025 Recap"
 author: "Daniel Pickem"
-date: "2025-09-19"
-categories: [learning, reinforcement-learning]
-image: https://learning.oreilly.com/covers/urn:orm:book:9781835882702/
+date: "2025-10-06"
+categories: [OpenAI, Dev Day]
+image: https://www.zdnet.com/a/img/resize/48ddbc33cdc4af4576e648f2e899238627af3742/2025/10/06/63706bfd-8a4a-410a-976d-e799ce507aee/img-1178-1.jpg?auto=webp&width=1280
 ---
 
-I recently read Maxim Lapan's book [Deep Reinforcement Learning Hands-On - Third Edition](https://learning.oreilly.com/library/view/deep-reinforcement-learning/9781835882702/) and wanted to share my notes and code-along Jupyter notebooks here. This post just presents a brief summary and intro to RL while I'll publish the deep dives for select chapters in separate posts. My main motivation in reading this book was to get up to speed on RL methods as applied to large language models as well as robotic foundation models. Earlier editions of the book focused on RL for robotic and video game applications (mostly through [Gymnasium](https://gymnasium.farama.org/index.html) environments). The third edition of the book, however, has been updated to include more LLM-relevant chapters such as trust region methods (PPO, SAC) but also a chapter on RLHF.
-
-The book overall covers a lot of ground and provides a good overview of RL (it was published in November 2024). Nonetheless, I recommend supplementing it with OpenAI's [Spinning Up](https://spinningup.openai.com/en/latest/) (which was last updated in January 2020 but contains great reference implementations and a broad collection of papers).
-
-Two more posts worth pointing out are Sebastian Raschka's notebook on [Direct Preference Optimization (DPO) from Scratch](https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb) which is a hands-on guide to implement this alternative method to Proximal Policy Optimization (PPO) for RLHF and a similar repo on [Group-relative policy optimization (GRPO)](https://github.com/policy-gradient/GRPO-Zero). The latter implements a more recent alternative to PPO for RLHF.
-
-A recent post on [Post-training 101](https://tokens-for-thoughts.notion.site/post-training-101#262b8b68a46d80098b4dec60987a0c17) outlines various RL methods used in foundation model post-training well and is a great starting point with a broad overview of the field. This post draws from Nathan Lambert's excellent book on [Reinforcement Learning from Human Feedback (RLHF)](https://rlhfbook.com/) which is available for free online.
-
-One last resource I want to mention is a noteworthy collection of papers relating to RLHF - [awesome-RLHF](https://github.com/opendilab/awesome-RLHF)
-
-# The importance of RL
-
-My original goal with this post was just to announce a series of RL-focused posts. Instead, I'll also use this post to summarize the most common reward design paradigms and optimization algorithms for RL applied to LLMs - not just RLHF but also RLAIF and RLVR (the latter playing a key role in the latest batch of reasoning models in particular with applications to math and software engineering).
-
-Reinforcement learning (RL) is a branch of machine learning focused on training agents to make sequences of decisions by interacting with an environment. In RL, an agent observes the current state of the environment, selects an action according to a policy (which maps an observation of the environment to an action, and can be deterministic or stochastic), and receives feedback in the form of a reward signal. The environment then transitions to a new state based on the agent's action. The key components of RL are:
-
-- **Agent**: The learner or decision maker.
-- **Environment**: The external system the agent interacts with.
-- **Policy**: The strategy or mapping from states to actions that the agent uses to decide what to do next.
-- **Reward signal**: A scalar feedback signal that tells the agent how good or bad its action was in a given state.
-- **Value function**: An estimate of how good it is for the agent to be in a given state (or to perform a certain action in a state), in terms of expected future rewards.
-- **Model (optional)**: Some RL methods use a model of the environment to predict future states and rewards.
-
-The agent's goal is to learn a policy that maximizes the cumulative reward over time, often by balancing exploration (trying new actions) and exploitation (choosing actions known to yield high rewards). RL is particularly powerful for solving complex, sequential decision-making problems where explicit supervision is difficult or impossible.
-
-In the context of post-training of LLMs via RLHF, we can think of the base model or instruction-tuned model (mostly via SFT) as the policy acting in an “environment” of prompts. We then learn a scalar reward that captures what we want—such as human preferences, verifiable outcomes, or step-level scores (this would be the reward model in RLHF). The typical RLHF loop is: sample outputs from the policy, score them with the reward model, and update the policy using KL-regularized policy gradients to favor higher-reward behavior, while anchoring to a reference model to prevent drift (see [this post](https://tokens-for-thoughts.notion.site/post-training-101#262b8b68a46d80098b4dec60987a0c17) for more details).
-
-RLHF transformed the development of large language models by making reinforcement learning practical at scale. Introduced by Christiano et al. (2017, [Deep reinforcement learning from human preferences](https://arxiv.org/pdf/1706.03741)) and scaled in InstructGPT (Ouyang et al., 2022, [Training language models to follow instructions with human feedback](https://arxiv.org/pdf/2203.02155)), it combined supervised fine-tuning, preference-based reward modeling, and reinforcement learning (typically PPO) to align models more closely with human intent. This approach established the modern alignment pipeline behind systems like ChatGPT and marked the pivotal moment when RL became central to LLM training.
-
-Besides RLHF, the RL toolbox in modern post-training pipelines has been expanded to include the following methods:
-
-- RLAIF (Reinforcement Learning from AI Feedback) replaces costly human annotations with feedback from a stronger model, reducing reliance on human labelers while preserving the preference-model + RL pipeline.
-- RLVR (Reinforcement Learning from Verifiable Rewards) avoids subjective human or model judgments altogether by using objective, checkable criteria (e.g., correctness of math steps, program execution results, rule satisfaction) as the reward signal.
-
-Both methods are positioned as natural extensions of RLHF: RLAIF scales supervision, while RLVR improves reliability by grounding training in verifiable signals (more on that in the sections below).
-
-# Impactful papers in RL
-
-[Spinning up](https://spinningup.openai.com/en/latest/spinningup/keypapers.html) has a great collection of papers that are essential reading for anyone interested in RL. This section mostly aims to highlight the most impactful subset of papers relating to RLHF, RLAIF, and RLVR as well as the underlying alignment methods (PPO, DPO, GRPO). Since Spinning Up was last updated in January 2020, this section also highlights more recent papers (such as GRPO). The following two sections characterize two axes of the RL toolbox: reward design paradigms and optimization algorithms.
-
-## Reward design paradigms
-
-The **reward source** refers to the origin and nature of the feedback signal used to guide the learning process in reinforcement learning. In the context of LLM post-training, the reward source determines *how* we evaluate and score model outputs, which in turn shapes the agent’s behavior. Each reward source has trade-offs in terms of scalability, reliability, cost, and alignment with desired behaviors. The choice of reward source is a foundational design decision in any RL-based post-training pipeline for LLMs.
-
-### RLHF (Reinforcement Learning from **Human** Feedback)
-
-In this setup, human annotators provide rankings, ratings, or preference judgments on model outputs. This data is used to train a reward model that predicts human preferences, which then serves as the reward function for RL optimization (as in RLHF). RLHF was one of the earliest methods to scale reinforcement learning for LLMs but it is human labor intensive.
-
-- [Deep reinforcement learning from human preferences, 2017](https://arxiv.org/pdf/1706.03741) by Christiano et al. (original RLHF)
-- [Fine-Tuning Language Models from Human Preferences, 2019](https://arxiv.org/pdf/1909.08593) by Ziegler et al. (direct precursor to InstructGPT)
-- [Training language models to follow instructions with human feedback, 2022](https://arxiv.org/pdf/2203.02155) by Ouyang et al. (InstructGPT)
-
-### RLAIF (Reinforcement Learning from **AI** Feedback)
-
-Instead of relying on humans, a stronger or more specialized AI model provides the feedback—either by ranking outputs, scoring them, or generating preference data (e.g. preference labels). This approach can scale supervision and reduce costs, but the quality of feedback depends on the teacher model’s capabilities and biases. This method is much cheaper and scalable but the quality depends on the teacher model.
-
-- [Constitutional AI: Harmlessness from AI Feedback, 2022](https://arxiv.org/pdf/2212.08073) by Bai et al. (Anthropic)
-
-### RLVR (Reinforcement Learning from **Verifiable** Rewards)
-
-The reward is computed automatically based on objective, verifiable criteria—such as correctness of a math solution, passing unit tests for code, or satisfying explicit rules. This paradigm (RLVR) removes subjective judgments and grounds the reward in measurable outcomes, which is especially useful for tasks with clear success criteria.  OpenAI's o1-style training is a key example of this paradigm (see [blog post](https://openai.com/index/learning-to-reason-with-llms/?utm_source=chatgpt.com)).
-
-- [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning, 2025](https://arxiv.org/pdf/2501.12948) (DeepSeek)
-- [Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs, 2025](https://arxiv.org/pdf/2506.14245) by Wen et al. (Microsoft)
-- [Expanding RL with Verifiable Rewards Across Diverse Domains, 2025](https://arxiv.org/pdf/2503.23829v1) by Su et al. (Tencent)
-- [Tülu 3: Pushing Frontiers in Open Language Model Post-Training, 2025](https://arxiv.org/pdf/2411.15124) by Lambert et al. (Allen Institute for AI)
-- [Reinforcement Learning for Reasoning in Large Language Models with One Training Example, 2025](https://arxiv.org/pdf/2504.20571) by Wang et al. (Microsoft)
-
-### Comparison
-
-| **Reward Design** | **Definition** | **Pros** | **Cons** | **Seminal Paper** |
-| ------------------ | -------------- | -------- | -------- | ---------------- |
-| **RLHF** (Reinforcement Learning from Human Feedback)     | Human annotators rank or rate model outputs → reward model → optimization                         | - High-quality signal from humans<br>- Captures nuanced human values<br>- Proven to work (InstructGPT, ChatGPT) | - Very expensive & slow (needs labelers)<br>- Limited scalability<br>- Inconsistent/biased labels                                           | [InstructGPT (OpenAI, 2022)](https://arxiv.org/abs/2203.02155)                                                  |
-| **RLAIF** (Reinforcement Learning from AI Feedback)       | Teacher models provide preference labels, often guided by rules/constitutions                     | - Cheaper & scalable<br>- Consistent labeling<br>- Can encode safety rules explicitly                           | - Dependent on teacher quality<br>- Risk of propagating teacher’s biases/errors                                                             | [Constitutional AI (Anthropic, 2022)](https://arxiv.org/abs/2212.08073)                                         |
-| **RLVR** (Reinforcement Learning from Verifiable Rewards) | Objective, automatically checkable signals (math correctness, passing code tests, factual checks) | - Fully automatable, infinite data<br>- No human bias<br>- Perfectly scalable for tasks with verifiable outputs | - Limited to domains with hard checkers<br>- Binary rewards are sparse (unstable for RL)<br>- Requires careful optimization (PPO struggles) | [DeepSeek-R1, 2025](https://arxiv.org/pdf/2501.12948) |
-
-## Optimization algorithms
-
-This section provides an overview of the key optimization methods used to update a policy (the model) based on reward or preference signals. These approaches are central to RL-based post-training, enabling language models to better align with desired behaviors by effectively leveraging feedback.
-
-### PPO - Proximal Policy Optimization
-
-PPO is a widely used on-policy policy-gradient algorithm designed to train RL agents in a stable yet efficient way. It introduces a surrogate objective with a KL-style penalty (or clipping) that limits how far the new policy can deviate from the old one, preventing collapse while still allowing meaningful updates. This balance between reward maximization and stability made PPO the algorithm of choice in the original RLHF pipelines at OpenAI ([InstructGPT](https://arxiv.org/pdf/2203.02155)) and Anthropic ([HH-RLHF](https://arxiv.org/pdf/2204.05862)), and it remains one of the most influential algorithms in modern RL practice.
-
-- [Proximal Policy Optimization Algorithms, 2017](https://arxiv.org/pdf/1707.06347) by Schulman et al. (OpenAI)
-
-### DPO - Direct Policy Optimization
-
-DPO reframes RLHF as a supervised learning problem by directly optimizing on human preference pairs (preferred vs. dispreferred responses). Instead of learning an explicit reward model or running PPO training loops, DPO uses a simple objective that encourages the policy to favor preferred outputs. This makes it far easier to implement, more stable in practice, and avoids the complexity of full RL infrastructure while still capturing the benefits of preference-based alignment.
-
-DPO is not an RL algorithm (therefore also not on-policy and not a policy-gradient method). It’s essentially supervised learning with a cleverly derived loss that mimics the effect of RLHF, but without explicit RL.
-
-- [Direct Preference Optimization: Your Language Model is Secretly a Reward Model, 2023](https://arxiv.org/pdf/2305.18290) by Rafailov et al. (Stanford)
-
-### GRPO - Group-relative policy optimization
-
-Group Relative Policy Optimization (GRPO) is an efficient reinforcement learning algorithm for training large language models that improves upon Proximal Policy Optimization (PPO) by eliminating the need for a separate value network (i.e. the critic model in actor-critic algorithms). GRPO generates multiple responses to a single prompt, calculates their average reward, and then uses each response's advantage relative to this group average to update the language model's policy. This "group-based advantage estimation" stabilizes training and enhances reasoning abilities by providing a robust, memory-efficient baseline for policy updates without requiring complex value functions. A comparison of PPO and GRPO is shown below while a more detailed explanation is available [here](https://medium.com/@sulbha.jindal/proximal-policy-optimization-ppo-vs-group-relative-policy-optimization-grpo-988fa7af0241).
-
-![PPO vs. GRPO comparison from the DeepSeek paper that introduced GRPO: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*eWFPuXgPat7kWmBOBSqx4A.png)
-
-- [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models, 2024](https://arxiv.org/abs/2402.03300) by DeepSeek
-- [A Review of DeepSeek Models’ Key Innovative Techniques, 2025](https://arxiv.org/pdf/2503.11486v1)
-
-### Comparison
-
-| **Optimizer** | **Definition** | **Pros** | **Cons**  | **Seminal Paper**                                     |
-| ------------- | -------------- | -------- | -------- | ---------------- |
-| **PPO** (Proximal Policy Optimization)        | Policy gradient RL with KL-penalty to keep model close to a reference                 | - Stable relative to vanilla policy gradients<br>- Widely implemented & tested<br>- Pairs naturally with reward models   | - Requires critic/reward model<br>- Infrastructure heavy<br>- Struggles with sparse/verifiable rewards | [InstructGPT (OpenAI, 2022)](https://arxiv.org/abs/2203.02155) |
-| **DPO** (Direct Preference Optimization)      | Reformulates preference alignment as supervised learning over preference pairs        | - No reward model needed<br>- Simple, stable, easy to implement<br>- Efficient offline training                          | - Needs lots of high-quality preference pairs<br>- Less flexible than RL for long-horizon tasks        | [DPO (Stanford, 2023)](https://arxiv.org/abs/2305.18290)       |
-| **GRPO** (Group Relative Policy Optimization) | Uses group baselines among sampled outputs instead of a critic; ideal for 0/1 rewards | - Handles sparse/verifiable rewards well<br>- No critic/reward model required<br>- Scales better for math/code reasoning | - Newer, less mature<br>- Needs multiple samples per prompt (compute heavy)                            | [DeepSeekMath (2024)](https://arxiv.org/abs/2402.03300)        |
-
-
-## Notable combos
-
-Just to put all these techniques into perspective, in this section I want to highlighht a few notable combinations of reward design paradigms and optimization algorithms that frontier labs have used to train their models.
-
-### RLHF + PPO
-
-Flagship: InstructGPT (OpenAI, 2022): human preference data → reward model → PPO against a reference model. 
-[Neur IPS Proceedings](https://arxiv.org/abs/2203.02155)
-[arXiv](https://arxiv.org/abs/2203.02155)
-
-[DeepSeekMath (2024)](https://arxiv.org/abs/2402.03300) 
-
-### RLAIF (AI feedback) + PPO / preference optimization
-
-Flagship: Constitutional AI (Anthropic, 2022): AI-written critiques & revisions guided by a “constitution”; includes a supervised phase and a reinforcement phase (can be implemented with PPO-style optimization or offline preference objectives). 
-[arXiv](https://arxiv.org/abs/2212.08073)
-[Anthropic](https://arxiv.org/abs/2212.08073)
-
-### RLVR (verifiable rewards) + PPO/GRPO-style RL
-
-Trend: Reasoning-era training (math/code) where the reward is a deterministic check (e.g., correct final answer, passing unit tests). OpenAI frames o1-style training as large-scale RL with verifiable signals; community papers analyze RLVR explicitly (often with GRPO). 
-[OpenAI](https://arxiv.org/abs/2402.03300)
-
-Examples in the literature: GRPO with verifiable rewards for reasoning; analyses/theory of RLVR dynamics appear in 2025 works. 
-[arXiv](https://arxiv.org/abs/2402.03300)
-[OpenAI](https://arxiv.org/abs/2402.03300)
-
-### RLHF/RLAIF signals + DPO (no online RL loop)
-
-Flagship: DPO (Stanford et al., 2023): turns preference alignment into a simple classification-style loss; widely adopted as a drop-in alternative to PPO-based RLHF. (Also extended to other modalities like diffusion.) 
-[arXiv](https://arxiv.org/abs/2305.18290)
-
-### RLVR + GRPO
-
-Flagship use: GRPO (introduced in DeepSeekMath; later popularized in reasoning LLM training such as DeepSeek-R1): group-relative policy gradients fit naturally with 0/1 verifiable rewards. 
-[arXiv](https://arxiv.org/abs/2402.03300)
-
-### “Generalized” preference optimization (umbrella)
-
-GPO/GRPO family: Google DeepMind’s Generalized Preference Optimization unifies DPO/IPO/SLiC-style offline preference objectives; GRPO can be viewed as a complementary, RL-style optimizer that pairs well with verifiable rewards. 
-[arXiv](https://arxiv.org/abs/2402.03300)
-
-# Getting started with RL
-
-One of my motivations for working through the book was to get more exposure and practice writing PyTorch code. From what I've found so far, implementing RL algorithms is 80% engineering in Python and 20% ML (give or take). Some of the components that need to be in place for making the training of an RL algorithm work are:
-
-- Environment setup and interaction (including wrappers)
-- Experience collection
-- Replay buffer (experience storage and sampling)
-- Agent scaffolding
-- Model architecture (this is the 20% ML part)
-- Training loop (this is also part of the 20% ML part)
-- Evaluation
-- Logging
-- etc.
-
-# Conclusion
-
-
-*Keep learning!*
+After a full day of talks, demos, and AMAs I just wanted to provide a little more color and detail about Open AI’s dev day 2025. I did not exactly know what to expect from this event but it felt like Open AI’s WWDC where a ton of new products were announced and demo’ed - glued together by talks and stage conversations from OpenAI leadership. I’ll just mention the ones that left the biggest impression of me:
+
+- [Agents SDK](https://openai.github.io/openai-agents-python): To be quite frank here, my opinion of agents was that they are overrated - a solution looking for a problem. However, the new agents SDK and the accompanying web drag-and-drop UI together with powerful eval and deployment tooling is changing my mind a bit. This SDK will definitely make agents more accessible beyond the software engineering agent use-case. See the Agent Builder UI below:
+    ![Agent Builder UI](https://framerusercontent.com/images/Kfshs2OnHh8k132zZRinKo7e9mY.png?width=1200&height=696)
+- [Apps SDK](https://developers.openai.com/apps-sdk): This SDK enables apps to be directly integrated into ChatGPT’s main web (or mobile) UI. Two aspects I want to highlight here are the direct integration of apps into the ChatGPT UI, which enables a seamless experience between chat/reasoning and app-specific interaction and customizable UI elements or widgets as they OpenAI called them (such as maps). The other aspect is the power of MCP extensions that Codex and chat can take advantage of to, for example, take control of physical devices like onstage lighting, cameras, and audio systems. The Codex SDK took this even further where the Codex agent was directly integrated into a mobile fitness tracker app such that the app could “self-evolve” and be changed on-the-fly (triggered by a user prompt to add more trend plots for example)
+    - [Codex SDK](https://developers.openai.com/codex/sdk/)
+    - [Apps SDK](https://developers.openai.com/apps-sdk)
+    - [Officlal example apps](https://github.com/openai/openai-apps-sdk-examples) and [full end-to-end example](https://developers.openai.com/apps-sdk/build/examples)
+    ![Pizzaz Map](https://developers.openai.com/images/apps-sdk/pizzaz-map.png)
+- Codex everywhere - in CLI, IDE, and web. Not just for writing code but also for powerful code review capabilities. I’ve seen before how automated code review can introduce a lot of noise with overzealous commenting. Codex review, on the other hand, focuses on providing fewer but higher signal comments. These are supposedly based on Codex writing tests and scripts to “pen test” the PR under review in a sense. In a sense, Codex is writing the code while another Codex instance (with a separate context) is reviewing it. Definitely something I am excited to try out to address the code review bottleneck. Code review was shown via the Codex CLI (via \review) but also the Github web UI (see the [Code review setup guide](https://developers.openai.com/codex/cloud/code-review)).
+    ![Codex Review](https://developers.openai.com/images/codex/code-review/review-example.png)
+- Codex with Figma MCP integration and also Chrome dev-tools MCP for performance optimization. I enjoyed this demo quite a bit too for the main reason that it almost entirely automated the web-app development - from designs in Figma, to MVP implementation, to performance tuning via the Chrome dev tools MCP server. What’s more, Codex can take screenshots via Playwright to verify that the implementation stays faithful to the original design. A highly practical demonstration of agentic workflows and the reasoning and tool calling power of gpt-5-codex. The demo app “Wanderlust” - an app that proposes travel itineraries in a sleek web UI - has been recreated in this (unofficial?) [repo](https://github.com/ACHultman/wanderlust). See the photo below (borrowed from Simon Willison's [blog](https://simonwillison.net/2024/Oct/1/openai-devday-2024-live-blog/))
+    ![Wanderlust](https://static.simonwillison.net/static/2024/wanderlust.jpg)
+- [gpt-oss](https://openai.com/index/introducing-gpt-oss/): My main takeaway of this talk was the impressive possibilities of running powerful reasoning and agentic models directly on-device. Even the 120B version of the model can run on consumer hardware like a MacBook (via Ollama). This is not unique to OpenAI’s GPT gpt-oss but it was nonetheless impressive to see a demo using tool calling (including outsourcing web UI development to the more capable but cloud-based gpt-5). I’ll definitely be trying out gpt-oss for on device applications. The only thing I wish gpt-oss supported was multimodal (in particular image) inputs.
+- Last but not least, the conversation between Sam and Jony Ive was refreshing to listen to. No big product reveals but they did hint at a “product family” and that they have 15-20 promising ideas. That leaves much to speculation as to what the supposed wearable is going to be.
+
+OpenAI covered a lot of ground during the dev day and any of the topics above warrants more in-depth experimentation and discussions - stay tuned for those in follow-up blog posts.
+
+Stay curious!
 
 Daniel

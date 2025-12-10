@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Pickem">
+<meta name="dcterms.date" content="2025-12-10">
+
+<title>The Curious World of MCP Servers – Daniel Pickem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DGMKGL1EBP"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../custom-styles.css">
+<meta property="og:title" content="The Curious World of MCP Servers – Daniel Pickem">
+<meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta property="og:image" content="https://viasocket.com/blog/content/images/size/w1200/2025/04/5a28015a-b297-4639-987a-09d8f01010c2.png">
+<meta property="og:site_name" content="Daniel Pickem">
+<meta name="twitter:title" content="The Curious World of MCP Servers – Daniel Pickem">
+<meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta name="twitter:image" content="https://viasocket.com/blog/content/images/size/w1200/2025/04/5a28015a-b297-4639-987a-09d8f01010c2.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Daniel Pickem</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The Curious World of MCP Servers</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">MCP</div>
+                <div class="quarto-category">Productivity</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel Pickem </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 10, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-are-mcp-servers" id="toc-what-are-mcp-servers" class="nav-link" data-scroll-target="#what-are-mcp-servers">What Are MCP Servers?</a></li>
+  <li><a href="#the-motivating-use-case" id="toc-the-motivating-use-case" class="nav-link" data-scroll-target="#the-motivating-use-case">The Motivating Use-Case</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use-Cases</a>
+  <ul class="collapse">
+  <li><a href="#bug-triage-feature-development" id="toc-bug-triage-feature-development" class="nav-link" data-scroll-target="#bug-triage-feature-development">🐛 Bug Triage &amp; Feature Development</a>
+  <ul class="collapse">
+  <li><a href="#automating-on-call-user-requests-to-production-code" id="toc-automating-on-call-user-requests-to-production-code" class="nav-link" data-scroll-target="#automating-on-call-user-requests-to-production-code">Automating On-Call User Requests to Production Code</a></li>
+  <li><a href="#automated-gerrit-code-review" id="toc-automated-gerrit-code-review" class="nav-link" data-scroll-target="#automated-gerrit-code-review">Automated Gerrit Code Review</a></li>
+  </ul></li>
+  <li><a href="#project-management" id="toc-project-management" class="nav-link" data-scroll-target="#project-management">📋 Project Management</a>
+  <ul class="collapse">
+  <li><a href="#automated-jira-ticket-creation" id="toc-automated-jira-ticket-creation" class="nav-link" data-scroll-target="#automated-jira-ticket-creation">Automated Jira Ticket Creation</a></li>
+  <li><a href="#slack-mention-summarization" id="toc-slack-mention-summarization" class="nav-link" data-scroll-target="#slack-mention-summarization">Slack Mention Summarization</a></li>
+  <li><a href="#creating-a-new-jira-issue" id="toc-creating-a-new-jira-issue" class="nav-link" data-scroll-target="#creating-a-new-jira-issue">Creating a New JIRA Issue</a></li>
+  </ul></li>
+  <li><a href="#people-performance-management" id="toc-people-performance-management" class="nav-link" data-scroll-target="#people-performance-management">👥 People &amp; Performance Management</a>
+  <ul class="collapse">
+  <li><a href="#performance-review-data-gathering" id="toc-performance-review-data-gathering" class="nav-link" data-scroll-target="#performance-review-data-gathering">Performance Review Data Gathering</a></li>
+  <li><a href="#interview-question-generation" id="toc-interview-question-generation" class="nav-link" data-scroll-target="#interview-question-generation">Interview Question Generation</a></li>
+  <li><a href="#interview-notes-summarization" id="toc-interview-notes-summarization" class="nav-link" data-scroll-target="#interview-notes-summarization">Interview Notes Summarization</a></li>
+  </ul></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">📚 Documentation</a>
+  <ul class="collapse">
+  <li><a href="#creating-reference-documentation" id="toc-creating-reference-documentation" class="nav-link" data-scroll-target="#creating-reference-documentation">Creating Reference Documentation</a></li>
+  <li><a href="#create-onboarding-guides" id="toc-create-onboarding-guides" class="nav-link" data-scroll-target="#create-onboarding-guides">Create Onboarding Guides</a></li>
+  </ul></li>
+  <li><a href="#the-elusive-status-update" id="toc-the-elusive-status-update" class="nav-link" data-scroll-target="#the-elusive-status-update">The Elusive Status Update</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Using AI assistants for software engineering has practically become non-optional for tech workers. At NVIDIA, I routinely use AI assistants for software engineering - to the point where I have been warned about my excessive token usage. More specifically, I use Cursor in agent mode in combination with Claude 4.5 Opus on MAX mode (which according to benchmarks has the best performance for software engineering and coding tasks). But recently I unlocked another level of performance and productivity by enabling a number of MCP servers in Cursor. I’ve been somewhat skeptical of the power of MCP servers and have put off trying them out. But momentum for internal MCP servers at NVIDIA has been building for a while now, so I gave them a try.</p>
+<p>I started with a handful of servers (to focus on the most prominent use-cases and not overwhelm Cursor/Opus with too many tools):</p>
+<ul>
+<li>[<strong>Directory</strong>] A server for querying the internal employee directory</li>
+<li>[<strong>Slack</strong>] A server for sending and receiving messages from Slack (Slack is a messaging platform used at NVIDIA but also more widely used in the industry)</li>
+<li>[<strong>JIRA</strong>] A server for querying the internal JIRA instance, creating new issues, and updating issue statuses (JIRA is a project management tool used at NVIDIA)</li>
+<li>[<strong>Gerrit</strong>] A server for querying the internal Gerrit instance (Gerrit is used as a code review system in our project)</li>
+<li>[<strong>NVIDIA MCP Suite</strong>] A collection of servers for interacting with the internal knowledge bases (Google Drive, Confluence, Sharepoint, etc.). Out of these, the Google Drive server has been the most useful so far for my daily work.</li>
+</ul>
+<p>In the rest of this post I’ll use Cursor / Sonnet / Opus / LLM interchangeably to refer to the same thing - an agentic AI assistant orchestrated by Cursor that uses a large language model (LLM) with access to MCP servers.</p>
+</section>
+<section id="what-are-mcp-servers" class="level1">
+<h1>What Are MCP Servers?</h1>
+<p>Before discussing workflows that use MCP servers, it’s worth taking a step back to explain what MCP servers actually are.</p>
+<p><strong>MCP</strong> stands for <strong>Model Context Protocol</strong>. An MCP server is a service that enables foundation models to securely and dynamically interact with external tools, resources, and data sources over a standardized protocol. By operating as a kind of “middleware,” MCP servers allow models - such as those from OpenAI or Anthropic - to access live information, trigger automations, fetch files, integrate with company systems like directory or project management, and much more. This goes far beyond what a static language model can do based on its training data alone (which only contains data up to a certain cutoff date).</p>
+<p>The protocol defines a clear, secure interface for exchanging context and commands between a language model and the external world. Companies can run their own internal MCP servers to expose business-relevant APIs (e.g., HR directory, project trackers, or messaging apps) and tightly control what the AI can see and do, maintaining both utility and security. In practice, when an AI assistant has MCP server access, it can be much more proactive, useful, and up-to-date - because it can look up, summarize, or even act inside the actual tools used every day.</p>
+<p>The official standard was originally introduced by Anthropic in their <a href="https://www.anthropic.com/news/model-context-protocol">Model Context Protocol announcement</a>. It has been widely adopted by other AI companies and is now a de facto standard for foundation models interacting with external tools and data sources. A number of tutorials are available for developing MCP servers (like <a href="https://modelcontextprotocol.io/docs/getting-started/intro">this one</a>). In this post, I won’t go into the details of MCP server development. Instead we’ll use off-the-shelf MCP servers (either NVIDIA-internal or open-source) for our workflows.</p>
+</section>
+<section id="the-motivating-use-case" class="level1">
+<h1>The Motivating Use-Case</h1>
+<p>I recently took over leadership of a new project within NVIDIA’s autonomous driving project. Leading a new project requires gathering a lot of context in a short amount of time - the “getting up to speed”-phase of a project. In pre-AI days, I would have started by reading a lot of design documents, meeting notes, and code as well as listen in on status meetings and have 1:1 meetings with key stakeholders.</p>
+<p>Having access to a Slack and a directory MCP server, I tried to speed up the process the following way:</p>
+<ol type="1">
+<li>Provide the new project’s daily status notes to the LLM (or a subset thereof to avoid overwhelming the context window)</li>
+<li>Provide the Slack channel for this particular project (mostly to determine the set of people involved and to derive a mapping of people to topics / tasks)</li>
+<li>Provide the directory MCP server to look up the names and email addresses of the people and their reporting structures.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/the_motivating_use_case.png" class="img-fluid figure-img"></p>
+<figcaption>The initial use-case that motivated my deep dive into MCP servers - gathering context for a new project</figcaption>
+</figure>
+</div>
+<p>Cursor grouped all contributors on the project into thematic groups (e.g.&nbsp;leadership, model architecture, data, etc.) and provided additional context for each member of the group (location, role, expertise, most prominent contribution, etc.). Besides the high-level overview, the final HTML report also contained detailed technical contributions for each person as well as major wins and deliverables for the current week. Cursor also included some hallucinations, so don’t take everything at face value without verifying.</p>
+<p>Overall, Cursor significantly sped up all steps of creating this report:</p>
+<ul>
+<li>Gathering context from various data sources</li>
+<li>Synthesizing and structuring / grouping information</li>
+<li>Augmenting information with additional context from the directory MCP server</li>
+<li>Presenting information in a structured and easily digestible HTML report</li>
+</ul>
+</section>
+<section id="use-cases" class="level1">
+<h1>Use-Cases</h1>
+<p>This initial use-case presented another step function in my productivity at work (the first one being the use of Cursor for actual software development). MCP servers enabled a similar productivity gain for non-coding tasks (project management, personnel management, recruiting/interviewing, status updates, personal development, and so many more). I’ve gotten into a habit of thoroughly documenting these use-cases - after completing a new experiment and generating useful artifacts, I ask Cursor to update my use-case document at work. This blog post presents a cleaned up version of that use-case document without any of the sensitive details.</p>
+<section id="bug-triage-feature-development" class="level2">
+<h2 class="anchored" data-anchor-id="bug-triage-feature-development">🐛 Bug Triage &amp; Feature Development</h2>
+<section id="automating-on-call-user-requests-to-production-code" class="level3">
+<h3 class="anchored" data-anchor-id="automating-on-call-user-requests-to-production-code">Automating On-Call User Requests to Production Code</h3>
+<p>Oftentimes, on-call user requests (be it bug reports or feature requests) are fairly contained in scope and can be implemented by an AI assistant mostly autonomously. The main body of work is triaging the request, understanding the scope and impact, and creating the required documentation (e.g.&nbsp;in the form of a JIRA ticket) and artifacts for the request (code, tests, Git commit message that also links to the JIRA ticket) and then executing the request.</p>
+<p>What enabled me to automate that entire workflow was a combination of Slack and JIRA MCP servers and the following prompt:</p>
+<pre><code>Triage the issue reported in Slack thread &lt;slack-thread-id&gt; and propose 
+a solution to the issue. Before working on the fix, create a JIRA ticket 
+and a step-by-step implementation plan. Only then start implementing the 
+solution and unit test the implementation. Commit the changes to the 
+repository and create a Git commit including a message and link to the 
+newly created JIRA ticket. Follow the instructions in jira.md to create
+new JIRA tickets.
+
+The new feature should be added to code_file_x while new tests should be
+added to test_file_y.</code></pre>
+<p>Note that the more context you can provide to the LLM, the more likely it is to generate a useful solution (for example in the prompt above, I provided the code file and test file to be modified). But additional context can be as little as a starting point (i.e.&nbsp;a seed code file or directory) for the LLM to explore the codebase from.</p>
+<p>I also want to point out the reference of a <code>jira.md</code> file which is a Cursor rules file that contains the instructions for creating JIRA tickets that comply with our project-specific, internal requirements.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/on_call_workflow.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automating on-call user requests to production code</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<p>The end-to-end workflow below includes all steps from identifying a problem reported by a user in a Slack thread to implementing, testing, and deploying a solution with full project management integration.</p>
+<ol type="1">
+<li><p><strong>Problem Discovery</strong>: Ask Cursor to analyze the Slack thread, and identify the problem.</p></li>
+<li><p><strong>Code Analysis</strong>: Ask Cursor to analyze the relevant code file to understand the context (seed file plus adjacent files) and identify the problem / required feature.</p></li>
+<li><p><strong>Solution Design</strong>: Ask Cursor to propose a solution design and break it down into a series of tasks to be executed.</p></li>
+<li><p><strong>Implementation</strong>: Ask Cursor to implement the solution in the codebase and check off all tasks from the solution design. Using the newly implemented unit tests, Cursor can verify that the implementation is correct. Using the checklist, Cursor can verify that the design has been followed.</p></li>
+<li><p><strong>Git Commit &amp; Jira Integration</strong>: Use the Jira MCP server to automatically create a ticket documenting the change, then commit the code with a reference to the ticket.</p></li>
+</ol>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>This workflow works well for small, contained feature requests or bug fixes (which on-call requests often are). This is most likely not the best approach for large scale feature development or refactoring - the LLM may not have the context to understand the overall architecture and impact of the changes.</li>
+<li>The more context you can provide to the LLM, the more likely it is to generate a useful solution (pointing the LLM to a good starting point / seed file in the codebase is often sufficient).</li>
+</ul>
+</section>
+<section id="automated-gerrit-code-review" class="level3">
+<h3 class="anchored" data-anchor-id="automated-gerrit-code-review">Automated Gerrit Code Review</h3>
+<p>This use-case shows how MCP integration with a code review system (Gerrit) can provide comprehensive, structured code reviews with security and quality analysis. The MCP Gerrit integration approach is specifically useful for reviewing changes that are already on Gerrit (not in your local workspace) and analyzing CLs from other team members.</p>
+<blockquote class="blockquote">
+<p>Note: Cursor recently added a built-in code review agent (accessible via Command Palette → “Start Agent Review”) that can analyze local git diffs and uncommitted changes. The MCP Gerrit integration approach documented here is specifically useful for:</p>
+<ul>
+<li>Reviewing changes that are already on Gerrit (not in your local workspace)</li>
+<li>Analyzing CLs from other team members</li>
+<li>Fetching existing review comments and context</li>
+<li>Systematic review of multi-file changes with structured output</li>
+</ul>
+<p>Both approaches are complementary: use the built-in agent for pre-commit reviews, and MCP Gerrit integration for reviewing others’ CLs or post-commit analysis.</p>
+</blockquote>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Manual code review requires opening Gerrit UI, reading diffs, understanding context</li>
+<li>Easy to miss security issues (e.g.&nbsp;hardcoded secrets)</li>
+<li>Time-consuming to analyze large CLs with multiple files</li>
+<li>Need to provide actionable, structured feedback</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/code_review_workflow.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated Gerrit code review</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Data Gathering</strong>: Given a code review URL, the MCP Gerrit integration fetches the file list, existing review comments, and full diffs for all modified files.</p></li>
+<li><p><strong>Security Analysis</strong>: The AI scans for security issues like hardcoded secrets.</p></li>
+<li><p><strong>Code Quality Analysis</strong>: The review identifies patterns like reinventing existing utilities, error-prone code construction, and test organization issues. It also provides specific recommendations with code examples.</p></li>
+<li><p><strong>Positive Feedback</strong>: The review acknowledges good practices - comprehensive test coverage, well-structured code, thorough documentation, and proper integration patterns.</p></li>
+<li><p><strong>Structured Output</strong>: The final review follows a consistent format: Critical issues → Quality issues → Positive aspects → Suggestions → Checklist for the author.</p></li>
+</ol>
+<p><strong>Key insights</strong>:</p>
+<ul>
+<li>Understanding <em>why</em> code exists is crucial. What appears as a security mistake may be a deliberate temporary workaround discussed with infrastructure teams. The AI helps surface issues, but human judgment is still needed for prioritization and context.</li>
+<li>Context from existing comments valuable: If somebody has already commented on the code, it is valuable to include that context in the review. A human reviewer could leave high-level comments that provide crucial context while the LLM can do a more detailed analysis of the code.</li>
+<li>This workflow may need multiple passes for very large CLs (&gt;100 files) given the context window limitations of the LLM.</li>
+<li>The LLM has limited understanding of business logic without broader context (i.e.&nbsp;without access to the broader system architecture, product requirements, etc.).</li>
+<li>Reviewing code is a task that requires a lot more context than writing code. Previous design decisions, code architecture, context from conversations with other engineers, product managers, etc. are all crucial for a comprehensive review. Such comprehensive context is non-trivial to provide to the LLM, which is why code reviews are still mostly done manually. Just in recent months, I’ve seen a number of tools that aim to automate code reviews more (e.g.&nbsp;via <a href="https://chatgpt.com/features/codex">OpenAI’s Codex</a> or <a href="https://cursor.com/docs/cli/cookbook/code-review">Cursor’s built in code review capabilities</a>).</li>
+</ul>
+<p><strong>Future Enhancements:</strong></p>
+<p>A number of improvements are possible to make this workflow more robust and effective - most of them related to context engineering, i.e.&nbsp;how to provide the LLM with enough context to perform the review well.</p>
+<ul>
+<li>Integrate with static analysis tools (linters, security scanners)</li>
+<li>Build knowledge base of common patterns/anti-patterns</li>
+<li>Add automatic severity classification</li>
+<li>Link to coding standards documentation</li>
+<li>Generate metrics (review time, issues found, etc.)</li>
+<li>Cross-reference with Slack/Jira to understand context behind decisions (e.g., why temporary workarounds exist) - ideally this would be documented by engineers via in-line comments/links in the code that can be dereferenced via Slack or Jira MCP servers. That way, the LLM can get the context it needs to understand the code and the decisions made by the engineers.</li>
+<li>Surface related team discussions when security patterns are detected</li>
+</ul>
+</section>
+</section>
+<section id="project-management" class="level2">
+<h2 class="anchored" data-anchor-id="project-management">📋 Project Management</h2>
+<section id="automated-jira-ticket-creation" class="level3">
+<h3 class="anchored" data-anchor-id="automated-jira-ticket-creation">Automated Jira Ticket Creation</h3>
+<p>This use-case establishes an automated Jira ticket creation workflow via MCP with proper attribution and best practices. For this workflow, I am using the open-source <a href="https://github.com/sooperset/mcp-atlassian">Atlassian MCP server</a> which provides an MCP server for Atlassian products such as Jira and Confluence.</p>
+<p>Note that this workflow requires write permissions to the Jira instance - use this workflow with caution to avoid creating tickets in the wrong project, with the wrong assignee, or creating large numbers of tickets and spamming the Jira instance.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/jira_creation_workflow.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated Jira ticket creation</figcaption>
+</figure>
+</div>
+<p><strong>Best practices established:</strong></p>
+<ol type="1">
+<li>Always add “Ticket created by AI assistant” to descriptions for traceability - we want these auto-generated tickets to be clearly identifiable as such.</li>
+<li>Keep initial descriptions brief; add details via comments after creation</li>
+<li>Use a two-step process: create ticket with minimal info, then add detailed comments</li>
+<li>Test with a dummy ticket first to verify write access</li>
+</ol>
+<p>This two-step ticket creation process (ticket first, then details in the comment) was my first stab at automating this (and done to avoid timeouts with the JIRA MCP server). However, from what I have seen, it is more common to add all details to the ticket in a single description (which in my opinion provides a better one-stop-shop overview for what the ticket is about).</p>
+<p><strong>Key learnings:</strong></p>
+<ul>
+<li>Brief description + detailed comment is more reliable than a single long description (a single long description has led to API timeouts in the past)</li>
+<li>Clearly identifying auto-generated tickets as such is crucial for traceability and accountability.</li>
+</ul>
+</section>
+<section id="slack-mention-summarization" class="level3">
+<h3 class="anchored" data-anchor-id="slack-mention-summarization">Slack Mention Summarization</h3>
+<p>This use-case automates searching and prioritizing Slack messages in which you’ve been tagged, categorizing them by urgency and action required.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/slack_summarization.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for Slack mention summarization</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Search for Mentions</strong>: Use MCP Slack integration to search for messages mentioning your user ID across all accessible channels.</p></li>
+<li><p><strong>Categorization</strong>: Messages are automatically categorized into three priority levels:</p>
+<ul>
+<li>🔴 <strong>Action Required</strong>: Direct questions, review requests, blockers, handoff requests</li>
+<li>🟡 <strong>Review/FYI</strong>: Deployments to review, meeting prep, awareness items</li>
+<li>🟢 <strong>Informational</strong>: Cross-posts, announcements, confirmations</li>
+</ul></li>
+<li><p><strong>Time Filtering</strong>: Filter by recency—last 2 days for daily review, last week for weekly catchup, or custom date ranges.</p></li>
+<li><p><strong>Structured Output</strong>: Generate a summary with action items at the top, tables for lower-priority items, and a final prioritized checklist.</p></li>
+</ol>
+<p><strong>Categorization rules:</strong></p>
+<ul>
+<li>MR/CL review requests → Action Required</li>
+<li>Direct questions to you → Action Required</li>
+<li>Handoff/takeover requests → Action Required</li>
+<li>Staging deployments for review → Review</li>
+<li>Cross-posts of announcements → Informational</li>
+<li>Acknowledgments/thanks → Informational</li>
+</ul>
+<p>The set of rules is work-in-progress and being updated as I (or Cursor) discover new patterns and categories of messages.</p>
+<section id="variations-of-this-workflow" class="level4">
+<h4 class="anchored" data-anchor-id="variations-of-this-workflow">Variations of This Workflow</h4>
+<p>There is a number of variations and extensions of this basic Slack workflow I use. Especially when I am juggling a large number of concurrent threads and conversations or when I have been out of office for a few days, being able to answer the following questions programmatically has been a huge time saver:</p>
+<ul>
+<li>Which conversations was I part of today? What’s the summary of my Slack activity today?</li>
+<li>What do I need to follow up on in Slack tomorrow?</li>
+<li>What did I miss on Slack when I was out yesterday?</li>
+<li>Which channels, threads was I active in yesterday?</li>
+<li>Which projects did I push yesterday?</li>
+<li>Which open questions did I follow up on yesterday?</li>
+<li>What has person X been working on today / yesterday / over the last (N) days / weeks?</li>
+</ul>
+<p>Given the public nature of Slack, it is easy to imagine that this workflow could be used to track the activity of other engineers in the organization (which is what the last question above demonstrates). This is perhaps the most questionable use-case of this workflow. Not everybody is comfortable with the idea of being tracked like this - especially since Slack provides just a partial picture of a person’s daily work and is bound to skew the picture towards more publicly visible activities.</p>
+<p><strong>Future Enhancements:</strong></p>
+<ul>
+<li>Combining Slack with other MCP servers like JIRA could enable powerful bots that, for example, send a daily digest of tasks I should complete or identify open questions I should follow up on. This could be a powerful tool for a manager to delegate tasks (assuming engineers and PMs are diligent in filing JIRA tickets - which is far from guaranteed).</li>
+<li>Similarly, based on Slack activity alone, this workflow could be used to send yourself a daily digest of tasks to complete (by also providing write permissions to the Slack MCP server).</li>
+<li>Ideally, this workflow could be extended to other communication channels like email and most notably meetings (Teams, Zoom, Webex, etc.). Given the availability of AI-powered transcription tools, it should be possible to transcribe meetings and then use the same workflow to summarize the meeting notes (and pick out any mentions or questions that need to be followed up on).</li>
+</ul>
+</section>
+</section>
+<section id="creating-a-new-jira-issue" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-new-jira-issue">Creating a New JIRA Issue</h3>
+</section>
+</section>
+<section id="people-performance-management" class="level2">
+<h2 class="anchored" data-anchor-id="people-performance-management">👥 People &amp; Performance Management</h2>
+<section id="performance-review-data-gathering" class="level3">
+<h3 class="anchored" data-anchor-id="performance-review-data-gathering">Performance Review Data Gathering</h3>
+<p>This use-case demonstrates automated collection and analysis of employee contributions from Slack to support performance reviews and promotion decisions. I have used this to gather material for my own self-evaluation for the annual performance review (in addition to scouring my daily work logs, Gerrit code contributions, etc.).</p>
+<p><strong>The challenge:</strong></p>
+<ul>
+<li>Manual review of months of Slack activity across dozens of channels is extremely time-intensive</li>
+<li>Need to identify specific examples demonstrating key competencies</li>
+<li>Must synthesize scattered information into a coherent narrative</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/performance_review_data.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for performance review data gathering</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Data Collection</strong>: Use MCP Slack integration to search for an engineer’s messages over a review period (e.g., 2 months), filtering by user ID and date range.</p></li>
+<li><p><strong>Evidence Gathering</strong>: The AI extracts threads showing collaboration, technical discussions, incident response ownership, and cross-team coordination.</p></li>
+<li><p><strong>Competency Mapping</strong>: Contributions are grouped and mapped to competency areas like technical depth, ownership, collaboration, and communication.</p></li>
+<li><p><strong>Report Generation</strong>: Generate a structured report with executive summary, major achievements, competency assessment, areas for improvement, and supporting links (documents, Slack threads, tickets).</p></li>
+</ol>
+<p><strong>Quality improvements:</strong></p>
+<ul>
+<li>Comprehensive coverage (hundreds of messages analyzed)</li>
+<li>No recency bias (equal weight to entire review period)</li>
+<li>Specific evidence cited with quotes, links, and dates</li>
+<li>Consistent competency framework application</li>
+</ul>
+<p>The same considerations discussed in the <a href="#slack-mention-summarization">Slack mention summarization workflow</a> apply here — specifically, that not everybody is comfortable with the idea of being tracked / evaluated like this. When in doubt, ask for explicit consent from the affected person before using this workflow. For example, I only use this workflow to analyze my own accomplishments or others with explicit consent, focusing solely on work-relevant channels and professional contributions.</p>
+</section>
+<section id="interview-question-generation" class="level3">
+<h3 class="anchored" data-anchor-id="interview-question-generation">Interview Question Generation</h3>
+<p>This use-case automates the creation of tailored interview questions from candidate resume data, generating structured multi-part questions with natural bridges to your team’s work.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/interview_question_generation.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated interview question generation</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Resume Analysis</strong>: Provide a candidate’s relevant resume section(s). The AI identifies key accomplishments, especially quantified ones (percentages, scale numbers, cost savings, cross-team impact).</p></li>
+<li><p><strong>Question Generation</strong>: For each major accomplishment, generate a multi-part question with:</p>
+<ul>
+<li>Context acknowledgment (show you read their resume)</li>
+<li>Technical decision probing (“How did you design…”)</li>
+<li>Process/collaboration questions (“What was your process for…”)</li>
+<li>Scale/impact questions (“What were the key challenges in scaling…”)</li>
+</ul></li>
+<li><p><strong>Bridge Section</strong>: Each question includes a “bridge” that naturally transitions to your team’s context, helping assess adaptability and fit.</p></li>
+</ol>
+<p>Below is a full example I generated based on my own resume, in particular my work at NVIDIA. This example assumes that I am applying for the “Senior Software Engineer, Metrics and Evaluation - Autonomous Vehicles” position (unfortunately the detailed role description is no longer available online). Below is a snippet from my resume that we’ll base the questions on.</p>
+<section id="nvidia-staff-software-engineer-tech-lead" class="level4">
+<h4 class="anchored" data-anchor-id="nvidia-staff-software-engineer-tech-lead">NVIDIA — Staff Software Engineer / Tech Lead</h4>
+<p>📍 Santa Clara, California, USA | 📅 April 2024 – Present</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Accomplishments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Evaluation Systems</strong></td>
+<td>Lead the design and implementation of evaluation system for NVIDIA’s end-to-end planning stack for autonomous vehicles</td>
+</tr>
+<tr class="even">
+<td><strong>Data Products</strong></td>
+<td>Build compelling data-driven evaluation products by combining on-road driving analysis, large scale simulation, models, metrics, and dashboards (used by 250+ daily active users)</td>
+</tr>
+<tr class="odd">
+<td><strong>ML/AI Models</strong></td>
+<td>Contribute to development of novel VLA models for autonomous driving (based on NVIDIA’s Alpamayo-R1)</td>
+</tr>
+<tr class="even">
+<td><strong>Foundation Models</strong></td>
+<td>Incorporate latest foundation models (VLMs, LLMs) into evaluation workflows (e.g.&nbsp;LLM-as-judge)</td>
+</tr>
+<tr class="odd">
+<td><strong>Infrastructure</strong></td>
+<td>Design and implement large-scale distributed data and evaluation pipelines, data formats, and data storage backends</td>
+</tr>
+</tbody>
+</table>
+<p>The questions below have been generated by Cursor without any further manual input or context engineering.</p>
+</section>
+<section id="question-a-evaluation-system-architecture-scale" class="level4">
+<h4 class="anchored" data-anchor-id="question-a-evaluation-system-architecture-scale">Question A: Evaluation System Architecture &amp; Scale</h4>
+<blockquote class="blockquote">
+<p>“In your current role at NVIDIA, you’re leading the design and implementation of an evaluation system for the end-to-end planning stack, with data-driven products used by 250+ daily active users. Can you walk us through:</p>
+<ol type="1">
+<li><p><strong>System architecture decisions</strong> - What were the key architectural choices you made when designing the evaluation system? How did you structure it to serve both real-time on-road driving analysis and large-scale simulation results? What tradeoffs did you navigate between flexibility and standardization?</p></li>
+<li><p><strong>User adoption strategy</strong> - With 250+ daily active users relying on your dashboards and products, how did you approach the product design to ensure adoption? What feedback mechanisms did you implement, and how did you balance the needs of different user personas (engineers, leadership, domain experts)?</p></li>
+<li><p><strong>Data pipeline scalability</strong> - You mention large-scale distributed data pipelines and storage backends. What were the most significant scaling challenges you faced, and how did you design the data formats and storage architecture to handle the volume and variety of evaluation data?”</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="bridge-to-team-context" class="level4">
+<h4 class="anchored" data-anchor-id="bridge-to-team-context">Bridge to Team Context</h4>
+<p>“We’re building evaluation infrastructure that needs to serve multiple teams with different analytical needs while maintaining consistency in how we measure autonomous vehicle performance. How do you think about creating evaluation primitives that are both reusable and expressive enough to capture domain-specific nuances?”</p>
+<p><strong>Why this bridge matters:</strong></p>
+<ul>
+<li>Explores their ability to balance standardization with flexibility</li>
+<li>Reveals their philosophy on evaluation system design</li>
+<li>Opens discussion on our specific evaluation challenges</li>
+</ul>
+</section>
+<section id="question-b-foundation-models-in-evaluation-llm-as-judge" class="level4">
+<h4 class="anchored" data-anchor-id="question-b-foundation-models-in-evaluation-llm-as-judge">Question B: Foundation Models in Evaluation (LLM-as-Judge)</h4>
+<blockquote class="blockquote">
+<p>“You’re incorporating foundation models—VLMs and LLMs—into evaluation workflows, including ‘LLM-as-judge’ approaches. This is a rapidly evolving area. Can you tell us about:</p>
+<ol type="1">
+<li><p><strong>Use case selection</strong> - What specific evaluation problems are you solving with LLM-as-judge that traditional metrics couldn’t address? How did you identify where foundation models add value versus where deterministic metrics are more appropriate?</p></li>
+<li><p><strong>Validation and calibration</strong> - How do you validate that your LLM-based evaluations are reliable and consistent? What’s your approach to handling hallucinations, prompt sensitivity, and ensuring reproducibility across model versions?</p></li>
+<li><p><strong>Integration architecture</strong> - How did you design the integration of these foundation models into your existing evaluation pipelines? What were the key considerations around latency, cost, and failure modes when running LLM evaluations at scale?”</p></li>
+</ol>
+</blockquote>
+</section>
+<section id="bridge-to-team-context-1" class="level4">
+<h4 class="anchored" data-anchor-id="bridge-to-team-context-1">Bridge to Team Context</h4>
+<p>“We’re exploring similar applications of foundation models for evaluation—particularly for assessing planning quality in complex scenarios that are hard to capture with traditional metrics. What principles would you apply when deciding whether a given evaluation task is a good fit for LLM-based assessment versus traditional approaches?”</p>
+<p><strong>Why this bridge matters:</strong></p>
+<ul>
+<li>Assesses their judgment on when to apply emerging techniques</li>
+<li>Reveals depth of hands-on experience with LLM evaluation pitfalls</li>
+<li>Connects to our active exploration in this space</li>
+</ul>
+</section>
+<section id="key-areas-to-probe-based-on-resume" class="level4">
+<h4 class="anchored" data-anchor-id="key-areas-to-probe-based-on-resume">Key Areas to Probe Based on Resume</h4>
+<ul>
+<li><strong>7+ years</strong> of AV experience across two major programs (Apple, NVIDIA)</li>
+<li><strong>Progression</strong> from IC to Tech Lead role</li>
+<li><strong>Unique combination</strong> of ML engineering + evaluation expertise</li>
+<li><strong>Experience</strong> with both traditional and foundation-model-based evaluation</li>
+</ul>
+</section>
+<section id="potential-red-flags-to-watch-for" class="level4">
+<h4 class="anchored" data-anchor-id="potential-red-flags-to-watch-for">Potential Red Flags to Watch For</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Signal</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vague answers about “novel” or “leading” claims</td>
+<td>Probe for specifics to verify depth</td>
+</tr>
+<tr class="even">
+<td>Unable to articulate sim-to-real validation approaches</td>
+<td>Core competency for evaluation role</td>
+</tr>
+<tr class="odd">
+<td>Lack of depth on LLM-as-judge failure modes</td>
+<td>Current focus area requires hands-on experience</td>
+</tr>
+<tr class="even">
+<td>Difficulty explaining technical concepts to non-technical stakeholders</td>
+<td>Essential for senior role</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="strong-signals-to-look-for" class="level4">
+<h4 class="anchored" data-anchor-id="strong-signals-to-look-for">Strong Signals to Look For</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Signal</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Concrete metrics on evaluation system usage and impact</td>
+<td>Evidence of real-world influence</td>
+</tr>
+<tr class="even">
+<td>Nuanced understanding of when ML evaluation is appropriate vs.&nbsp;overkill</td>
+<td>Shows judgment and maturity</td>
+</tr>
+<tr class="odd">
+<td>Clear mental models for scenario coverage and validation</td>
+<td>Fundamental evaluation competency</td>
+</tr>
+<tr class="even">
+<td>Evidence of influencing team/org direction through evaluation insights</td>
+<td>Leadership indicator</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>The generated questions are fairly comprehensive and cover a lot of ground. These questions are meant to be introductory and not occupy the majority of the interview time. Instead of going through them in detail, use them more as a buffet of topics to choose from.</li>
+<li>The resume analysis step can focus on different aspects that are important to a given role (e.g.&nbsp;extract quantifiable accomplishments - percentages, scale numbers, cost savings, cross-team impact, etc.). Modify the prompt accordingly.</li>
+<li>The question design starts with context to set up the question and uses a 3-part structure to enable a natural progression from architecture -&gt; process -&gt; scale.</li>
+<li>The questions focus on the “how” and “why” not just the “what” to probe for the candidates understanding of how their work fits into the broader context of the team and the company. This is becoming increasingly important for senior roles.</li>
+<li>I’ve found a few effective patterns in my questions that elicit specific narratives from the candidate:
+<ul>
+<li>“Can you walk us through…” (invites narrative)</li>
+<li>“How did you define and measure…” (probes rigor)</li>
+<li>“What was your process for balancing…” (reveals tradeoff thinking)</li>
+<li>“What were the key challenges in…” (surfaces problem-solving)</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="interview-notes-summarization" class="level3">
+<h3 class="anchored" data-anchor-id="interview-notes-summarization">Interview Notes Summarization</h3>
+<p>I have been interviewing an increasing number of candidates recently (up to 3 a week) and while the preparation time for each interview is sub-linear (given that I can reuse a question I am well-calibrated on), the interview post-processing time scales linearly with the number of candidates. As such, I have been experimenting with structuring my interview notes in a way that makes them more easily digestible by an LLM. This use-case automates the analysis of interview notes to generate structured candidate evaluations with rubric-based scoring.</p>
+<p>I do want to point out that I view the LLM-generated evaluations as a starting point for my own evaluation. While I am more willing to trust code generated by LLMs (because it can be easily verified via tests), automated evaluations of candidates are not as trustworthy (for a number of reasons, e.g.&nbsp;because written notes miss non-verbal cues and context about a candidate’s performance) and need to be verified and put into context by the interviewer. In that sense, I use an LLM-assisted summarization approach rather than a fully hands-off one.</p>
+<p>To simplify the process of summarizing interview notes, I recently started using tags in my notes to provide additional non-textual context to the LLM. I found that oftentimes, the LLM would give the candidate a glowing review based on my notes because I did not capture enough context about the conversation.</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Raw interview notes are often unstructured and chronological rather than thematic</li>
+<li>Extracting signal from interviewer tags ([CQ], [CS], [Q]) requires careful interpretation (e.g.&nbsp;[CQ] is not always a negative signal, more on the exact meaning of these tags in the next section)</li>
+<li>Synthesizing technical depth, communication quality, and domain knowledge into actionable verdicts is time-consuming</li>
+<li>Need consistent scoring framework across candidates and interviewers</li>
+</ul>
+<p>In particular, I introduced the following tags into my notes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 25%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Meaning</th>
+<th>Impact on Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[INTERVIEWER]</code></td>
+<td>Prompt/question</td>
+<td>Neutral - sets context</td>
+</tr>
+<tr class="even">
+<td><code>[Q]</code></td>
+<td>Follow-up question from the candidate</td>
+<td>Neutral - natural flow</td>
+</tr>
+<tr class="odd">
+<td><code>[CQ]</code></td>
+<td>Clarifying question asked by interviewer</td>
+<td>Slightly negative if excessive - candidate should have been clearer</td>
+</tr>
+<tr class="even">
+<td><code>[CS]</code></td>
+<td>Clarifying statement explaining concept by the interviewer</td>
+<td>Negative - gap in expected knowledge</td>
+</tr>
+</tbody>
+</table>
+<p>I expect the set of tags to evolve over time as I gain more experience with this particular process and as I find new ways to structure my notes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/interview_notes_summarization.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated interview notes summarization</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Input</strong>: Interview notes with tags marking interviewer prompts, candidate responses, and areas requiring clarification.</p></li>
+<li><p><strong>Analysis</strong>: The AI extracts positive signals (structured thinking, proactive clarification, domain expertise) and negative signals (concepts requiring explanation, confusion on fundamentals).</p></li>
+<li><p><strong>Scoring</strong>: Generate scores across multiple axes (Problem Solving, Domain Knowledge, Communication, Fit) with justification for each score.</p></li>
+<li><p><strong>Output</strong>: Structured summary with verdict, rubric scores, strengths, concerns, and clear hire/no-hire recommendation.</p></li>
+</ol>
+<p><strong>Scoring guidelines I use:</strong></p>
+<ul>
+<li>5/5: Exceptional, beyond expectations, strong hire signal</li>
+<li>4/5: Strong performance, meets senior bar</li>
+<li>3/5: Adequate, meets expectations</li>
+<li>2/5: Below expectations, concerns identified</li>
+<li>1/5: Significant gaps, strong no-hire signal</li>
+</ul>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>An LLM-assisted summarization approach offers a number of advantages over a purely manual approach:
+<ul>
+<li>Consistency: Same rubric applied systematically across all notes (and candidates)</li>
+<li>Completeness: No signal lost from lengthy notes</li>
+<li>Objectivity: Tag-based analysis reduces interpretation bias</li>
+<li>Actionable: Clear verdict with supporting evidence</li>
+<li>Structured: Easy to compare across candidates</li>
+</ul></li>
+<li>This tag-based approach also forces some structure onto me as the interviewer to ensure that I capture all the relevant context about the conversation.</li>
+<li>Tags provide a clearer way of identifying where the candidate struggled or excelled and enable effective analysis patterns:
+<ul>
+<li>Tag frequency analysis reveals candidate clarity ([CQ] count)</li>
+<li>[CS] tags indicate knowledge gaps to probe in follow-ups</li>
+<li>Candidate questions to interviewer show curiosity and engagement</li>
+</ul></li>
+<li>Summaries are generated with a few guidelines in mind:
+<ul>
+<li>Start with verdict (busy readers need bottom line first)</li>
+<li>Score all applicable rubric axes with justification</li>
+<li>Cite specific examples from notes for each assessment</li>
+<li>Balance strengths and concerns</li>
+<li>Note any axes not tested in this interview format</li>
+</ul></li>
+<li>The hire/no-hire (or rather proceed/don’t proceed) recommendation explicitly has to come from the interviewer and not the LLM.</li>
+</ul>
+<p><strong>Future Enhancements:</strong></p>
+<ul>
+<li>Combine with Interview Question Generation for full interview loop</li>
+<li>Track rubric scores over time for interview calibration</li>
+<li>Provide the LLM with the job description for additional context.</li>
+</ul>
+</section>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">📚 Documentation</h2>
+<section id="creating-reference-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="creating-reference-documentation">Creating Reference Documentation</h3>
+<p>This use-case demonstrates creating comprehensive, reusable reference documentation for complex workflows. What we aim for here is to build a living knowledge base - the very documentation that enabled many of the other use-cases in this post.</p>
+<p><strong>The problem:</strong></p>
+<p>Oftentimes, you figure out a clever workflow, use it successfully once, and then six months later you’re staring at a blank screen trying to remember how you did it. The solution is obviously documentation, but documentation takes time — time that you don’t always have in the thick of deliverables and deadlines. Documentation, however, becomes increasingly important not just as a record for yourself but as a reference for others to learn from. This reuse and sharing of knowledge builds an institutional knowledge base that is invaluable for the organization.</p>
+<p>The barrier to creating such documentation can be the lack of standardized approaches and platforms. Some documentation lives in Confluence, some in Google Docs, some in JIRA, some in Slack, etc. Besides just generating documentation, this workflow also aims at standardizing the generated documentation as Markdown or HTML files and storing them in plain Github repos. Documents stored in a Git repo are clearly not as interactively modifiable as Confluence or Google Docs, but they can be manipulated much more easily via LLMs (which makes them “almost” as modifiable as Google Docs).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/reference_documentation.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated reference documentation creation</figcaption>
+</figure>
+</div>
+<p><strong>The virtuous cycle:</strong></p>
+<p>After completing a new experiment or workflow with MCP servers, I ask the AI assistant to update my internal reference document. The key insight is that <em>the AI assistant that just helped you complete a task has all the context needed to document it</em>:</p>
+<ol type="1">
+<li><strong>Capture immediately</strong>: Document right after completion while the conversation history contains everything</li>
+<li><strong>Structure consistently</strong>: Problem statement, solution approach, example prompts, results, and lessons learned</li>
+<li><strong>Generalize</strong>: Strip out commit hashes, specific ticket numbers, and names — make it a reusable template</li>
+<li><strong>Organize for discovery</strong>: Group by theme, add a table of contents, and cross-link related use-cases</li>
+</ol>
+<p><strong>Example prompt:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Add this workflow to my MCP use-cases document. Include the problem </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>we solved, the approach we took, a generalized version of the prompt </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>I can reuse, and any lessons learned. Follow the existing document </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>structure and formatting.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Example artifacts:</strong></p>
+<ul>
+<li>A Jira workflow reference with MCP commands, common JQL patterns, and troubleshooting tips</li>
+<li>This use-cases document itself (the internal version that this blog post is based on)</li>
+<li>Reusable templates for ticket creation, code review workflows, and status report generation</li>
+</ul>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li><strong>Make templates generic</strong>: Replace specific values with placeholders like <code>&lt;ticket-id&gt;</code> or <code>&lt;project-name&gt;</code></li>
+<li><strong>Include the prompts</strong>: The exact wording that worked is often more valuable than the explanation</li>
+<li><strong>Document failure modes</strong>: What didn’t work is as useful as what did</li>
+<li><strong>Attribute AI involvement</strong>: Keep notes like “Ticket created by AI assistant” visible for transparency</li>
+</ul>
+</section>
+<section id="create-onboarding-guides" class="level3">
+<h3 class="anchored" data-anchor-id="create-onboarding-guides">Create Onboarding Guides</h3>
+<p>This use-case shows how to use Google Drive and Slack MCP integration to fetch existing documentation, messages, and links from scattered sources and synthesize comprehensive onboarding guides.</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Onboarding information is typically scattered across Google Docs, Confluence, wikis, and tribal knowledge</li>
+<li>Manual consolidation is time-consuming and error-prone</li>
+<li>Documents frequently become outdated without anyone noticing</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../posts/2025_11_20_the_curious_world_of_mcp_servers/onboarding_guide.png" class="img-fluid figure-img"></p>
+<figcaption>The end-to-end workflow for automated onboarding guide creation</figcaption>
+</figure>
+</div>
+<p><strong>The workflow:</strong></p>
+<ol type="1">
+<li><p><strong>Fetch Source Documents</strong>: Use MCP Google Drive integration to retrieve full document content from multiple sources. The integration preserves headings, lists, and code blocks. Optionally augment this with Slack messages from the relevant channels (and the links contained therein)</p></li>
+<li><p><strong>Identify Gaps</strong>: Cross-reference multiple documents to find inconsistencies or missing information.</p></li>
+<li><p><strong>Synthesize</strong>: Combine information from multiple sources into a single, well-structured guide with consistent formatting.</p></li>
+<li><p><strong>Add Troubleshooting</strong>: Aggregate troubleshooting tips from scattered sources (such as Slack threads that discuss common issues) into a dedicated section.</p></li>
+</ol>
+<p><strong>Quality improvements:</strong></p>
+<ul>
+<li>Consistent structure and formatting across all content</li>
+<li>Cross-referenced information validated for accuracy</li>
+<li>Comprehensive troubleshooting compiled from multiple sources</li>
+<li>Single source of truth that’s easier to maintain</li>
+</ul>
+<p><strong>Key insights</strong></p>
+<ul>
+<li>Always verify that document links exist and are accessible before including them—some internal pages may be restricted or have been removed.</li>
+<li>Verify all information synthesized by the LLM to avoid hallucinations (this includes links added to the document, Slack handles, any reference, etc.)</li>
+</ul>
+</section>
+</section>
+<section id="the-elusive-status-update" class="level2">
+<h2 class="anchored" data-anchor-id="the-elusive-status-update">The Elusive Status Update</h2>
+<p>One use-case I haven’t managed to automate with Cursor and MCP servers is the surprisingly involved use-case of providing status updates to various stakeholders. Collecting all the required context from a variety of different sources is as much work as the actual writing of the status update itself. This, however, is more a limitation of my note-taking than a limitation of Cursor and MCP servers. Currently, I mostly use the MacOS / iOS Notes app for this purpose, which does not integrate well with Cursor. To facilitate the integration with Cursor, I’ll try out the following:</p>
+<ul>
+<li>[<strong>Markdown</strong>] Move to a Markdown-based note-taking app like Obsidian or Notion</li>
+<li>[<strong>Structured notes</strong>] Currently, I create a new note every day. Instead, I will move to a more topic-based note-taking approach such that each project / line of work has its own note. That should enable Cursor to more easily extract the relevant context for a given topic and summarize it.</li>
+<li>[<strong>Tags</strong>] I already use tags quite heavily in my notes but mostly to simplify manual lookups. I expect tags to enable Cursor to more easily cross-reference notes.</li>
+<li>[<strong>Links</strong>] Context is often provided in various documents and Slack threads whose context is not directly imported into my notes. All these data sources should be easily available via MCP servers. One risk here is that too much context can quickly saturate the context window of the LLM (which for Opus is 200k tokens). So I’ll need to be careful with the amount of context I include in each note.</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Even more so than just pure agentic coding assistants, MCP servers are unlocking new levels of productivity and automation for not purely coding-related tasks. Context gathering, data synthesis, report generation, people management, and so many more can be sped up to the point where non-coding tasks enjoy similar productivity gains as coding tasks. That observation is broadly in line with the findings in this <a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic">Anthropic research report</a> on how AI is transforming work at Anthropic. The flip-side of the coin is something that Anthropic engineers pointed out in that report:</p>
+<blockquote class="blockquote">
+<p>“…but some employees are also concerned, paradoxically, about the atrophy of deeper skillsets required for both writing and critiquing code—‘When producing output is so easy and fast, it gets harder and harder to actually take the time to learn something.’”</p>
+</blockquote>
+<p>I think this concern extends to all other cognitive tasks where a user now mostly verifies the output of an AI assistant rather than writing reports themselves. This transition from active participation / doing the task to passive consumption and verification reduces both the cognitive load but also the depth of understanding and learning.</p>
+<p>It will require discipline on the part of the user to use these powerful tools as assistants to augment our own skills and facilitate learning rather than replacing and outsourcing our cognitive capabilities and side-stepping our learning process altogether.</p>
+<p>Personally, I view all these AI tools as a way to filter, summarize, and present the most high-value information to me to speed up the process of digesting, absorbing, and learning new information. This is all in the hopes of being able to keep up with the rapid pace of information explosion in today’s world and overcoming the mostly linear data absorption abilities of our own minds. But more on the limits of human data absorption in another post.</p>
+<p>In the meantime, keep learning!</p>
+<p>Daniel</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/dpickem\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Daniel Pickem, 2025 - <a href="disclaimer">Disclaimer</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

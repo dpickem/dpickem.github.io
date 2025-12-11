@@ -43,7 +43,7 @@ Having access to a Slack and a directory MCP server, I tried to speed up the pro
 2. Provide the Slack channel for this particular project (mostly to determine the set of people involved and to derive a mapping of people to topics / tasks)
 3. Provide the directory MCP server to look up the names and email addresses of the people and their reporting structures.
 
-![The initial use-case that motivated my deep dive into MCP servers - gathering context for a new project](/posts/2025_11_20_the_curious_world_of_mcp_servers/the_motivating_use_case.png)
+![The initial use-case that motivated my deep dive into MCP servers - gathering context for a new project](/posts/2025_12_10_the_curious_world_of_mcp_servers/the_motivating_use_case.png)
 
 Cursor grouped all contributors on the project into thematic groups (e.g. leadership, model architecture, data, etc.) and provided additional context for each member of the group (location, role, expertise, most prominent contribution, etc.). Besides the high-level overview, the final HTML report also contained detailed technical contributions for each person as well as major wins and deliverables for the current week. Cursor also included some hallucinations, so don't take everything at face value without verifying.
 
@@ -83,7 +83,7 @@ Note that the more context you can provide to the LLM, the more likely it is to 
 
 I also want to point out the reference of a ```jira.md``` file which is a Cursor rules file that contains the instructions for creating JIRA tickets that comply with our project-specific, internal requirements.
 
-![The end-to-end workflow for automating on-call user requests to production code](/posts/2025_11_20_the_curious_world_of_mcp_servers/on_call_workflow.png)
+![The end-to-end workflow for automating on-call user requests to production code](/posts/2025_12_10_the_curious_world_of_mcp_servers/on_call_workflow.png)
 
 **The workflow:**
 
@@ -124,7 +124,7 @@ This use-case shows how MCP integration with a code review system (Gerrit) can p
 - Time-consuming to analyze large CLs with multiple files
 - Need to provide actionable, structured feedback
 
-![The end-to-end workflow for automated Gerrit code review](/posts/2025_11_20_the_curious_world_of_mcp_servers/code_review_workflow.png)
+![The end-to-end workflow for automated Gerrit code review](/posts/2025_12_10_the_curious_world_of_mcp_servers/code_review_workflow.png)
 
 **The workflow:**
 
@@ -166,7 +166,7 @@ This use-case establishes an automated Jira ticket creation workflow via MCP wit
 
 Note that this workflow requires write permissions to the Jira instance - use this workflow with caution to avoid creating tickets in the wrong project, with the wrong assignee, or creating large numbers of tickets and spamming the Jira instance.
 
-![The end-to-end workflow for automated Jira ticket creation](/posts/2025_11_20_the_curious_world_of_mcp_servers/jira_creation_workflow.png)
+![The end-to-end workflow for automated Jira ticket creation](/posts/2025_12_10_the_curious_world_of_mcp_servers/jira_creation_workflow.png)
 
 **Best practices established:**
 
@@ -186,7 +186,7 @@ This two-step ticket creation process (ticket first, then details in the comment
 
 This use-case automates searching and prioritizing Slack messages in which you've been tagged, categorizing them by urgency and action required.
 
-![The end-to-end workflow for Slack mention summarization](/posts/2025_11_20_the_curious_world_of_mcp_servers/slack_summarization.png)
+![The end-to-end workflow for Slack mention summarization](/posts/2025_12_10_the_curious_world_of_mcp_servers/slack_summarization.png)
 
 **The workflow:**
 
@@ -246,7 +246,7 @@ This use-case demonstrates automated collection and analysis of employee contrib
 - Need to identify specific examples demonstrating key competencies
 - Must synthesize scattered information into a coherent narrative
 
-![The end-to-end workflow for performance review data gathering](/posts/2025_11_20_the_curious_world_of_mcp_servers/performance_review_data.png)
+![The end-to-end workflow for performance review data gathering](/posts/2025_12_10_the_curious_world_of_mcp_servers/performance_review_data.png)
 
 **The workflow:**
 
@@ -271,7 +271,7 @@ The same considerations discussed in the [Slack mention summarization workflow](
 
 This use-case automates the creation of tailored interview questions from candidate resume data, generating structured multi-part questions with natural bridges to your team's work.
 
-![The end-to-end workflow for automated interview question generation](/posts/2025_11_20_the_curious_world_of_mcp_servers/interview_question_generation.png)
+![The end-to-end workflow for automated interview question generation](/posts/2025_12_10_the_curious_world_of_mcp_servers/interview_question_generation.png)
 
 **The workflow:**
 
@@ -403,7 +403,7 @@ In particular, I introduced the following tags into my notes:
 
 I expect the set of tags to evolve over time as I gain more experience with this particular process and as I find new ways to structure my notes.
 
-![The end-to-end workflow for automated interview notes summarization](/posts/2025_11_20_the_curious_world_of_mcp_servers/interview_notes_summarization.png)
+![The end-to-end workflow for automated interview notes summarization](/posts/2025_12_10_the_curious_world_of_mcp_servers/interview_notes_summarization.png)
 
 **The workflow:**
 
@@ -462,7 +462,7 @@ Oftentimes, you figure out a clever workflow, use it successfully once, and then
 
 The barrier to creating such documentation can be the lack of standardized approaches and platforms. Some documentation lives in Confluence, some in Google Docs, some in JIRA, some in Slack, etc. Besides just generating documentation, this workflow also aims at standardizing the generated documentation as Markdown or HTML files and storing them in plain Github repos. Documents stored in a Git repo are clearly not as interactively modifiable as Confluence or Google Docs, but they can be manipulated much more easily via LLMs (which makes them "almost" as modifiable as Google Docs).
 
-![The end-to-end workflow for automated reference documentation creation](/posts/2025_11_20_the_curious_world_of_mcp_servers/reference_documentation.png)
+![The end-to-end workflow for automated reference documentation creation](/posts/2025_12_10_the_curious_world_of_mcp_servers/reference_documentation.png)
 
 **The virtuous cycle:**
 
@@ -505,7 +505,7 @@ This use-case shows how to use Google Drive and Slack MCP integration to fetch e
 - Manual consolidation is time-consuming and error-prone
 - Documents frequently become outdated without anyone noticing
 
-![The end-to-end workflow for automated onboarding guide creation](/posts/2025_11_20_the_curious_world_of_mcp_servers/onboarding_guide.png)
+![The end-to-end workflow for automated onboarding guide creation](/posts/2025_12_10_the_curious_world_of_mcp_servers/onboarding_guide.png)
 
 **The workflow:**
 

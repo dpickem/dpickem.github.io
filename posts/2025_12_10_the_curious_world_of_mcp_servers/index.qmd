@@ -4,9 +4,6 @@ author: "Daniel Pickem"
 date: "2025-12-10"
 categories: [MCP, Productivity]
 image: https://viasocket.com/blog/content/images/size/w1200/2025/04/5a28015a-b297-4639-987a-09d8f01010c2.png
-format:
-  html:
-    css: ../../custom-styles.css
 ---
 
 # Introduction

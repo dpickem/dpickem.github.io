@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Pickem">
+<meta name="dcterms.date" content="2026-01-13">
+
+<title>LLM-Powered Work Notes: How I Use Obsidian and Cursor to Capture Everything – Daniel Pickem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DGMKGL1EBP"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="LLM-Powered Work Notes: How I Use Obsidian and Cursor to Capture Everything – Daniel Pickem">
+<meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta property="og:image" content="https://dpickem.github.io/posts/2026_01_13_obsidian_note_taking_system/obsidian_icon.png">
+<meta property="og:site_name" content="Daniel Pickem">
+<meta property="og:image:height" content="512">
+<meta property="og:image:width" content="512">
+<meta name="twitter:title" content="LLM-Powered Work Notes: How I Use Obsidian and Cursor to Capture Everything – Daniel Pickem">
+<meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta name="twitter:image" content="https://dpickem.github.io/posts/2026_01_13_obsidian_note_taking_system/obsidian_icon.png">
+<meta name="twitter:image-height" content="512">
+<meta name="twitter:image-width" content="512">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Daniel Pickem</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">LLM-Powered Work Notes: How I Use Obsidian and Cursor to Capture Everything</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Productivity</div>
+                <div class="quarto-category">Note-Taking</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Daniel Pickem </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 13, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem-engineering-work-is-chaotic" id="toc-the-problem-engineering-work-is-chaotic" class="nav-link active" data-scroll-target="#the-problem-engineering-work-is-chaotic">The Problem: Engineering Work Is Chaotic</a></li>
+  <li><a href="#the-folder-structure" id="toc-the-folder-structure" class="nav-link" data-scroll-target="#the-folder-structure">The Folder Structure</a></li>
+  <li><a href="#the-daily-note-my-primary-interface" id="toc-the-daily-note-my-primary-interface" class="nav-link" data-scroll-target="#the-daily-note-my-primary-interface">The Daily Note: My Primary Interface</a>
+  <ul class="collapse">
+  <li><a href="#template-80-templatesdaily.md" id="toc-template-80-templatesdaily.md" class="nav-link" data-scroll-target="#template-80-templatesdaily.md">Template (<code>80-Templates/daily.md</code>)</a></li>
+  <li><a href="#what-a-real-daily-note-looks-like" id="toc-what-a-real-daily-note-looks-like" class="nav-link" data-scroll-target="#what-a-real-daily-note-looks-like">What a Real Daily Note Looks Like</a></li>
+  </ul></li>
+  <li><a href="#project-notes-living-documentation" id="toc-project-notes-living-documentation" class="nav-link" data-scroll-target="#project-notes-living-documentation">Project Notes: Living Documentation</a>
+  <ul class="collapse">
+  <li><a href="#template-80-templatesproject-overview.md" id="toc-template-80-templatesproject-overview.md" class="nav-link" data-scroll-target="#template-80-templatesproject-overview.md">Template (<code>80-Templates/project-overview.md</code>)</a></li>
+  <li><a href="#real-example-ml-pipeline-refactor" id="toc-real-example-ml-pipeline-refactor" class="nav-link" data-scroll-target="#real-example-ml-pipeline-refactor">Real Example: ML Pipeline Refactor</a></li>
+  </ul></li>
+  <li><a href="#auto-aggregated-task-lists" id="toc-auto-aggregated-task-lists" class="nav-link" data-scroll-target="#auto-aggregated-task-lists">Auto-Aggregated Task Lists</a>
+  <ul class="collapse">
+  <li><a href="#priority-system" id="toc-priority-system" class="nav-link" data-scroll-target="#priority-system">Priority System</a></li>
+  </ul></li>
+  <li><a href="#the-llm-integration-where-it-gets-powerful" id="toc-the-llm-integration-where-it-gets-powerful" class="nav-link" data-scroll-target="#the-llm-integration-where-it-gets-powerful">The LLM Integration: Where It Gets Powerful</a>
+  <ul class="collapse">
+  <li><a href="#opening-the-vault-in-cursor" id="toc-opening-the-vault-in-cursor" class="nav-link" data-scroll-target="#opening-the-vault-in-cursor">Opening the Vault in Cursor</a></li>
+  </ul></li>
+  <li><a href="#llm-powered-workflows" id="toc-llm-powered-workflows" class="nav-link" data-scroll-target="#llm-powered-workflows">LLM-Powered Workflows</a>
+  <ul class="collapse">
+  <li><a href="#workflow-1-slack-thread-daily-note" id="toc-workflow-1-slack-thread-daily-note" class="nav-link" data-scroll-target="#workflow-1-slack-thread-daily-note">Workflow 1: Slack Thread → Daily Note</a></li>
+  <li><a href="#workflow-2-meeting-transcript-structured-notes" id="toc-workflow-2-meeting-transcript-structured-notes" class="nav-link" data-scroll-target="#workflow-2-meeting-transcript-structured-notes">Workflow 2: Meeting Transcript → Structured Notes</a></li>
+  <li><a href="#workflow-3-weekly-or-daily-status-generation" id="toc-workflow-3-weekly-or-daily-status-generation" class="nav-link" data-scroll-target="#workflow-3-weekly-or-daily-status-generation">Workflow 3: Weekly (or Daily) Status Generation</a></li>
+  <li><a href="#workflow-4-design-proposal-drafting" id="toc-workflow-4-design-proposal-drafting" class="nav-link" data-scroll-target="#workflow-4-design-proposal-drafting">Workflow 4: Design Proposal Drafting</a></li>
+  <li><a href="#workflow-summary" id="toc-workflow-summary" class="nav-link" data-scroll-target="#workflow-summary">Workflow Summary</a></li>
+  </ul></li>
+  <li><a href="#resources-folder-the-reference-library" id="toc-resources-folder-the-reference-library" class="nav-link" data-scroll-target="#resources-folder-the-reference-library">Resources Folder: The Reference Library</a>
+  <ul class="collapse">
+  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows">Workflows</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data Files</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  </ul></li>
+  <li><a href="#the-linking-strategy" id="toc-the-linking-strategy" class="nav-link" data-scroll-target="#the-linking-strategy">The Linking Strategy</a>
+  <ul class="collapse">
+  <li><a href="#daily-project-links" id="toc-daily-project-links" class="nav-link" data-scroll-target="#daily-project-links">Daily → Project Links</a></li>
+  <li><a href="#bidirectional-references" id="toc-bidirectional-references" class="nav-link" data-scroll-target="#bidirectional-references">Bidirectional References</a></li>
+  <li><a href="#resource-links" id="toc-resource-links" class="nav-link" data-scroll-target="#resource-links">Resource Links</a></li>
+  </ul></li>
+  <li><a href="#essential-obsidian-plugins" id="toc-essential-obsidian-plugins" class="nav-link" data-scroll-target="#essential-obsidian-plugins">Essential Obsidian Plugins</a>
+  <ul class="collapse">
+  <li><a href="#dataview-is-the-secret-weapon" id="toc-dataview-is-the-secret-weapon" class="nav-link" data-scroll-target="#dataview-is-the-secret-weapon">Dataview is the Secret Weapon</a></li>
+  </ul></li>
+  <li><a href="#the-daily-workflow" id="toc-the-daily-workflow" class="nav-link" data-scroll-target="#the-daily-workflow">The Daily Workflow</a>
+  <ul class="collapse">
+  <li><a href="#morning-5-min" id="toc-morning-5-min" class="nav-link" data-scroll-target="#morning-5-min">Morning (~5 min)</a></li>
+  <li><a href="#during-the-day" id="toc-during-the-day" class="nav-link" data-scroll-target="#during-the-day">During the Day</a></li>
+  <li><a href="#end-of-day-5-min" id="toc-end-of-day-5-min" class="nav-link" data-scroll-target="#end-of-day-5-min">End of Day (~5 min)</a></li>
+  <li><a href="#weekly-15-min" id="toc-weekly-15-min" class="nav-link" data-scroll-target="#weekly-15-min">Weekly (~15 min)</a></li>
+  </ul></li>
+  <li><a href="#future-work-ai-meeting-participation" id="toc-future-work-ai-meeting-participation" class="nav-link" data-scroll-target="#future-work-ai-meeting-participation">Future Work: AI Meeting Participation</a>
+  <ul class="collapse">
+  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview">Architecture Overview</a></li>
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#mcp-server-integration" id="toc-mcp-server-integration" class="nav-link" data-scroll-target="#mcp-server-integration">MCP Server Integration</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a></li>
+  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Overall, I am always looking for ways to automate the repetitive tasks and busywork of my day-to-day work. In this post, I describe my attempt at building a note-taking system that serves as a knowledge base for my work and simplifies providing status updates for the many standup meetings I (have to) attend.</p>
+<p>I’ll describe how I changed the way I capture my daily work logs - moving away from manually writing notes to capturing them in a structured way that is accessible to modern AI tools. Accessibility to automated LLM-processing is one of the key enabling features of my new note-taking system that unlocks new levels of productivity because it allows me to provide context and raw data rather than concern myself with the actual writing of notes from scratch.</p>
+<p>One could argue that completely revamping / restructuring one’s note-taking approach is overkill for just providing status updates. However, I found it to have completely changed the way I track my daily work, how I access my work log archive, and how I extract value from these notes. Overall, this new system has provided a lot of value besides automating status updates in the process.</p>
+<p>To provide some context about the origins of this project and this post:</p>
+<ul>
+<li>Previously I was taking notes in the macOS Notes app. While very convenient for capturing notes with minimal friction across various devices, this setup is not easily accessible to external tools since exporting notes in batch is not possible natively.</li>
+<li>A friend of mine recently introduced me to Obsidian, a note-taking app that uses plain Markdown files, has a powerful plugin system, and is very flexible in how the notes can be used / exported / accessed. I immediately enjoyed Obsidian (thanks Akash for introducing me to this amazing tool), so I was looking for a setup that uses plain Markdown files as the underlying format.</li>
+<li>I wanted to minimize friction in capturing my daily work, not just my work logs, but also meeting transcripts, Slack conversation summaries, tutorials, ideas, etc. Just as a sidenote, I am a big fan of note-taking and take pride in writing high-quality and thorough notes - not just for the sake of taking notes, but as a way to archive my daily tasks and be able to refer back to them later.</li>
+<li>Most of all, I wanted to build a system that could generate status updates for the countless standup meetings in a fully automated fashion. I wanted an assistant that could summarize my notes into bulleted lists that I could just copy-paste into the standup meeting (the next step for my automation journey is to have a voice-cloned model read them out for me).</li>
+</ul>
+<p>The project description below is the (mostly) LLM-generated README for the note-taking system. In a sense, this summary is the “product” of this LLM-powered note-taking system (with some light touching up by me).</p>
+<p>One section I want to highlight in this post is <a href="#llm-powered-workflows">LLM-Powered Workflows</a>, which details how integrating large language models transforms raw work inputs—like Slack threads or meeting transcripts—into structured, actionable notes with minimal manual effort. If you read only one section, that’s the one that can provide the most value in your daily work.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📝 LLM-Generated README
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The content below was automatically generated by the note-taking system itself.</em></p>
+</div>
+</div>
+<section id="the-problem-engineering-work-is-chaotic" class="level1">
+<h1>The Problem: Engineering Work Is Chaotic</h1>
+<p>As an engineer, my workday involves constant context switching:</p>
+<ul>
+<li>Morning standup → deep work on feature implementation → code review → meeting about infrastructure → Slack fire drill → back to debugging</li>
+</ul>
+<p>By Friday, I can barely remember what I worked on Monday. Status reports become archaeological expeditions through Slack, email, and half-finished docs. Meeting notes get lost. Project context evaporates.</p>
+<p>I needed a system that could:</p>
+<ol type="1">
+<li><strong>Capture everything in one place</strong> — daily logs, meeting notes, project status, reference links</li>
+<li><strong>Stay out of my way</strong> — minimal friction during the day</li>
+<li><strong>Generate outputs</strong> — weekly (or daily) status updates, project summaries, task lists, etc.</li>
+<li><strong>Be LLM-accessible</strong> — let Cursor/Claude read my notes and help me write documentation</li>
+</ol>
+<p>The result is an Obsidian vault organized using the PARA (Project, Area, Resource, Archive) methodology, integrated with Cursor for LLM-powered processing.</p>
+<hr>
+</section>
+<section id="the-folder-structure" class="level1">
+<h1>The Folder Structure</h1>
+<pre><code>work-notes/
+├── 10-Daily/                    # Daily work logs
+│   ├── 2025/
+│   │   └── 12/
+│   │       ├── 2025-12-11.md
+│   │       └── ...
+│   └── 2026/
+│       └── 01/
+│           ├── 2026-01-05.md
+│           ├── 2026-01-06.md
+│           └── ...
+├── 20-Projects/                 # Active project overviews
+│   ├── ML Pipeline Refactor.md
+│   ├── API Gateway Migration.md
+│   └── Projects Index.md
+├── 30-Areas/                    # Ongoing responsibilities
+│   └── tasks.md                 # Auto-aggregated task list
+├── 40-Resources/                # Reference material
+│   ├── data/                    # CSV files, datasets
+│   ├── design_proposals/        # Feature specs
+│   ├── docs/                    # Reference documentation
+│   ├── images/                  # Screenshots, diagrams
+│   ├── implementation_plans/    # Detailed plans
+│   ├── meeting-transcripts/     # Raw transcripts
+│   ├── scripts/                 # Python automation
+│   ├── tools/                   # CLI cheat sheets
+│   └── workflows/               # Process documentation
+├── 80-Templates/                # Note templates
+│   ├── daily.md
+│   ├── meeting.md
+│   └── project-overview.md
+├── Personal/                    # Non-work notes
+└── Obsidian Setup.md            # This guide</code></pre>
+<p>This follows the <strong>PARA</strong> methodology by Tiago Forte:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Folder</th>
+<th>Purpose</th>
+<th>Time-bound?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P</strong>rojects</td>
+<td>Active efforts with a deadline</td>
+<td>✅ Yes</td>
+</tr>
+<tr class="even">
+<td><strong>A</strong>reas</td>
+<td>Ongoing responsibilities</td>
+<td>❌ No</td>
+</tr>
+<tr class="odd">
+<td><strong>R</strong>esources</td>
+<td>Reference material for future use</td>
+<td>❌ No</td>
+</tr>
+<tr class="even">
+<td><strong>A</strong>rchive</td>
+<td>Completed/inactive items</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key distinction:</strong></p>
+<ul>
+<li><strong>Project</strong>: “Migrate API Gateway to new infrastructure” → has an end date, can be completed</li>
+<li><strong>Area</strong>: “Maintain CI/CD pipelines” → ongoing, never truly “done”</li>
+</ul>
+<hr>
+</section>
+<section id="the-daily-note-my-primary-interface" class="level1">
+<h1>The Daily Note: My Primary Interface</h1>
+<p>Every workday starts with a new daily note. This is where everything gets captured.</p>
+<section id="template-80-templatesdaily.md" class="level2">
+<h2 class="anchored" data-anchor-id="template-80-templatesdaily.md">Template (<code>80-Templates/daily.md</code>)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{date</span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> daily</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">area</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> daily</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at">{date:YYYY</span><span class="kw">}</span><span class="at">}/{{date:MM}}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">projects_touched</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># {{date:dddd, MMMM D, YYYY}}</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">## 🎯 Focus Areas</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">## 📋 Tasks</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">### High Priority [p:: 1]</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">]</span><span class="at"> Task [p</span><span class="fu">:</span><span class="kw">:</span><span class="at"> 1]</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">### Medium Priority [p:: 2]</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">]</span><span class="at"> Task [p</span><span class="fu">:</span><span class="kw">:</span><span class="at"> 2]</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">### Upcoming</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[</span><span class="at"> </span><span class="kw">]</span><span class="at"> Task</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">## 🔄 Work Log</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">## 🚧 Blockers</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">## 💡 Notes &amp; Ideas</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">## 📎 References</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">### Slack Threads</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">### Google Docs</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">### Code &amp; PRs</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co">### Related Notes</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">## Related</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">Previous</span><span class="kw">:</span><span class="at"> </span><span class="kw">[[{</span><span class="at">{date:YYYY-MM-DD|-1d</span><span class="kw">}</span><span class="at">}</span><span class="kw">]]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="what-a-real-daily-note-looks-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-real-daily-note-looks-like">What a Real Daily Note Looks Like</h2>
+<p>Here’s an example of a typical work day:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-01-06</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> daily</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">area:</span><span class="co"> data-platform</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">tags:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - daily</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - 2026/01</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">projects_touched:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - "[[ML Pipeline Refactor]]"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - "[[API Gateway Migration]]"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Monday, January 6, 2026</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Focus Areas</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>**Summary**: Created comprehensive data transformation workflow documentation </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>and automation script.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Open Follow-ups</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Test the transformation script with production data sample <span class="co">[</span><span class="ot">p:: 1</span><span class="co">]</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Validate output format against downstream consumers <span class="co">[</span><span class="ot">p:: 2</span><span class="co">]</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Follow up on infra team's capacity planning meeting <span class="co">[</span><span class="ot">p:: 1</span><span class="co">]</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📋 Tasks Completed</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Researched Spark → Flink migration patterns</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Documented the new streaming pipeline architecture</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Created Python automation script for schema validation</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔄 Work Log</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Pipeline Workflow Documentation</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>Created a comprehensive workflow document capturing the migration process:</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>**Key Components:**</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Input Format**: Parquet files from data lake</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Transformation Layer**: Flink streaming jobs</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Output Format**: Delta tables for ML training</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Monitoring**: Prometheus metrics + Grafana dashboards</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Artifacts Created</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Artifact <span class="pp">|</span> Location <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|----------|-------------|</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Workflow Doc <span class="pp">|</span> <span class="in">`40-Resources/workflows/spark-to-flink-migration.md`</span> <span class="pp">|</span> Process documentation <span class="pp">|</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Python Script <span class="pp">|</span> <span class="in">`40-Resources/scripts/schema_validator.py`</span> <span class="pp">|</span> Automation script <span class="pp">|</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📎 References</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slack Threads</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Pipeline Architecture Discussion</span><span class="co">](https://slack.com/...)</span> — sync thread</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Google Docs</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Migration Playbook</span><span class="co">](https://docs.google.com/...)</span> — Original playbook</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Data Platform Strategy</span><span class="co">](https://docs.google.com/...)</span> — Workflows</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Related Notes</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">spark-to-flink-migration</span><span class="co">]</span>] — Comprehensive workflow documentation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The daily note becomes a chronological log of everything I touched, with links to all relevant resources. While these daily note markdown files can be viewed directly in Cursor, I am also using Obsidian as my UI as it provides a few powerful features to help me manage my notes (such as the <a href="#essential-obsidian-plugins">plugin system</a>).</p>
+<hr>
+</section>
+</section>
+<section id="project-notes-living-documentation" class="level1">
+<h1>Project Notes: Living Documentation</h1>
+<p>Each project gets a dedicated note that evolves over time.</p>
+<section id="template-80-templatesproject-overview.md" class="level2">
+<h2 class="anchored" data-anchor-id="template-80-templatesproject-overview.md">Template (<code>80-Templates/project-overview.md</code>)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> project</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">status</span><span class="kw">:</span><span class="at"> active</span><span class="co">  # active | on-hold | completed | cancelled</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">priority</span><span class="kw">:</span><span class="at"> high</span><span class="co">  # high | medium | low</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">stakeholders</span><span class="kw">:</span><span class="at"> </span><span class="kw">[]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">start_date</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">{date</span><span class="kw">}</span><span class="at">}</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">target_date</span><span class="kw">:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> project</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> status/active</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">jira_epic</span><span class="kw">:</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">confluence_page</span><span class="kw">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># {{title}}</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">## Summary</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;!-- 2-3 sentence project summary for status reports --&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">## Objectives</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span><span class="at"> </span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">## Current Status</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;!-- Updated weekly - this section is scraped for status reports --&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ot">**Last</span><span class="at"> Updated:** {{date}}</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ot">**Health:**</span><span class="at"> 🟢 On Track | 🟡 At Risk | 🔴 Blocked</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">### This Week</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">### Next Week</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">### Risks &amp; Blockers</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">## Team</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">## Links</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="kw">[[</span><span class="at">Projects Index|All Projects</span><span class="kw">]]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="real-example-ml-pipeline-refactor" class="level2">
+<h2 class="anchored" data-anchor-id="real-example-ml-pipeline-refactor">Real Example: ML Pipeline Refactor</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># ML Pipeline Refactor</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Modernizing the ML training pipeline from batch Spark jobs to real-time </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Flink streaming, reducing data freshness from 24 hours to under 5 minutes </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>while improving cost efficiency.</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Components</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data Ingestion** — Kafka → Flink streaming</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Feature Store** — Real-time feature computation</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Model Training** — Incremental learning support</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Monitoring** — End-to-end latency tracking</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Current Status</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>**Health:** 🟡 At Risk</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### Risks &amp; Blockers</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Feature store migration blocked on schema freeze</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Need capacity planning approval for new Flink cluster</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Workstreams</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Streaming Architecture</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Replace batch Spark jobs with Flink stateful processing</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Target: &lt;5 min data freshness (currently 24h)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Feature Store Migration</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Move from offline feature store to hybrid online/offline</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Support both batch training and real-time inference</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Team</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Alice Chen — Tech Lead</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bob Martinez — Data Engineer  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Carol Singh — ML Engineer</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">Projects Index|All Projects</span><span class="co">]</span>]</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">API Gateway Migration</span><span class="co">]</span>] — Dependent project</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">Pipeline Architecture Docs</span><span class="co">]</span>] — Technical reference</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">2025-12-11</span><span class="co">]</span>] — Initial project setup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The project note serves as a <strong>living document</strong> — I update it weekly with current status, and it links to all related daily notes, docs, and resources.</p>
+<hr>
+</section>
+</section>
+<section id="auto-aggregated-task-lists" class="level1">
+<h1>Auto-Aggregated Task Lists</h1>
+<p>One of the most powerful features is the <code>30-Areas/tasks.md</code> file, which uses <strong>Dataview</strong> queries to aggregate all incomplete tasks across the vault:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Incomplete Tasks from Daily Notes</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">```dataview</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">TABLE WITHOUT ID</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="in">  text AS "Task",</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">  choice(p, p, "Unknown") AS "Priority",</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">  file.link AS "Source"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="in">FROM "10-Daily"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="in">FLATTEN file.tasks AS item</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="in">WHERE !item.completed</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="in">FLATTEN item.text AS text</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="in">FLATTEN item.p AS p</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="in">SORT choice(p, p, 99) ASC, file.name DESC</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="in">LIMIT 30</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This automatically finds every <code>- [ ]</code> checkbox from my daily notes and displays them sorted by priority.</p>
+<section id="priority-system" class="level2">
+<h2 class="anchored" data-anchor-id="priority-system">Priority System</h2>
+<p>Tasks use inline fields for priority:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Priority</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[p:: 1]</code></td>
+<td>🔴 Critical</td>
+<td><code>- [ ] Fix prod bug [p:: 1]</code></td>
+</tr>
+<tr class="even">
+<td><code>[p:: 2]</code></td>
+<td>🟠 High</td>
+<td><code>- [ ] Review PR [p:: 2]</code></td>
+</tr>
+<tr class="odd">
+<td><code>[p:: 3]</code></td>
+<td>🟡 Medium</td>
+<td><code>- [ ] Update docs [p:: 3]</code></td>
+</tr>
+<tr class="even">
+<td><code>[p:: 4]</code></td>
+<td>🟢 Low</td>
+<td><code>- [ ] Refactor code [p:: 4]</code></td>
+</tr>
+</tbody>
+</table>
+<p>This means I can scatter tasks throughout my daily notes, and they all roll up into a single prioritized view.</p>
+<hr>
+</section>
+</section>
+<section id="the-llm-integration-where-it-gets-powerful" class="level1">
+<h1>The LLM Integration: Where It Gets Powerful</h1>
+<section id="opening-the-vault-in-cursor" class="level2">
+<h2 class="anchored" data-anchor-id="opening-the-vault-in-cursor">Opening the Vault in Cursor</h2>
+<p>The entire vault is a Cursor workspace. This means Claude can read any note, search across files, and understand context from my work history. Coincidentally, this setup is very similar to what Anthropic made available today via <a href="https://support.claude.com/en/articles/13345190-getting-started-with-cowork">Cowork</a>.</p>
+<pre><code>cursor ~/workspace/obsidian/work-notes</code></pre>
+<p>This simple setup unlocks powerful workflows where I rarely write notes from scratch - instead, I feed raw inputs to Claude and get structured, linked outputs.</p>
+<hr>
+</section>
+</section>
+<section id="llm-powered-workflows" class="level1">
+<h1>LLM-Powered Workflows</h1>
+<p>The real power of this system isn’t manual note-taking—it’s using LLMs to <strong>process raw information into structured notes</strong>. Here are my core workflows:</p>
+<section id="workflow-1-slack-thread-daily-note" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-1-slack-thread-daily-note">Workflow 1: Slack Thread → Daily Note</h2>
+<p>Instead of manually summarizing Slack discussions, I copy the thread and let Claude do the work.</p>
+<p><strong>Input:</strong> Raw Slack thread (copy-pasted or via MCP Slack integration)</p>
+<p><strong>Prompt:</strong></p>
+<pre><code>Here's a Slack thread about the data pipeline migration. 
+Summarize this into my daily note format:
+1. Extract the key decisions made
+2. List any action items with owners
+3. Note any blockers or risks mentioned
+4. Add relevant links
+
+Format it for the Work Log section of today's daily note.</code></pre>
+<p><strong>Output:</strong> Structured summary ready to paste:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Slack: Data Pipeline Migration Discussion</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>**Thread:** <span class="co">[</span><span class="ot">#data-platform</span><span class="co">](https://slack.com/...)</span> — 2026-01-06</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>**Key Decisions:**</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Agreed to use Flink over Spark Streaming for stateful processing</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Schema freeze pushed to Friday to accommodate late feedback</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will run both pipelines in parallel for 2 weeks before cutover</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>**Action Items:**</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @alice — Update capacity estimates by Wednesday <span class="co">[</span><span class="ot">p:: 2</span><span class="co">]</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @bob — Set up parallel pipeline environment <span class="co">[</span><span class="ot">p:: 1</span><span class="co">]</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @carol — Draft rollback plan for review <span class="co">[</span><span class="ot">p:: 2</span><span class="co">]</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>**Blockers:**</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Waiting on infra team approval for new Kafka cluster</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>**Links:**</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Original thread</span><span class="co">](https://slack.com/...)</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">ML Pipeline Refactor</span><span class="co">]</span>] — Parent project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Time saved:</strong> 15 minutes → 2 minutes</p>
+<hr>
+</section>
+<section id="workflow-2-meeting-transcript-structured-notes" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-2-meeting-transcript-structured-notes">Workflow 2: Meeting Transcript → Structured Notes</h2>
+<p>After a meeting, I often have a raw transcript (from Teams, Otter.ai, or manual notes). Claude transforms this into actionable documentation.</p>
+<p><strong>Input:</strong> Raw meeting transcript (stored in <code>40-Resources/meeting-transcripts/</code>)</p>
+<p><strong>Prompt:</strong></p>
+<pre><code>Here's the transcript from today's architecture review meeting.
+Create a meeting note following my template (80-Templates/meeting.md).
+
+Include:
+1. Executive summary (2-3 sentences)
+2. Key decisions with rationale
+3. Action items with owners and due dates (as checkboxes)
+4. Open questions that need follow-up
+5. Links to any documents or resources mentioned
+
+Also extract any tasks that should go in today's daily note.</code></pre>
+<p><strong>Output:</strong> Two artifacts:</p>
+<p><strong>1. Meeting Note (<code>40-Resources/meetings/2026-01-06-architecture-review.md</code>):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> meeting</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-01-06</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">project:</span><span class="co"> "[[ML Pipeline Refactor]]"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="an">attendees:</span><span class="co"> [Alice Chen, Bob Martinez, Carol Singh, David Kim]</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="an">tags:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - meeting</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - architecture</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Architecture Review: Streaming Pipeline</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Executive Summary</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>Reviewed the proposed Flink architecture for the ML pipeline migration. </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>Approved the stateful processing approach with a 2-week parallel run period. </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>Identified capacity planning as the main risk to timeline.</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Attendees</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Alice Chen (Tech Lead)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bob Martinez (Data Engineer)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Carol Singh (ML Engineer)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>David Kim (Infra)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Decisions</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Decision <span class="pp">|</span> Rationale <span class="pp">|</span> Owner <span class="pp">|</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-----------|-------|</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Use Flink over Spark Streaming <span class="pp">|</span> Better exactly-once semantics, native Kafka integration <span class="pp">|</span> Alice <span class="pp">|</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2-week parallel run <span class="pp">|</span> Validate data quality before cutover <span class="pp">|</span> Bob <span class="pp">|</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Schema freeze by Friday <span class="pp">|</span> Accommodate late feedback from ML team <span class="pp">|</span> Carol <span class="pp">|</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Action Items</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @alice — Finalize Flink job configurations — Due: 2026-01-08</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @bob — Set up parallel pipeline environment — Due: 2026-01-10</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @david — Submit capacity request for 3 additional nodes — Due: 2026-01-07</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> @carol — Update downstream consumers about schema changes — Due: 2026-01-09</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open Questions</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What's the fallback if capacity request is denied?</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>How do we handle late-arriving data during parallel run?</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Should we notify customers about potential latency changes?</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Follow-ups</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">2026-01-08</span><span class="co">]</span>] — Capacity request decision expected</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">ML Pipeline Refactor</span><span class="co">]</span>] — Update project status</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Architecture Diagram</span><span class="co">](https://docs.google.com/...)</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Capacity Planning Sheet</span><span class="co">](https://docs.google.com/...)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>2. Tasks for Daily Note:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📋 Tasks from Architecture Review</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Review Flink job configurations before Friday <span class="co">[</span><span class="ot">p:: 2</span><span class="co">]</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Follow up on capacity request with David <span class="co">[</span><span class="ot">p:: 1</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Time saved:</strong> 30 minutes → 5 minutes</p>
+<hr>
+</section>
+<section id="workflow-3-weekly-or-daily-status-generation" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-3-weekly-or-daily-status-generation">Workflow 3: Weekly (or Daily) Status Generation</h2>
+<p>At the end of each week (or daily), Claude reads all my daily notes and generates a status report. The prompt below is usually just a starting point that I modify based on the expected format for a given standup or status meeting. For my daily standups, for example, I use a dedicated <a href="https://cursor.com/docs/context/commands">slash command</a> in Cursor to generate the status report.</p>
+<p><strong>Prompt:</strong></p>
+<pre><code>Based on this week's daily notes (2026-01-06 through 2026-01-10), 
+generate a weekly status update for the ML Pipeline Refactor project.
+
+Format:
+1. **Accomplishments** — What got done (bullet points)
+2. **In Progress** — What's actively being worked on
+3. **Blockers** — What's preventing progress
+4. **Next Week** — Planned focus areas
+5. **Metrics** — Any relevant numbers (optional)
+
+Keep it concise—this goes to leadership.</code></pre>
+<p><strong>Output:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## ML Pipeline Refactor — Week of Jan 6, 2026</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### ✅ Accomplishments</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Completed Flink job design and configuration review</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Set up parallel pipeline environment for validation</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Finalized schema changes with ML team (freeze complete)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Documented migration workflow and rollback procedures</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔄 In Progress</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Parallel run validation (started Jan 10, running for 2 weeks)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Capacity planning approval (submitted, awaiting response)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Downstream consumer notifications</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🚧 Blockers</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capacity approval pending** — Need 3 additional nodes; decision expected Monday</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Late schema feedback** — Pushed freeze by 2 days, absorbed into timeline</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📅 Next Week</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Monitor parallel run data quality metrics</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Begin stakeholder communication about cutover timeline</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draft customer notification if latency changes expected</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 Metrics</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data freshness: 24h → targeting &lt;5min post-migration</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Parallel run started: 0/14 days complete</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Time saved:</strong> 45 minutes → 5 minutes</p>
+<hr>
+</section>
+<section id="workflow-4-design-proposal-drafting" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-4-design-proposal-drafting">Workflow 4: Design Proposal Drafting</h2>
+<p>For new features or tools, I describe the problem and let Claude draft the initial proposal.</p>
+<p><strong>Prompt:</strong></p>
+<pre><code>I want to build a voice cloning TTS system that:
+- Runs on my Linux desktop with GPU
+- Is accessible from my Mac via API
+- Integrates with Cursor via MCP server
+- Uses my cloned voice
+
+Draft a design proposal covering:
+1. Architecture diagram
+2. Technology choices with pros/cons
+3. Implementation phases
+4. Hardware requirements
+5. Open questions
+
+Store it in 40-Resources/design_proposals/</code></pre>
+<p><strong>Output:</strong> A comprehensive design document ready for iteration.</p>
+<p>This is how I created proposals like (see <a href="https://github.com/dpickem/obsidian_note_taking_system">this Github repo</a>):</p>
+<ul>
+<li><code>voice-cloning-tts-mcp-server.md</code></li>
+<li><code>ai-meeting-assistant-teams.md</code></li>
+<li><code>cursor-config-sync.md</code></li>
+</ul>
+<p><strong>Time saved:</strong> 2 hours → 20 minutes (for first draft)</p>
+<hr>
+</section>
+<section id="workflow-summary" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-summary">Workflow Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 18%">
+<col style="width: 21%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Workflow</th>
+<th>Input</th>
+<th>Output</th>
+<th>Time Saved</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Slack → Daily Note</td>
+<td>Raw thread</td>
+<td>Structured summary + action items</td>
+<td>15 min → 2 min</td>
+</tr>
+<tr class="even">
+<td>Transcript → Meeting Note</td>
+<td>Raw transcript</td>
+<td>Formatted note + tasks</td>
+<td>30 min → 5 min</td>
+</tr>
+<tr class="odd">
+<td>Daily Notes → Status</td>
+<td>Week’s notes</td>
+<td>Leadership-ready update</td>
+<td>45 min → 5 min</td>
+</tr>
+<tr class="even">
+<td>Problem → Design Proposal</td>
+<td>Requirements</td>
+<td>Comprehensive proposal</td>
+<td>2 hr → 20 min</td>
+</tr>
+</tbody>
+</table>
+<p>The key insight: <strong>I rarely write notes from scratch.</strong> I capture raw inputs (transcripts, threads, ideas) and let LLMs structure them.</p>
+<hr>
+</section>
+</section>
+<section id="resources-folder-the-reference-library" class="level1">
+<h1>Resources Folder: The Reference Library</h1>
+<p>The <code>40-Resources/</code> folder is where supporting material lives:</p>
+<section id="workflows" class="level2">
+<h2 class="anchored" data-anchor-id="workflows">Workflows</h2>
+<p>Detailed process documentation that Claude helped write:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Spark to Flink Migration Workflow</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pipeline Overview</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>graph TD</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    A[Kafka Topics] --&gt;|Consume| B[Flink Jobs]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    B --&gt;|Transform| C[Feature Store]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    C --&gt;|Serve| D[ML Models]</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: Prepare Input Schemas</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>The input topics should contain:</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Field <span class="pp">|</span> Type <span class="pp">|</span> Required <span class="pp">|</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|------|----------|</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`event_id`</span> <span class="pp">|</span> STRING <span class="pp">|</span> ✅ <span class="pp">|</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`timestamp`</span> <span class="pp">|</span> TIMESTAMP <span class="pp">|</span> ✅ <span class="pp">|</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`payload`</span> <span class="pp">|</span> JSON <span class="pp">|</span> ✅ <span class="pp">|</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">... comprehensive documentation continues ...</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="scripts" class="level2">
+<h2 class="anchored" data-anchor-id="scripts">Scripts</h2>
+<p>Python automation that lives with my notes:</p>
+<pre><code>40-Resources/scripts/
+├── schema_validator.py        # Validate data schemas
+├── generate_test_data.py      # Create test fixtures
+└── output/                    # Generated artifacts
+    ├── migration_report.csv
+    └── validation_results.json</code></pre>
+</section>
+<section id="data-files" class="level2">
+<h2 class="anchored" data-anchor-id="data-files">Data Files</h2>
+<p>CSV files, datasets, and reports:</p>
+<pre><code>40-Resources/data/
+├── schema_inventory.csv
+├── migration_status.csv
+├── performance_benchmarks.csv
+└── capacity_planning.md</code></pre>
+</section>
+<section id="images" class="level2">
+<h2 class="anchored" data-anchor-id="images">Images</h2>
+<p>Screenshots and diagrams, organized by date or project:</p>
+<pre><code>40-Resources/images/
+├── daily/
+│   └── 2025-12-15/
+│       └── architecture_diagram.png
+└── projects/
+    └── ml-pipeline/
+        └── data_flow_diagram.png</code></pre>
+<hr>
+</section>
+</section>
+<section id="the-linking-strategy" class="level1">
+<h1>The Linking Strategy</h1>
+<p>One of the key features of Obsidian is the ability to link notes to each other. This is done via the use of double brackets, e.g.&nbsp;<code>[[ML Pipeline Refactor]]</code>. This allows for a lot of flexibility in how notes can be linked to each other. As a nice benefit of linked notes is the <a href="https://obsidian.md/">knowledge graph view Obsidian</a> provides out of the box, which can be used to navigate the notes and their relationships.</p>
+<section id="daily-project-links" class="level2">
+<h2 class="anchored" data-anchor-id="daily-project-links">Daily → Project Links</h2>
+<p>Every daily note includes <code>projects_touched</code> in frontmatter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">projects_touched</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"[[ML Pipeline Refactor]]"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"[[API Gateway Migration]]"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="bidirectional-references" class="level2">
+<h2 class="anchored" data-anchor-id="bidirectional-references">Bidirectional References</h2>
+<p>Project notes link back to relevant daily notes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">2025-12-11</span><span class="co">]</span>] — Initial project setup</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">2026-01-06</span><span class="co">]</span>] — Migration workflow documented</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="resource-links" class="level2">
+<h2 class="anchored" data-anchor-id="resource-links">Resource Links</h2>
+<p>Workflows and docs link to source notes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Related</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Project: [<span class="co">[</span><span class="ot">ML Pipeline Refactor</span><span class="co">]</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Daily: [<span class="co">[</span><span class="ot">2026-01-06</span><span class="co">]</span>] — When this was created</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates a web of connections that makes context retrieval easy—both for me and for Claude.</p>
+<hr>
+</section>
+</section>
+<section id="essential-obsidian-plugins" class="level1">
+<h1>Essential Obsidian Plugins</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Plugin</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Templater</strong></td>
+<td>Template variables like <code>{date}</code>, date math</td>
+</tr>
+<tr class="even">
+<td><strong>Dataview</strong></td>
+<td>SQL-like queries to aggregate tasks, filter notes</td>
+</tr>
+<tr class="odd">
+<td><strong>Calendar</strong></td>
+<td>Visual daily note navigation</td>
+</tr>
+<tr class="even">
+<td><strong>Periodic Notes</strong></td>
+<td>Auto-create daily notes with templates</td>
+</tr>
+<tr class="odd">
+<td><strong>Tasks</strong></td>
+<td>Enhanced checkbox handling</td>
+</tr>
+</tbody>
+</table>
+<section id="dataview-is-the-secret-weapon" class="level2">
+<h2 class="anchored" data-anchor-id="dataview-is-the-secret-weapon">Dataview is the Secret Weapon</h2>
+<p>Dataview lets me query my notes like a database:</p>
+<pre class="dataview"><code>// List all high-priority incomplete tasks
+TABLE file.link AS "Source", text AS "Task"
+FROM "10-Daily"
+FLATTEN file.tasks AS item
+WHERE !item.completed AND item.p = 1</code></pre>
+<pre class="dataview"><code>// Recent project updates
+LIST
+FROM "20-Projects"
+WHERE status = "active"
+SORT file.mtime DESC</code></pre>
+<hr>
+</section>
+</section>
+<section id="the-daily-workflow" class="level1">
+<h1>The Daily Workflow</h1>
+<section id="morning-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="morning-5-min">Morning (~5 min)</h2>
+<ol type="1">
+<li>Open today’s daily note (auto-created by Periodic Notes)</li>
+<li>Review yesterday’s carryover tasks</li>
+<li>Set focus areas for the day</li>
+</ol>
+</section>
+<section id="during-the-day" class="level2">
+<h2 class="anchored" data-anchor-id="during-the-day">During the Day</h2>
+<ul>
+<li>Log work under <strong>Work Log</strong> as I go</li>
+<li>Add tasks with <code>- [ ]</code> and priorities</li>
+<li>Paste links to Slack threads, docs, PRs</li>
+<li>Take meeting notes inline or in separate meeting notes</li>
+</ul>
+</section>
+<section id="end-of-day-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="end-of-day-5-min">End of Day (~5 min)</h2>
+<ul>
+<li>Mark completed tasks with <code>[x]</code></li>
+<li>Review blockers section</li>
+<li>Update project notes if significant progress</li>
+<li>Summarize today’s note into bulleted daily status updates for the standup meeting</li>
+</ul>
+</section>
+<section id="weekly-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-15-min">Weekly (~15 min)</h2>
+<ul>
+<li>Use Claude to generate status updates from daily notes</li>
+<li>Update project “Current Status” sections</li>
+<li>Review aggregated task list in <code>30-Areas/tasks.md</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="future-work-ai-meeting-participation" class="level1">
+<h1>Future Work: AI Meeting Participation</h1>
+<p>The ultimate extension of this system is having an AI assistant that can <strong>participate directly in (standup) meetings on my behalf</strong>.</p>
+<p>I’m designing an AI meeting assistant that:</p>
+<ol type="1">
+<li><strong>Joins Microsoft Teams meetings</strong> as a bot</li>
+<li><strong>Continuously transcribes</strong> all spoken audio with speaker diarization</li>
+<li><strong>Detects when my input is needed</strong> (name mentioned, direct questions, relevant topics)</li>
+<li><strong>Generates context-aware responses</strong> using my Obsidian knowledge base via RAG</li>
+<li><strong>Speaks using my cloned voice</strong> with sub-1-second latency</li>
+</ol>
+<section id="architecture-overview" class="level3">
+<h3 class="anchored" data-anchor-id="architecture-overview">Architecture Overview</h3>
+<pre><code>┌────────────────────────────────────────────────────────────────────────────────┐
+│                           Microsoft Teams Meeting                               │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐      │
+│  │ Participant │    │ Participant │    │   AI Bot    │    │ Participant │      │
+│  │     A       │    │     B       │    │ (Me/Proxy)  │    │     C       │      │
+│  └─────────────┘    └─────────────┘    └──────┬──────┘    └─────────────┘      │
+└───────────────────────────────────────────────┼─────────────────────────────────┘
+                                                │
+                                                ▼
+┌────────────────────────────────────────────────────────────────────────────────┐
+│                      Linux GPU Server (Inference + MCP)                         │
+│                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────┐   │
+│  │                      Inference Pipeline                                  │   │
+│  │  ┌────────────────┐   ┌────────────────┐   ┌────────────────┐           │   │
+│  │  │ ASR Engine     │   │ LLM Engine     │   │ TTS Engine     │           │   │
+│  │  │ (Streaming)    │   │ + RAG          │   │ (Voice Clone)  │           │   │
+│  │  │ ~80ms          │   │ ~400ms         │   │ ~200ms         │           │   │
+│  │  └────────────────┘   └────────────────┘   └────────────────┘           │   │
+│  └─────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                 │
+│  Total response latency target: &lt;1 second                                       │
+└────────────────────────────────────────────────────────────────────────────────┘</code></pre>
+</section>
+<section id="key-components" class="level3">
+<h3 class="anchored" data-anchor-id="key-components">Key Components</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 25%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+<th>Target Latency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Streaming ASR</strong></td>
+<td>Real-time transcription with speaker diarization</td>
+<td>~80ms</td>
+</tr>
+<tr class="even">
+<td><strong>Trigger Detection</strong></td>
+<td>Detect when my participation is needed</td>
+<td>~20ms</td>
+</tr>
+<tr class="odd">
+<td><strong>RAG Retrieval</strong></td>
+<td>Query Obsidian vault for relevant context</td>
+<td>~100ms</td>
+</tr>
+<tr class="even">
+<td><strong>LLM Response</strong></td>
+<td>Generate contextually appropriate response</td>
+<td>~400ms</td>
+</tr>
+<tr class="odd">
+<td><strong>Voice Clone TTS</strong></td>
+<td>Synthesize response in my cloned voice</td>
+<td>~200ms</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mcp-server-integration" class="level3">
+<h3 class="anchored" data-anchor-id="mcp-server-integration">MCP Server Integration</h3>
+<p>The meeting assistant exposes tools via MCP that Cursor can invoke:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="at">@server.list_tools</span>()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> list_tools():</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"join_meeting"</span>, description<span class="op">=</span><span class="st">"Join a Teams meeting"</span>),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"leave_meeting"</span>, description<span class="op">=</span><span class="st">"Leave the current meeting"</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"speak"</span>, description<span class="op">=</span><span class="st">"Speak text using cloned voice"</span>),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"get_transcript"</span>, description<span class="op">=</span><span class="st">"Get meeting transcript"</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"get_participants"</span>, description<span class="op">=</span><span class="st">"List meeting participants"</span>),</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"set_trigger_keywords"</span>, description<span class="op">=</span><span class="st">"Set response triggers"</span>),</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        Tool(name<span class="op">=</span><span class="st">"enable_auto_respond"</span>, description<span class="op">=</span><span class="st">"Toggle automatic responses"</span>),</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="use-cases" class="level3">
+<h3 class="anchored" data-anchor-id="use-cases">Use Cases</h3>
+<ol type="1">
+<li><strong>Passive Monitoring</strong> — AI listens and builds a live transcript I can query later</li>
+<li><strong>Alert Mode</strong> — Notify me (via notification) when specific topics come up</li>
+<li><strong>Auto-Respond</strong> — Autonomously answer questions about my projects/expertise</li>
+<li><strong>Full Proxy</strong> — Attend meetings entirely on my behalf</li>
+</ol>
+<p>This represents the natural evolution of the LLM-powered notes system: from <strong>processing meeting outputs</strong> (transcripts) to <strong>participating in meetings directly</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="key-takeaways" class="level1">
+<h1>Key Takeaways</h1>
+<ol type="1">
+<li><strong>Daily notes are the foundation</strong> — Capture everything chronologically, link later</li>
+<li><strong>PARA keeps things organized</strong> — Projects, Areas, Resources, Archive</li>
+<li><strong>Frontmatter is for machines</strong> — YAML metadata makes notes LLM-parseable</li>
+<li><strong>Dataview aggregates</strong> — Tasks, status, activity all computed automatically</li>
+<li><strong>Cursor + Obsidian = power combo</strong> — Full vault context available to Claude</li>
+<li><strong>Don’t write, process</strong> — Feed raw inputs (threads, transcripts) to LLMs for structuring</li>
+<li><strong>Scripts live with notes</strong> — <code>40-Resources/scripts/</code> keeps automation close</li>
+</ol>
+<p>The goal isn’t perfect organization—it’s <strong>minimum friction capture</strong> with <strong>maximum LLM leverage</strong> for processing.</p>
+<hr>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li><a href="https://obsidian.md/">Obsidian</a> — The note-taking app</li>
+<li><a href="https://fortelabs.com/blog/para/">PARA Method</a> — Tiago Forte’s organization system</li>
+<li><a href="https://blacksmithgu.github.io/obsidian-dataview/">Dataview Plugin</a> — Query your notes</li>
+<li><a href="https://silentvoid13.github.io/Templater/">Templater Plugin</a> — Advanced templates</li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a> — For MCP server integration</li>
+<li><a href="https://devblogs.microsoft.com/microsoft365dev/announcing-the-updated-teams-ai-library-and-mcp-support/">Teams AI Library with MCP</a> — Microsoft’s MCP support for Teams bots</li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>End of LLM-generated content</em></p>
+</div>
+</div>
+</div>
+<p>Hopefully, posts like this one inspire you to up your note-taking game and take advantage of the power of LLMs to help you capture and organize your work.</p>
+<p>In the meantime, keep feeding your LLM!</p>
+<p>Daniel</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/dpickem\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Daniel Pickem, 2025 - <a href="disclaimer">Disclaimer</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

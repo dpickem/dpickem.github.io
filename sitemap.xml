@@ -2,74 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dpickem.github.io/publications/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.180Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.065Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_2/chapter_02_dataset_creation.html</loc>
-    <lastmod>2025-12-11T00:17:19.173Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_5/chapter_05_pretraining_on_unlabeled_data.html</loc>
-    <lastmod>2025-12-11T00:17:19.174Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.058Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_7/chapter_07_fine_tuning_to_follow_instructions.html</loc>
-    <lastmod>2025-12-11T00:17:19.175Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.059Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_3/chapter_03_attention_mechanisms.html</loc>
-    <lastmod>2025-12-11T00:17:19.174Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
   </url>
   <url>
-    <loc>https://dpickem.github.io/posts/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.180Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_14_llms_from_scratch_part_1/chapter_01_tokenization.html</loc>
-    <lastmod>2025-12-11T00:17:19.173Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_12_10_the_curious_world_of_mcp_servers/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.176Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.172Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/disclaimer/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.169Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_05_welcome/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.173Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_13_llms_from_scratch/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.173Z</lastmod>
+    <loc>https://dpickem.github.io/posts/2026_01_13_obsidian_note_taking_system/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.064Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_10_06_open_ai_dev_day_recap/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.175Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.059Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_13_llms_from_scratch/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_05_welcome/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/disclaimer/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.056Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_12_10_the_curious_world_of_mcp_servers/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.060Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_14_llms_from_scratch_part_1/chapter_01_tokenization.html</loc>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/index.html</loc>
+    <lastmod>2026-01-15T20:15:16.065Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_06_04_robust_autonomy_emerges_from_self_play/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.175Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.059Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_4/chapter_04_gpt_from_scratch.html</loc>
-    <lastmod>2025-12-11T00:17:19.174Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.058Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_06_website_tech_stack/index.html</loc>
-    <lastmod>2025-12-11T00:17:19.173Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.057Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_6/chapter_06_fine_tuning_for_classification.html</loc>
-    <lastmod>2025-12-11T00:17:19.175Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.058Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/about.html</loc>
-    <lastmod>2025-12-11T00:17:19.169Z</lastmod>
+    <lastmod>2026-01-15T20:15:16.053Z</lastmod>
   </url>
 </urlset>

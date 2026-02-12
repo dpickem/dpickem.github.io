@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Daniel Pickem">
+<meta name="dcterms.date" content="2026-02-01">
+
+<title>Project Second Brain – Daniel Pickem</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DGMKGL1EBP"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Project Second Brain – Daniel Pickem">
+<meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta property="og:image" content="https://dpickem.github.io/posts/2026_02_01_project_second_brain/logo.png">
+<meta property="og:site_name" content="Daniel Pickem">
+<meta property="og:image:height" content="800">
+<meta property="og:image:width" content="800">
+<meta name="twitter:title" content="Project Second Brain – Daniel Pickem">
+<meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
+<meta name="twitter:image" content="https://dpickem.github.io/posts/2026_02_01_project_second_brain/logo.png">
+<meta name="twitter:image-height" content="800">
+<meta name="twitter:image-width" content="800">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Daniel Pickem</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-origin-story" id="toc-the-origin-story" class="nav-link active" data-scroll-target="#the-origin-story">The Origin Story</a></li>
+  <li><a href="#overview-architecture-and-key-features" id="toc-overview-architecture-and-key-features" class="nav-link" data-scroll-target="#overview-architecture-and-key-features">Overview, Architecture, and Key Features</a>
+  <ul class="collapse">
+  <li><a href="#system-architecture" id="toc-system-architecture" class="nav-link" data-scroll-target="#system-architecture">System Architecture</a></li>
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
+  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
+  <li><a href="#backend-fastapi" id="toc-backend-fastapi" class="nav-link" data-scroll-target="#backend-fastapi">Backend (FastAPI)</a></li>
+  <li><a href="#frontend-react-vite-tailwindcss" id="toc-frontend-react-vite-tailwindcss" class="nav-link" data-scroll-target="#frontend-react-vite-tailwindcss">Frontend (React + Vite + TailwindCSS)</a></li>
+  <li><a href="#mobile-capture-pwa" id="toc-mobile-capture-pwa" class="nav-link" data-scroll-target="#mobile-capture-pwa">Mobile Capture (PWA)</a></li>
+  <li><a href="#data-layer" id="toc-data-layer" class="nav-link" data-scroll-target="#data-layer">Data Layer</a></li>
+  <li><a href="#learning-theory-foundations" id="toc-learning-theory-foundations" class="nav-link" data-scroll-target="#learning-theory-foundations">Learning Theory Foundations</a></li>
+  </ul></li>
+  <li><a href="#observations-about-the-build-design-process" id="toc-observations-about-the-build-design-process" class="nav-link" data-scroll-target="#observations-about-the-build-design-process">Observations About the Build / Design Process</a>
+  <ul class="collapse">
+  <li><a href="#agentic-coding-vs-vibe-coding" id="toc-agentic-coding-vs-vibe-coding" class="nav-link" data-scroll-target="#agentic-coding-vs-vibe-coding">Agentic Coding vs Vibe Coding</a></li>
+  <li><a href="#iteration-on-code" id="toc-iteration-on-code" class="nav-link" data-scroll-target="#iteration-on-code">Iteration on Code</a></li>
+  <li><a href="#parallelization-of-agents" id="toc-parallelization-of-agents" class="nav-link" data-scroll-target="#parallelization-of-agents">Parallelization of Agents</a></li>
+  <li><a href="#backend-vs-frontend" id="toc-backend-vs-frontend" class="nav-link" data-scroll-target="#backend-vs-frontend">Backend vs Frontend</a></li>
+  <li><a href="#opus-class-models-are-beasts" id="toc-opus-class-models-are-beasts" class="nav-link" data-scroll-target="#opus-class-models-are-beasts">Opus-class Models are Beasts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Second Brain</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Productivity</div>
+    <div class="quarto-category">Learning</div>
+    <div class="quarto-category">Centralized Knowledge Base</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Daniel Pickem </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>I’ve recently posted about automating some of my daily work that’s not directly software engineering (mostly project management-related tasks, see <a href="https://layerbylayer.ai/posts/2026_01_13_obsidian_note_taking_system/">my Obsidian note-taking system</a>). Besides the codification of daily workflows, the biggest outcome of that project has been the lessons learned in building knowledge bases - after all, one of the goals for my note-taking system was to build a knowledge base for all the content I consume and produce at work (daily notes, project logs, work logs, meeting/thread summaries, etc.).</p>
+<p>As with most projects, this one also spawned a number of follow-up threads, new ideas, and questions about how to improve knowledge management and the building of knowledge bases or knowledge representations more generally:</p>
+<ul>
+<li><strong>Are markdown files a good representation for knowledge?</strong> Most AI assistants (such as Cursor or Claude Code) use them to persist knowledge but text files seem like a crude representation of knowledge that lacks connections between different pieces of knowledge (using Wiki-style links in my Obsidian markdown files was an attempt to improve upon pure markdown files).</li>
+<li><strong>Why limit the knowledge base to work-related content only?</strong> I consume so many other types of content that are spread across a number of different apps and tools (iOS Books app for academic papers, general bookmarks in Raindrop/Safari/Chrome, voice memos or podcasts in Voice Memos/Podcasts/Audiobooks apps, physical books including all the highlights and handwritten notes, etc.). All of these additional sources were not captured in my Obsidian-based note-taking workflows.</li>
+<li><strong>How can I get away from an MCP server-based workflow?</strong> As much as I praised MCP servers in my previous post, I find these servers increasingly fragile in my daily use (at least when used in Cursor). I constantly have to disable/re-enable them (as they “forget” about their tools), re-authenticate them, wrestle with the limited number of tools Cursor supports (&lt;80) to avoid filling up the context window, etc. In a recent experiment, I just replaced all MCP servers I use with a single CLI tool that provides a unified interface (via sub-CLI menus). This tool just uses httpx and REST calls to interface with all services directly instead of taking this indirect route through MCP servers. Rumor has it that this approach also suits LLMs better since they are trained on CLI tool call traces already. On a related note, Simon Willison made an observation about CLI tools in his post on <a href="https://simonwillison.net/2025/Oct/16/claude-skills/">Claude Skills</a> that bears repeating:</li>
+</ul>
+<blockquote class="blockquote">
+<p><em>“My own interest in MCPs has waned ever since I started taking coding agents seriously. Almost everything I might achieve with an MCP can be handled by a CLI tool instead. LLMs know how to call cli-tool –help, which means you don’t have to spend many tokens describing how to use them—the model can figure it out later when it needs to.”</em></p>
+</blockquote>
+<ul>
+<li><strong>How can I scale the note-taking workflows to ingest a large number of sources in parallel?</strong> Cursor is a great starting point for interactively launching these note-taking workflows but it is a 1-on-1 workflow in the sense that one user directs the LLM to perform one task. It does not scale to ingesting a large number of sources in parallel (e.g.&nbsp;summarizing multiple Slack threads, documents, etc.). If I wanted to process multiple Slack threads I always ended up queuing these requests, and Cursor processed them sequentially. In his post about <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04">Gas Town</a>, Steve Yegge described “8 Stages of Dev Evolution To AI” that describe the types of use of AI assistants in the first four levels. The latter four levels, however, focus on increasing parallelism in the number of used agents and the number of parallel tasks being executed (see image below). While not a perfect analogy, I wanted to build a system that supported higher parallelism in ingesting content.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ArLBW-FgOdve4COI804uIQ.png" class="img-fluid figure-img"></p>
+<figcaption>8 Stages of Dev Evolution To AI (credit Steve Yegge)</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>How can I build a system that can operate pro-actively instead of only when prompted?</strong> My note-taking workflows are purely reactive - work only happens when I provide an input. Agentic personal AI assistant systems (like <a href="https://openclaw.ai/">OpenClaw</a>) though can operate pro-actively by monitoring my or other people’s actions and responding to them. I did not take OpenClaw into account when I designed my system since OpenClaw was released after I started working on my “Second Brain” project but some of its features resonated with me - in particular, its proactiveness. While not taking it as far as OpenClaw, part of “Second Brain” just monitors my activity across GitHub and Raindrop to ingest new content automatically (e.g.&nbsp;in response to me starring a GitHub repo).</li>
+</ul>
+<section id="the-origin-story" class="level2">
+<h2 class="anchored" data-anchor-id="the-origin-story">The Origin Story</h2>
+<p>Addressing the above questions formed the origin story for my “Second Brain” project. My <a href="https://github.com/dpickem/project_second_brain/blob/main/INITIAL_PROJECT_IDEA.md">initial project idea</a> was not much more than a one-pager but it formalized the idea of taking the notion of a personal knowledge base even further.</p>
+<p>I wanted to create a system that acts as my <strong>personal knowledge base</strong> for everything — i.e., ingest all the various sources of written (and also audio) content I consume. The idea of building a personal knowledge base has been on my mind for a while, but the first time I attempted to build it was before LLM tooling was capable enough, and building a sufficiently capable system would not have been feasible given my limited time. Less than a year later, the advent of Opus 4.5 / GPT-5.2 class models made this system entirely possible. In fact, it took me less than a month to build a fairly feature-complete version of <a href="https://github.com/dpickem/project_second_brain/tree/main">Project Second Brain</a>. The project is described in a lot of detail in the main <a href="https://github.com/dpickem/project_second_brain/blob/main/README.md">README</a> file, the <a href="https://github.com/dpickem/project_second_brain/tree/main/docs/design_docs">design docs</a>, <a href="https://github.com/dpickem/project_second_brain/tree/main/docs/implementation_plan">implementation plans</a>, and <a href="https://github.com/dpickem/project_second_brain/tree/main/docs/tutorials">tutorials</a>. In this post, I just want to highlight some of the key features, observations, and lessons learned from the build process and use of <em>“Second Brain”</em>.</p>
+<p>The idea of a knowledge base was part of the initial motivation. The other half was my growing concern about the limited knowledge absorption capabilities of the human mind. Ultimately, we absorb knowledge in a linear fashion (say 200 words per minute). Knowledge, though, is generated at increasingly exponential rates. So besides cataloging everything I consume, I was also looking for ways to speed up my learning — or rather, <strong>focus my learning on the highest value information</strong>. I wanted to build a <strong>learning system</strong> on top of my knowledge base that both summarizes information, extracts relevant and high-value content, and then helps me absorb that content in an efficient fashion (inspired by modern learning theory).</p>
+</section>
+<section id="overview-architecture-and-key-features" class="level2">
+<h2 class="anchored" data-anchor-id="overview-architecture-and-key-features">Overview, Architecture, and Key Features</h2>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📝 LLM-Generated Content
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The content below was automatically generated based on the project’s design docs and README.</em></p>
+</div>
+</div>
+<p>The result of this effort is <strong><a href="https://github.com/dpickem/project_second_brain">Project Second Brain</a> — an LLM-enabled personal knowledge management and learning system</strong>. It ingests data from various sources (academic papers, online articles, blog posts, newsletters, physical books, voice notes, podcasts, code repositories, and fleeting ideas), processes them through LLM-powered pipelines, stores everything in a graph-based knowledge representation, and then helps me <em>actively learn</em> from that content through exercises and spaced repetition.</p>
+<p>The guiding quote for the project captures the philosophy well:</p>
+<blockquote class="blockquote">
+<p><em>“Tell me and I forget, teach me and I may remember, involve me and I learn.”</em> — Xun Kuang</p>
+</blockquote>
+<section id="system-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="system-architecture">System Architecture</h3>
+<p>At a high level, <em>“Second Brain”</em> follows a pipeline architecture: data sources feed into an ingestion layer, which passes through LLM-powered processing, and ultimately lands in a knowledge hub (Obsidian), a knowledge graph (Neo4j), and a learning system — all accessible through a web application and an AI-powered learning assistant.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="system_architecture.png" class="img-fluid figure-img"></p>
+<figcaption>Second Brain System Architecture (the layered presentation fits nicely into the “layer by layer” theme)</figcaption>
+</figure>
+</div>
+</section>
+<section id="key-features" class="level3">
+<h3 class="anchored" data-anchor-id="key-features">Key Features</h3>
+<p><em>“Second Brain”</em> is built around three core capabilities:</p>
+<ol type="1">
+<li><p><strong>Automated Ingestion</strong> — Diverse data source pipelines that handle PDFs (with handwriting OCR via Mistral Vision), web articles (via Raindrop.io API), physical book pages (photo → OCR → text), GitHub repositories (structure analysis + code summarization), and quick capture for fleeting ideas.</p></li>
+<li><p><strong>Intelligent Processing</strong> — LLM-powered summarization, key concept extraction, semantic tag classification, automatic connection discovery between notes, follow-up task generation, and exercise/quiz generation.</p></li>
+<li><p><strong>Active Learning</strong> — A full spaced repetition system (FSRS algorithm), AI-generated exercises (free recall, self-explanation, worked examples, code debugging, teach-back), mastery tracking, and an AI tutor that can query the knowledge graph conversationally.</p></li>
+</ol>
+</section>
+<section id="tech-stack" class="level3">
+<h3 class="anchored" data-anchor-id="tech-stack">Tech Stack</h3>
+<p>The system is built on a modern stack optimized for async processing, graph-based knowledge representation, and a responsive frontend:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 37%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Backend</strong></td>
+<td><img src="https://img.shields.io/badge/-FastAPI-009688?logo=fastapi&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="FastAPI"> <img src="https://img.shields.io/badge/-Python_3.11+-3776AB?logo=python&amp;logoColor=white&amp;style=flat-square" class="img-fluid" alt="Python"></td>
+<td>Async REST API with OpenAPI docs</td>
+</tr>
+<tr class="even">
+<td><strong>Frontend</strong></td>
+<td><img src="https://img.shields.io/badge/-React_18-61DAFB?logo=react&amp;logoColor=black&amp;style=flat-square.png" class="img-fluid" alt="React"> <img src="https://img.shields.io/badge/-Vite-646CFF?logo=vite&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Vite"> <img src="https://img.shields.io/badge/-TailwindCSS-06B6D4?logo=tailwindcss&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="TailwindCSS"></td>
+<td>Modern, fast web interface</td>
+</tr>
+<tr class="odd">
+<td><strong>Knowledge Hub</strong></td>
+<td><img src="https://img.shields.io/badge/-Obsidian-7C3AED?logo=obsidian&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Obsidian"></td>
+<td>Markdown-based, local-first note storage</td>
+</tr>
+<tr class="even">
+<td><strong>Graph DB</strong></td>
+<td><img src="https://img.shields.io/badge/-Neo4j-4581C3?logo=neo4j&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Neo4j"></td>
+<td>Knowledge graph with Cypher queries</td>
+</tr>
+<tr class="odd">
+<td><strong>Relational DB</strong></td>
+<td><img src="https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="PostgreSQL"></td>
+<td>Learning records, user data, scheduling</td>
+</tr>
+<tr class="even">
+<td><strong>Cache</strong></td>
+<td><img src="https://img.shields.io/badge/-Redis-DC382D?logo=redis&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Redis"></td>
+<td>Session state, rate limiting</td>
+</tr>
+<tr class="odd">
+<td><strong>Task Queue</strong></td>
+<td><img src="https://img.shields.io/badge/-Celery-37814A?logo=celery&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Celery"></td>
+<td>Async background job processing</td>
+</tr>
+<tr class="even">
+<td><strong>LLM Interface</strong></td>
+<td><img src="https://img.shields.io/badge/-LiteLLM-000000?style=flat-square.png" class="img-fluid" alt="LiteLLM"></td>
+<td>Unified API to 100+ LLMs</td>
+</tr>
+<tr class="odd">
+<td><strong>OCR / Vision</strong></td>
+<td><img src="https://img.shields.io/badge/-Mistral_OCR-FF7000?style=flat-square.png" class="img-fluid" alt="Mistral"> <img src="https://img.shields.io/badge/-Gemini-8E75B2?logo=googlegemini&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Gemini"></td>
+<td>PDF processing, handwriting recognition</td>
+</tr>
+<tr class="even">
+<td><strong>LLM Providers</strong></td>
+<td><img src="https://img.shields.io/badge/-Anthropic-D97757?logo=anthropic&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Anthropic"> <img src="https://img.shields.io/badge/-OpenAI-412991?logo=openai&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="OpenAI"> <img src="https://img.shields.io/badge/-Gemini-8E75B2?logo=googlegemini&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Gemini"></td>
+<td>Summarization, exercises, assistant</td>
+</tr>
+<tr class="odd">
+<td><strong>Containerization</strong></td>
+<td><img src="https://img.shields.io/badge/-Docker-2496ED?logo=docker&amp;logoColor=white&amp;style=flat-square.png" class="img-fluid" alt="Docker"></td>
+<td>One-command deployment</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="backend-fastapi" class="level3">
+<h3 class="anchored" data-anchor-id="backend-fastapi">Backend (FastAPI)</h3>
+<p>The backend is a <strong>FastAPI</strong> application that serves as the brain of the operation. It exposes REST APIs organized into six domains:</p>
+<ul>
+<li><code>/api/ingest/*</code> — Content ingestion (PDF, Raindrop, OCR, GitHub)</li>
+<li><code>/api/knowledge/*</code> — Graph queries, search, connections, topics</li>
+<li><code>/api/practice/*</code> — Exercise generation, response submission, feedback</li>
+<li><code>/api/review/*</code> — Spaced repetition scheduling, due items, confidence updates</li>
+<li><code>/api/analytics/*</code> — Learning curves, topic mastery, session history, weak spots</li>
+<li><code>/api/assistant/*</code> — Chat interface, question generation, connection explanation</li>
+</ul>
+<p>Background processing is handled by <strong>Celery</strong> workers with Redis as the message broker, enabling parallel ingestion of multiple sources without blocking the API.</p>
+</section>
+<section id="frontend-react-vite-tailwindcss" class="level3">
+<h3 class="anchored" data-anchor-id="frontend-react-vite-tailwindcss">Frontend (React + Vite + TailwindCSS)</h3>
+<p>The frontend is a modern <strong>React 18</strong> application built with Vite and styled with TailwindCSS. It features a dark-themed interface optimized for focused learning and includes the following pages:</p>
+<p><strong>Dashboard</strong> — The home screen answers “What should I do today?” at a glance. It shows your current streak, due review cards, daily progress, quick actions, weak spots, and a quick capture input for rapidly saving ideas or URLs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/dashboard.png" class="img-fluid figure-img"></p>
+<figcaption>Dashboard</figcaption>
+</figure>
+</div>
+<p><strong>Practice Session</strong> — Enables deep learning through structured exercises grounded in cognitive science. You select topics with visual mastery indicators, configure session parameters, and practice through free recall, self-explanation, worked examples, code debugging, and teach-back prompts — all with immediate LLM-powered feedback.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/practice.png" class="img-fluid figure-img"></p>
+<figcaption>Practice Session</figcaption>
+</figure>
+</div>
+<p><strong>Review Queue (Spaced Repetition)</strong> — Implements the FSRS (Free Spaced Repetition Scheduler) algorithm. Cards are presented with active recall — you type your answer before seeing the correct response. The LLM evaluates answers for semantic correctness, and you rate confidence (Again/Hard/Good/Easy) to adjust scheduling.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/review.png" class="img-fluid figure-img"></p>
+<figcaption>Review Queue</figcaption>
+</figure>
+</div>
+<p><strong>Knowledge Explorer</strong> — A unified interface for browsing the entire Obsidian-based knowledge base. Toggle between tree and list views, search notes in real-time, use the command palette (<code>⌘K</code>), and render notes inline with full markdown support including syntax highlighting, LaTeX, and wiki-link navigation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/knowledge.png" class="img-fluid figure-img"></p>
+<figcaption>Knowledge Explorer</figcaption>
+</figure>
+</div>
+<p><strong>Knowledge Graph</strong> — An interactive D3.js force-directed visualization of the Neo4j knowledge graph. Different node types (Content, Concepts, Notes) are color-coded, with edges representing relationships like <code>RELATES_TO</code>, <code>CITES</code>, <code>EXTENDS</code>, and <code>PREREQUISITE_FOR</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/graph.png" class="img-fluid figure-img"></p>
+<figcaption>Knowledge Graph</figcaption>
+</figure>
+</div>
+<p><strong>Analytics Dashboard</strong> — Comprehensive learning insights including total time invested, streak tracking, mastery percentages, activity charts over configurable time periods, topic mastery radar, and weak spots analysis with targeted “Practice Now” actions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/analytics.png" class="img-fluid figure-img"></p>
+<figcaption>Analytics Dashboard</figcaption>
+</figure>
+</div>
+<p><strong>Learning Assistant</strong> — An AI-powered chat interface for conversational exploration of the knowledge base. Ask questions like “What do I know about attention mechanisms?” and the assistant searches the vault and knowledge graph, synthesizes information, and provides source citations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/assistant.png" class="img-fluid figure-img"></p>
+<figcaption>Learning Assistant</figcaption>
+</figure>
+</div>
+</section>
+<section id="mobile-capture-pwa" class="level3">
+<h3 class="anchored" data-anchor-id="mobile-capture-pwa">Mobile Capture (PWA)</h3>
+<p>A critical bottleneck in knowledge management is <strong>capture friction</strong> — the effort required to get information into the system. To minimize this, <em>“Second Brain”</em> includes a companion <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">Progressive Web App (PWA)</a> — a web application that can be installed on your phone and behaves like a native app. Once installed via “Add to Home Screen,” the PWA gets its own app icon, launches in a standalone window without browser, works offline via a service worker that caches assets and queues requests, and can receive shared content (URLs, text, images) from other apps through the OS share sheet. Unlike a native iOS/Android app, though, there’s no App Store submission — it’s just a lightweight frontend served from the same backend, installable in one tap.</p>
+<p>The PWA provides a mobile-optimized interface for on-the-go capture with offline support:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Installable</strong></td>
+<td>“Add to Home Screen” — launches like a native app</td>
+</tr>
+<tr class="even">
+<td><strong>Offline capable</strong></td>
+<td>Service worker caches assets and queues captures in IndexedDB</td>
+</tr>
+<tr class="odd">
+<td><strong>Background sync</strong></td>
+<td>Automatically uploads queued captures when connection is restored</td>
+</tr>
+<tr class="even">
+<td><strong>Share target</strong></td>
+<td>Receive shared URLs, text, and images from other apps (Android)</td>
+</tr>
+<tr class="odd">
+<td><strong>&lt; 3 second capture</strong></td>
+<td>Minimal UI with large touch targets optimized for speed</td>
+</tr>
+</tbody>
+</table>
+<p>The PWA runs as a separate lightweight frontend and communicates with the same backend API. All captures are processed asynchronously via Celery and flow into the standard ingestion pipeline.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/capture-home.png" class="img-fluid figure-img"></p>
+<figcaption>Home Screen</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/capture-text.png" class="img-fluid figure-img"></p>
+<figcaption>Text Capture</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/dpickem/project_second_brain/main/docs/screenshots/capture-url.png" class="img-fluid figure-img"></p>
+<figcaption>URL Capture</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-layer" class="level3">
+<h3 class="anchored" data-anchor-id="data-layer">Data Layer</h3>
+<p>The data layer is split across four storage systems, each optimized for its role:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data_layer_architecture.png" class="img-fluid figure-img"></p>
+<figcaption>Second Brain Data Layer Architecture</figcaption>
+</figure>
+</div>
+<p><strong>Neo4j</strong> stores the knowledge graph with nodes for Concepts, Sources, Topics, Authors, and Tags. Edges encode relationships: <code>RELATES_TO</code>, <code>CITES</code>, <code>CONTRADICTS</code>, <code>EXTENDS</code>, and <code>PREREQUISITE_FOR</code>. This enables queries like <em>“What do I know about X?”</em> and <em>“What connects A to B?”</em> — powering the Graph RAG that feeds the learning assistant.</p>
+<p><strong>Obsidian</strong> serves as the human-readable knowledge hub. Notes are organized by content type (<code>sources/papers/</code>, <code>sources/articles/</code>, etc.) with secondary semantic tags (<code>ml/transformers</code>, <code>systems/distributed</code>) and rich bidirectional wiki-links. In practice, Obsidian and the web UI provide overlapping visualization and browsing capabilities — the web app’s Knowledge Explorer can do everything Obsidian does for reading and navigating notes. Obsidian may be deprecated as the user-facing layer in the future to avoid the overhead of keeping two data sources in sync, with the Markdown vault retained purely as a local-first storage backend.</p>
+<p><strong>PostgreSQL</strong> tracks all learning activity — practice attempts, confidence ratings, FSRS scheduling parameters, time invested, and mastery progression over time.</p>
+<p><strong>Redis</strong> handles ephemeral state — active user sessions, temporary exercise state during practice, and rate limiting for API calls.</p>
+</section>
+<section id="learning-theory-foundations" class="level3">
+<h3 class="anchored" data-anchor-id="learning-theory-foundations">Learning Theory Foundations</h3>
+<p>What sets <em>“Second Brain”</em> apart from a pure knowledge management system is its grounding in <strong>cognitive science research on learning and memory</strong>. The learning system is not just flashcards — it’s designed around evidence-based principles (see the full <a href="https://github.com/dpickem/project_second_brain/blob/main/LEARNING_THEORY.md">Learning Theory</a> document for detailed research summaries):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Research</th>
+<th>Key Finding</th>
+<th>How <em>“Second Brain”</em> Implements It</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1553-2712.2008.00227.x"><strong>Ericsson (2008)</strong></a> — Deliberate Practice</td>
+<td>Expertise requires structured practice with feedback, not passive experience</td>
+<td>Adaptive difficulty + immediate LLM feedback on exercises</td>
+</tr>
+<tr class="even">
+<td><a href="https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/04/EBjork_RBjork_2011.pdf"><strong>Bjork &amp; Bjork (2011)</strong></a> — Desirable Difficulties</td>
+<td>Spacing, interleaving, and generation enhance long-term retention</td>
+<td>FSRS spaced repetition + varied exercise types</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.whz.de/fileadmin/lehre/hochschuldidaktik/docs/dunloskiimprovingstudentlearning.pdf"><strong>Dunlosky et al.&nbsp;(2013)</strong></a> — Learning Techniques</td>
+<td>Practice testing and distributed practice are highest utility; highlighting/rereading are lowest</td>
+<td>Retrieval-based exercises; avoids recognition-only tasks</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.sciencedirect.com/science/article/pii/S0361476X1000055X"><strong>Van Gog et al.&nbsp;(2011)</strong></a> — Cognitive Load</td>
+<td>Worked examples before problems for novices</td>
+<td>Adaptive: examples → testing as mastery increases</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.sciencedirect.com/science/article/pii/0364021394900167"><strong>Chi et al.&nbsp;(1994)</strong></a> — Self-Explanation</td>
+<td>Prompting self-explanation builds correct mental models</td>
+<td>Self-explanation prompts embedded in exercises</td>
+</tr>
+</tbody>
+</table>
+<p>The core principles that emerge:</p>
+<ol type="1">
+<li><strong>Learning ≠ Performance</strong> — Easy recall during study (retrieval strength) doesn’t guarantee long-term retention (storage strength). The system optimizes for storage strength.</li>
+<li><strong>Generation over Recognition</strong> — Producing answers from memory beats re-reading or highlighting. All exercises require active generation.</li>
+<li><strong>Desirable Difficulties</strong> — Spacing, interleaving, testing, and variation slow immediate performance but dramatically enhance retention.</li>
+<li><strong>Adaptive Scaffolding</strong> — Novices get worked examples; as mastery increases, the system shifts to retrieval practice and interleaved questioning.</li>
+</ol>
+<p>Exercise types span the full cognitive spectrum:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 32%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Content Type</th>
+<th>Exercise Types</th>
+<th>Difficulty Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Conceptual</strong></td>
+<td>Explain-in-own-words, compare/contrast, teach-back</td>
+<td>Generation effect (no notes allowed)</td>
+</tr>
+<tr class="even">
+<td><strong>Technical</strong></td>
+<td>Implement from scratch, debug code, extend functionality</td>
+<td>Generation + Variation</td>
+</tr>
+<tr class="odd">
+<td><strong>Procedural</strong></td>
+<td>Reconstruct steps from memory, adapt to new scenario</td>
+<td>Retrieval practice + Interleaving</td>
+</tr>
+<tr class="even">
+<td><strong>Analytical</strong></td>
+<td>Case study analysis, predict outcomes, critique approaches</td>
+<td>Generation + Spacing</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>End of LLM-generated content</em></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="observations-about-the-build-design-process" class="level2">
+<h2 class="anchored" data-anchor-id="observations-about-the-build-design-process">Observations About the Build / Design Process</h2>
+<p>Before concluding, I just want to point out a few meta-observations about the build / design process that are not strictly technical. Instead, these are more about the changing role of the software engineer in the software development process and reflect on some of the conclusions influential figures in the field have drawn about the future of software engineering:</p>
+<ul>
+<li>Steve Yegge (creator of <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04">“Gas Town”</a> and a recent interview with the <a href="https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the">Pragmatic Engineer podcast</a>)</li>
+<li>Andrej Karpathy’s tweet about <a href="https://x.com/karpathy/status/2004607146781278521?lang=en">“I’ve never felt this much behind as a programmer.”</a></li>
+<li>Boris Cherny’s tweet (creator of Claude Code) about <a href="https://x.com/bcherny/status/2004626064187031831">“Using Claude Code”</a></li>
+</ul>
+<section id="agentic-coding-vs-vibe-coding" class="level3">
+<h3 class="anchored" data-anchor-id="agentic-coding-vs-vibe-coding">Agentic Coding vs Vibe Coding</h3>
+<p>This project was as much about creating a usable product as it was about improving my skillset (in agentic coding, LLM-based workflows, app development, etc.). While this project was almost entirely implemented by Cursor / Claude Code, I still want to draw a distinction between vibe-coding and principled AI-assisted software development. While I let coding agents implement the entire system, the design process was highly iterative and involved and significantly more guided than the hands-off approach of vibe coding.</p>
+<p>The limitations of vibe coding have been humorously illustrated in the <a href="https://ghuntley.com/ralph/">“Ralph Wiggum as a”software engineer” blog post by Geoffrey Huntley</a> — the idea that you can make coding agents work autonomously by simply running them in a loop until they achieve “complete.” <a href="https://x.com/bcherny/status/2004626064187031831">Boris Cherny</a> released a variation that learns from its mistakes, using failures as data. While these approaches kind of work, in practice, iteration without structure is just thrashing.</p>
+<p>Instead of iterating on code directly or on vague prompts, this iterative discipline should be moved <em>upstream</em>: iterate on the spec until it’s well-defined, iterate on acceptance criteria until they’re testable, iterate on tests until they meaningfully constrain behavior. I tried to apply that same methodology to this project and directed Cursor to draft lengthy design and implementation plans that I iterated on multiple times before writing any code. Reading these docs consumed most of my time (not the review of the code). But given these robust design docs, I could trust the agents a lot more to get it right in one or two shots.</p>
+</section>
+<section id="iteration-on-code" class="level3">
+<h3 class="anchored" data-anchor-id="iteration-on-code">Iteration on Code</h3>
+<p>There were iterations on the code side as well, but I never manually corrected the code directly. I went back to the drawing board instead (i.e., design docs), updated them, and then had the agent update the implementation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="iteration_workflow_comparison.png" class="img-fluid figure-img"></p>
+<figcaption>Two approaches to iterating on code — fix code directly vs.&nbsp;update the design spec first</figcaption>
+</figure>
+</div>
+<p>I also want to highlight the importance of good test coverage. I used unit and integration tests extensively to sanity check the codebase and catch regressions early. Any time I discovered a bug or undesired behavior, Cursor would automatically fix it and add a test to prevent it from happening again. At this point, the project has well over a thousand unit tests, hundreds of integration tests, and dozens of full end-to-end frontend tests. I would not have the confidence I have in the codebase without these tests.</p>
+</section>
+<section id="parallelization-of-agents" class="level3">
+<h3 class="anchored" data-anchor-id="parallelization-of-agents">Parallelization of Agents</h3>
+<p>While I had multiple agents work on the project at the same time, I managed the parallelization manually, i.e., I directed the individual agents to work on different non-overlapping parts of the project (backend vs.&nbsp;frontend vs.&nbsp;design docs). In my next project I’ll definitely leverage git trees and a much higher number of agents (maybe even <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04">Gas Town</a>).</p>
+<p>In terms of the “8 Stages of Dev Evolution To AI” (see image above), this was somewhere between stage 4 (still in an IDE) and stage 6 (multiple parallel agents working on different parts of the project) but still included a fair amount of code review (at least on the backend design and data model).</p>
+</section>
+<section id="backend-vs-frontend" class="level3">
+<h3 class="anchored" data-anchor-id="backend-vs-frontend">Backend vs Frontend</h3>
+<p>I spent most of my time getting the backend right, i.e., the data model, database structure, API endpoints, ingestion workflows, etc. In contrast, I reviewed almost none of the frontend code — mostly because a broken frontend is almost immediately noticeable. Backend and data issues, in my experience, can be more insidious and harder to diagnose.</p>
+</section>
+<section id="opus-class-models-are-beasts" class="level3">
+<h3 class="anchored" data-anchor-id="opus-class-models-are-beasts">Opus-class Models are Beasts</h3>
+<p>I knew Opus 4.5 / GPT-5.2 class models were really capable, but I was still impressed by how much coherent code they could produce. <em>“Second Brain”</em> has grown to over 100k lines of code and it works - using tons of unit and integration testing as a sanity check.</p>
+<p>This impression was accompanied by a bittersweet realization of the permanently changed nature of the software engineer’s role - we’ll never go back to writing code by hand in a text editor again (Steve Yegge captures this sentiment nicely in his now one-year old post about <a href="https://sourcegraph.com/blog/the-death-of-the-junior-developer">“The death of the junior developer”</a>).</p>
+<p>On the other hand, I am really excited that these powerful models enable every developer (and non-developer) to build software at an order of magnitude higher velocity than ever before. We are no longer constrained by execution but only by our own creativity, imagination, and the number of ideas we can generate.</p>
+<hr>
+<p>In the meantime, I’ll borrow Andrew Ng’s catchphrase here: “Keep building!”</p>
+<p>Daniel</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/dpickem\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Daniel Pickem, 2025 - <a href="disclaimer">Disclaimer</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

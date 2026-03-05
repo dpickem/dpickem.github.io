@@ -16,9 +16,9 @@ I am trying to make better use of all the meetups, conferences, startup events, 
 
 This was one of my first conferences in the Bay Area (apart from OpenAI's dev day and GTC last year) but it definitely won't be my last. The energy and excitement around agentic AI and coding agents was palpable and attendees were eager to talk about their experiments, workflows, setups, and learnings. But besides that, it was really valuable to see how the community is thinking about agentic AI and which directions startups are pursuing. I'll go into these topics in more detail below in the individual talk sections and focus on overall conference impressions here.
 
-- There were an estimated 200-250 people in attendance, 19 startup booths, 8 keynotes, 5 lightning talks, and 3 workshops.
+- There were about 400 people in attendance, 19 startup booths, 8 keynotes, 5 lightning talks, and 3 workshops.
 - Mountain View's Computer History Museum was a really fitting venue for this event - the future of software engineering and knowledge work against the backdrop of the history of computing (some speakers explicitly referenced the history of computing in their talks).
-- Overall, the event had a great energy - especially from the organizer 'Demetrios'.
+- Overall, the event had a great energy - especially from the organizer [Demetrios](https://www.linkedin.com/in/dpbrinkm/).
 - I've never heard the word "orchestration" used so many times in a single day before.
 - I can't shake the impression that we are living through a bimodal adoption distribution. On the one hand you see startups building hardcore multi-agent systems, traceability and observability systems, etc. On the other hand, you see participants at these conferences just barely using single-agent systems, coding assistants, or MCPs in their daily work. Even at NVIDIA, adoption is still quite uneven. [Kilo's keynote](#keynote-jonathan-young-kilo-code) captures this quite well — "Developers don't jump to agents. They climb." The path to multi-agent orchestration is a long one and I see my job as early adopter / evangelist to make that learning curve less steep and simplify their onboarding (at least that is what I try to do at NVIDIA and with my blog posts).
 
@@ -256,13 +256,13 @@ The workshop felt like a polished Cursor introduction — but the underlying pri
 ### My Take
 
 - This talk felt like an introduction to software development using Cursor. It did a good job at formalizing the stages of the new software development paradigm that is anchored around automated implementation, which shifts the developer focus to the earlier research and design stages. Mihail emphasized the importance of iterating on the design proposal and implementation plan and only handing those plans off to the implementation agent once the design is well-defined and the implementation plan is clear.
-- The RePPIT framework seems like a great way to formalize the software engineering process. I just have to find these prompts on GitHub.
+- The RePPIT framework seems like a great way to formalize the software engineering process. Workshop materials: [slides](https://go.mlops.community/ShipCodeSlides) and [full drive](https://go.mlops.community/ShipCodeWorkshop).
 
 ---
 
 ## Workshop: Drew Breunig
 
-**A Software Library with No Code.** Drew Breunig posed a provocative question: *"If agents are good enough, do we need to share code?"* He used his library [whenwords](https://github.com/dbreunig/whenwords) (1.1k stars) as a case study. ([examples](https://github.com/dbreunig/whenwords-examples), [blog post](https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html))
+**A Software Library with No Code.** Drew Breunig posed a provocative question: *"If agents are good enough, do we need to share code?"* He used his library [whenwords](https://github.com/dbreunig/whenwords) (1.1k stars) as a case study. ([examples](https://github.com/dbreunig/whenwords-examples), [blog post](https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html), [writeup](https://go.mlops.community/SpecDrivenWriteup), [recording](https://go.mlops.community/SpecDrivenTalk))
 
 **Spec-driven development — with caveats.** Drew advocates for spec-driven development but cautions that specs and tests are sometimes not sufficient. No spec is perfect, and implementing the code helps us improve the spec. It's not a one-way road — it's a feedback loop.
 
@@ -393,6 +393,16 @@ Met some great people throughout the day:
 - **[James Andrew Walsh](https://www.linkedin.com/in/jamesgloballiquidity/)** — OpenClaw and Blender automation for luxury housing development
 - **[Varuni Gang](https://www.linkedin.com/in/varuni-gang/)** — TripAdvisor
 - **[Anna Maria (AMB) Brunnhofer-Pedemonte](https://www.linkedin.com/in/anna-maria-brunnhofer/)** — Impact AI, and her husband Stefanos
+
+---
+
+## Workshop Materials
+
+The organizer [Demetrios](https://www.linkedin.com/in/dpbrinkm/) shared workshop materials after the event:
+
+- **Optimizing Codebases for Agents** — Shrivu Shankar: agent-first architecture patterns, "AI-Readiness" audit framework, and repo structure guidance. [GitHub repo](https://go.mlops.community/AgentCodebaseWorkshop)
+- **5 Prompts to Ship Production Code 2x Faster** — Mihail Eric: [slides](https://go.mlops.community/ShipCodeSlides) | [full drive](https://go.mlops.community/ShipCodeWorkshop)
+- **Software Libraries with No Code** — Drew Breunig: [writeup](https://go.mlops.community/SpecDrivenWriteup) | [recording](https://go.mlops.community/SpecDrivenTalk)
 
 ---
 

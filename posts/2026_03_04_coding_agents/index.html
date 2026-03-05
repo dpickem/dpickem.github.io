@@ -176,6 +176,7 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#conference-materials" id="toc-conference-materials" class="nav-link" data-scroll-target="#conference-materials">Conference Materials</a></li>
   <li><a href="#new-contacts" id="toc-new-contacts" class="nav-link" data-scroll-target="#new-contacts">New Contacts</a></li>
+  <li><a href="#workshop-materials" id="toc-workshop-materials" class="nav-link" data-scroll-target="#workshop-materials">Workshop Materials</a></li>
   </ul>
 </nav>
     </div>
@@ -224,9 +225,9 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="overall-reflections">Overall Reflections</h2>
 <p>This was one of my first conferences in the Bay Area (apart from OpenAI’s dev day and GTC last year) but it definitely won’t be my last. The energy and excitement around agentic AI and coding agents was palpable and attendees were eager to talk about their experiments, workflows, setups, and learnings. But besides that, it was really valuable to see how the community is thinking about agentic AI and which directions startups are pursuing. I’ll go into these topics in more detail below in the individual talk sections and focus on overall conference impressions here.</p>
 <ul>
-<li>There were an estimated 200-250 people in attendance, 19 startup booths, 8 keynotes, 5 lightning talks, and 3 workshops.</li>
+<li>There were about 400 people in attendance, 19 startup booths, 8 keynotes, 5 lightning talks, and 3 workshops.</li>
 <li>Mountain View’s Computer History Museum was a really fitting venue for this event - the future of software engineering and knowledge work against the backdrop of the history of computing (some speakers explicitly referenced the history of computing in their talks).</li>
-<li>Overall, the event had a great energy - especially from the organizer ‘Demetrios’.</li>
+<li>Overall, the event had a great energy - especially from the organizer <a href="https://www.linkedin.com/in/dpbrinkm/">Demetrios</a>.</li>
 <li>I’ve never heard the word “orchestration” used so many times in a single day before.</li>
 <li>I can’t shake the impression that we are living through a bimodal adoption distribution. On the one hand you see startups building hardcore multi-agent systems, traceability and observability systems, etc. On the other hand, you see participants at these conferences just barely using single-agent systems, coding assistants, or MCPs in their daily work. Even at NVIDIA, adoption is still quite uneven. <a href="#keynote-jonathan-young-kilo-code">Kilo’s keynote</a> captures this quite well — “Developers don’t jump to agents. They climb.” The path to multi-agent orchestration is a long one and I see my job as early adopter / evangelist to make that learning curve less steep and simplify their onboarding (at least that is what I try to do at NVIDIA and with my blog posts).</li>
 </ul>
@@ -623,14 +624,14 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="my-take-4">My Take</h3>
 <ul>
 <li>This talk felt like an introduction to software development using Cursor. It did a good job at formalizing the stages of the new software development paradigm that is anchored around automated implementation, which shifts the developer focus to the earlier research and design stages. Mihail emphasized the importance of iterating on the design proposal and implementation plan and only handing those plans off to the implementation agent once the design is well-defined and the implementation plan is clear.</li>
-<li>The RePPIT framework seems like a great way to formalize the software engineering process. I just have to find these prompts on GitHub.</li>
+<li>The RePPIT framework seems like a great way to formalize the software engineering process. Workshop materials: <a href="https://go.mlops.community/ShipCodeSlides">slides</a> and <a href="https://go.mlops.community/ShipCodeWorkshop">full drive</a>.</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="workshop-drew-breunig" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-drew-breunig">Workshop: Drew Breunig</h2>
-<p><strong>A Software Library with No Code.</strong> Drew Breunig posed a provocative question: <em>“If agents are good enough, do we need to share code?”</em> He used his library <a href="https://github.com/dbreunig/whenwords">whenwords</a> (1.1k stars) as a case study. (<a href="https://github.com/dbreunig/whenwords-examples">examples</a>, <a href="https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html">blog post</a>)</p>
+<p><strong>A Software Library with No Code.</strong> Drew Breunig posed a provocative question: <em>“If agents are good enough, do we need to share code?”</em> He used his library <a href="https://github.com/dbreunig/whenwords">whenwords</a> (1.1k stars) as a case study. (<a href="https://github.com/dbreunig/whenwords-examples">examples</a>, <a href="https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html">blog post</a>, <a href="https://go.mlops.community/SpecDrivenWriteup">writeup</a>, <a href="https://go.mlops.community/SpecDrivenTalk">recording</a>)</p>
 <p><strong>Spec-driven development — with caveats.</strong> Drew advocates for spec-driven development but cautions that specs and tests are sometimes not sufficient. No spec is perfect, and implementing the code helps us improve the spec. It’s not a one-way road — it’s a feedback loop.</p>
 <p><strong>The spec-test-code triangle.</strong> The typical assumption is <code>Spec + Tests → Code</code> (one-way). Drew argues it’s actually a triangle where each vertex influences the other two:</p>
 <ul>
@@ -882,6 +883,16 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 <li><strong><a href="https://www.linkedin.com/in/jamesgloballiquidity/">James Andrew Walsh</a></strong> — OpenClaw and Blender automation for luxury housing development</li>
 <li><strong><a href="https://www.linkedin.com/in/varuni-gang/">Varuni Gang</a></strong> — TripAdvisor</li>
 <li><strong><a href="https://www.linkedin.com/in/anna-maria-brunnhofer/">Anna Maria (AMB) Brunnhofer-Pedemonte</a></strong> — Impact AI, and her husband Stefanos</li>
+</ul>
+<hr>
+</section>
+<section id="workshop-materials" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-materials">Workshop Materials</h2>
+<p>The organizer <a href="https://www.linkedin.com/in/dpbrinkm/">Demetrios</a> shared workshop materials after the event:</p>
+<ul>
+<li><strong>Optimizing Codebases for Agents</strong> — Shrivu Shankar: agent-first architecture patterns, “AI-Readiness” audit framework, and repo structure guidance. <a href="https://go.mlops.community/AgentCodebaseWorkshop">GitHub repo</a></li>
+<li><strong>5 Prompts to Ship Production Code 2x Faster</strong> — Mihail Eric: <a href="https://go.mlops.community/ShipCodeSlides">slides</a> | <a href="https://go.mlops.community/ShipCodeWorkshop">full drive</a></li>
+<li><strong>Software Libraries with No Code</strong> — Drew Breunig: <a href="https://go.mlops.community/SpecDrivenWriteup">writeup</a> | <a href="https://go.mlops.community/SpecDrivenTalk">recording</a></li>
 </ul>
 <hr>
 <p>Overall, “Coding Agents” was an inspiring event that provided useful insights into the agentic AI space and how startups and developers in the space are thinking about the future of agentic systems. Clearly there is a trend towards a single developer managing larger and larger groups / swarms / hierarchies of agents.</p>

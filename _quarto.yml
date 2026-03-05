@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - _redirects
+    - _assets/**
 
 execute:
   freeze: auto

@@ -2,3 +2,4 @@
 _freeze
 /.quarto/
 /_site/
+.env

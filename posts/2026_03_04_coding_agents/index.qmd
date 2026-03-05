@@ -10,7 +10,7 @@ include-after-body:
   text: '<script src="/_assets/carousel/carousel.js"></script>'
 ---
 
-I am trying to make better use of all the meetups, conferences, startup events, and overall the energy and excitement in the Bay Area - in particular around agentic AI and coding agents. So yesterday, I attended the [Coding Agents: AI Driven Dev Conference](https://luma.com/codingagents), hosted by the [San Francisco MLOps Community](https://mlops.community/) at the **Computer History Museum** in Mountain View, California. This full-day event covered a lot of ground around the entire development and deployment lifecycle of agentic systems (both single agent and multi-agent) and featured a startup-heavy lineup of speakers, demos, booths, and keynotes.
+I am trying to make better use of all the meetups, conferences, startup events, and overall the energy and excitement in the Bay Area - in particular around agentic AI and coding agents. So yesterday, I attended the [Coding Agents: AI Driven Dev Conference](https://luma.com/codingagents), hosted by the [San Francisco MLOps Community](https://mlops.community/) at the **Computer History Museum** in Mountain View, California. This full-day event covered a lot of ground around the entire development and deployment lifecycle of agentic systems (both single agent and multi-agent) and featured a startup-heavy lineup of speakers, demos, booths, and keynotes. All slides and the full livestream recording are linked in the [conference materials section](#conference-materials) below.
 
 ## Overall Reflections
 
@@ -376,6 +376,12 @@ In short, Harrison laid out a three-layer stack: **tools** at the bottom (atomic
 :::
 
 ---
+
+## Conference Materials
+
+- [Skills repo](https://github.com/mlopscommunity/Coding-Agents-Conference-skills)
+- [All conference slides](https://docs.google.com/presentation/d/1mnp0CzrRS02Y0t0vGvqX-_M5IbYPjFoZ/edit?slide=id.g3bef903f3c9_0_435#slide=id.g3bef903f3c9_0_435)
+- [Full livestream recording](https://www.youtube.com/live/99Kxkemj1g8?t=383s)
 
 ## New Contacts
 

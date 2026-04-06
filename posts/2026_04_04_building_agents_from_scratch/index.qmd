@@ -11,14 +11,14 @@ This post kicks off a series about building agent systems the hard way on purpos
 
 OpenClaw, Hermes, NemoClaw / OpenShell, and most recently Claude Code are all useful reference points, but they can also make modern agents feel more mysterious and overwhelming than they need to be. If you drop into those repos cold, you see a lot of moving parts at once: connectors, orchestration, tools, sandboxes, memory, policies, deployment, and sometimes multi-agent routing on top of all of that. It is easy to admire the system and still not understand where the actual "agent" begins and ends.
 
-This series is an attempt to make that architecture legible. We are going to build our own agent stack from scratch, borrowing the best ideas from those projects without treating any of them as a black box. The point is not to clone an existing stack but to understand agent systems by rebuilding their core pieces ourselves.
+This series is an attempt to make that architecture legible. I am going to build my own agent stack from scratch, borrowing the best ideas from those projects without treating any of them as a black box. The point is not to clone an existing stack but to understand agent systems by rebuilding their core pieces myself.
 
 This series also has two practical goals as part of this learning exercise:
 
 1. Build toward a more enterprise-oriented multi-agent system on top of OpenShell and NemoClaw, with hardened interfaces, explicit policy boundaries, and a more constrained, governable shape than a wide-open OpenClaw-style runtime.
 2. Provide step-by-step tutorials for how to use OpenShell and NemoClaw to build a real system. In that sense, the series is also extended documentation: concrete use-case-driven guidance instead of only abstract reference material. I want to make this part a more engaging read than just dry design docs.
 
-This series of posts is set up in such a way that each new post layers on additional functionality on our previously built multi-agent system. A simplified version of what we are trying to build is shown in the image below.
+This series of posts is set up in such a way that each new post layers on additional functionality on my previously built multi-agent system. A simplified version of what I am trying to build is shown in the image below.
 
 ![Component map for the series](series_intro_agent_components.svg)
 
@@ -39,15 +39,15 @@ Taken together, those systems show what is possible and which building blocks ma
 - When is a single-agent system enough, and when does multi-agent delegation actually help?
 - How do you move from something that works on a laptop to something that can run continuously on managed infrastructure?
 
-Rather than only studying those questions from diagrams and source dives, we are going to answer them by building the system ourselves. I was tempted to describe this project as a simplified version of the above open source implementations. But I want to clarify at this point that I fully intend to use the outcome of this project for my day-to-day tasks at work - so for all practical purposes this system should become fully functional and fairly feature-complete.
+Rather than only studying those questions from diagrams and source dives, I am going to answer them by building the system myself. I was tempted to describe this project as a simplified version of the above open source implementations. But I want to clarify at this point that I fully intend to use the outcome of this project for my day-to-day tasks at work - so for all practical purposes this system should become fully functional and fairly feature-complete.
 
-# What We Are Intending to Build
+# What I Am Intending to Build
 
 The project behind this series, [`nemoclaw_escapades`](https://github.com/dpickem/nemoclaw_escapades), is aiming at a production-oriented personal agent system: an always-on "super IC" that can accept work through Slack, route tasks through an orchestrator, delegate to sandboxed sub-agents, and eventually learn from outcomes over time.
 
 At the same time, it is also a vehicle for exploring a more enterprise-oriented shape for agent systems built on top of OpenShell and NemoClaw: hardened interfaces, explicit policies that shape what agents can do, and tighter operational constraints than a general-purpose, anything-goes agent runtime.
 
-We are starting small on purpose. The first version is not a swarm of agents. It is a clean single-agent baseline with explicit boundaries. From there, the series layers in the pieces that make more advanced systems work in practice.
+I am starting small on purpose. The first version is not a swarm of agents. It is a clean single-agent baseline with explicit boundaries. From there, I layer in the pieces that make more advanced systems work in practice.
 
 That makes the series useful in two ways. It is a build log for one concrete system, and it is also a tutorial track for people who want to learn how to use OpenShell and NemoClaw step by step through a real use case.
 
@@ -67,12 +67,12 @@ One of the recurring confusions in agent discussions is that the runtime, the ha
 
 In my opinion "from scratch" is the best way to build lasting understanding of new concepts (though the depth of "from scratch" has certainly changed since the advent of AI assistants). Sebastian Raschka’s books—[Build a Large Language Model (From Scratch)](https://www.manning.com/books/build-a-large-language-model-from-scratch) and [Build a Reasoning Model (From Scratch)](https://www.manning.com/books/build-a-reasoning-model-from-scratch)—are the clearest precedent for that approach applied to models. This series tries to do something analogous for a personal-assistant-style agent stack.
 
-On the agent side, Raschka’s recent post [Components of a Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent) is worth a read. It is explicitly about *coding* harnesses—how tools, memory, and repo context sit around an LLM in products like Claude Code or Codex—and it walks through six practical pieces: live workspace context, prompt shape and cache reuse, structured tools and permissions, context reduction, session memory and transcripts, and bounded subagents. This project is not a second take on that same narrow problem; our first milestones center on Slack, orchestration, and inference behind a connector rather than a terminal-first coding loop. Still, many of those coding-harness ideas (stable prefixes, tool boundaries, compaction, delegation) show up again when we add sandboxed coding agents and review later in the roadmap (you can think of the sandboxed coding agent as Raschka's "Mini Coding Agent" in a sandbox).
+On the agent side, Raschka’s recent post [Components of a Coding Agent](https://magazine.sebastianraschka.com/p/components-of-a-coding-agent) is worth a read. It is explicitly about *coding* harnesses—how tools, memory, and repo context sit around an LLM in products like Claude Code or Codex—and it walks through six practical pieces: live workspace context, prompt shape and cache reuse, structured tools and permissions, context reduction, session memory and transcripts, and bounded subagents. This project is not a second take on that same narrow problem; my first milestones center on Slack, orchestration, and inference behind a connector rather than a terminal-first coding loop. Still, many of those coding-harness ideas (stable prefixes, tool boundaries, compaction, delegation) show up again when I add sandboxed coding agents and review later in the roadmap (you can think of the sandboxed coding agent as Raschka's "Mini Coding Agent" in a sandbox).
 
-If you only interact with a finished framework, it is easy to miss which abstractions are fundamental and which were just convenient implementation choices, which features are core functionality and which are nice-to-haves. Rebuilding the stack forces us to answer where responsibilities *belong* and how the shape of the system should evolve:
+If you only interact with a finished framework, it is easy to miss which abstractions are fundamental and which were just convenient implementation choices, which features are core functionality and which are nice-to-haves. Rebuilding the stack forces me to answer where responsibilities *belong* and how the shape of the system should evolve:
 
-- Which boundaries between connector, orchestrator, inference, execution, sandbox, and memory are worth keeping explicit—and what do we lose if we merge them to ship faster?
-- What should stay swappable and generic from day one—connectors, inference backends—versus what we are willing to hard-code until the boundaries are clear?
+- Which boundaries between connector, orchestrator, inference, execution, sandbox, and memory are worth keeping explicit—and what do I lose if I merge them to ship faster?
+- What should stay swappable and generic from day one—connectors, inference backends—versus what I am willing to hard-code until the boundaries are clear?
 - Where does safety actually live: prompts only, or policy and infrastructure that still holds when the model misbehaves?
 - What deserves to stay local first, and what should move to managed infrastructure once reliability and operations become the constraint?
 - When do additional agents add leverage, and when do they mostly add coordination cost and failure modes?
@@ -83,13 +83,13 @@ That is the educational motivation behind this series. I do want to end up with 
 
 Adding agents means more processes, more handoffs, and more state that has to stay consistent across them. Failures often show up at boundaries between agents, which makes observability, reproduction, and debugging slower than in a single loop in a single agent.
 
-For that reason this series begins with a single orchestrator-based system that can accept a request, build context, call an LLM, and return a useful response. We add further agents and the capabilities below only after that baseline is reliable, with an explicit rationale for each step:
+For that reason this series begins with a single orchestrator-based system that can accept a request, build context, call an LLM, and return a useful response. I add further agents and the capabilities below only after that baseline is reliable, with an explicit rationale for each step:
 
 - additional sandboxed sub-agents (coding agent, review agent, etc.)
 - a knowledge and memory layer,
 - and eventually a self-improvement loop.
 
-That progression matches the design document: prove the core loop, then add delegation, then collaboration, then memory, then learning. Multi-agent behavior is something the system earns, not something we assume on day one.
+That progression matches the design document: prove the core loop, then add delegation, then collaboration, then memory, then learning. Multi-agent behavior is something the system earns, not something I assume on day one.
 
 # Local First, Then Real Deployment
 
@@ -130,7 +130,7 @@ This roadmap is incremental on purpose. Each milestone layers on a fairly self-c
 
 ![M1 foundation architecture build-up](series_m1_foundation_stack.svg)
 
-Start with the minimum useful loop: connector, orchestrator, hosted inference, and enough observability to understand what is happening. The orchestrator already runs inside a local OpenShell sandbox so we exercise OpenShell’s isolation and operational path early.
+Start with the minimum useful loop: connector, orchestrator, hosted inference, and enough observability to understand what is happening. The orchestrator already runs inside a local OpenShell sandbox so I exercise OpenShell’s isolation and operational path early.
 
 ## M2 — Sandboxed Coding Agent
 
@@ -142,7 +142,7 @@ Once the control loop is stable, add delegated execution (in the form of a codin
 
 ![M3 review agent collaboration loop](series_m3_review_agent_loop.svg)
 
-Add a second agent that critiques the coding agent locally before results are returned or pushed, creating the first real multi-agent workflow. This milestone will be the first that requires a communication mechanism between agents (for which we will build the [NemoClaw Message Bus (NMB)](https://github.com/dpickem/nemoclaw_escapades/blob/main/docs/nmb_design.md)).
+Add a second agent that critiques the coding agent locally before results are returned or pushed, creating the first real multi-agent workflow. This milestone will be the first that requires a communication mechanism between agents (for which I will build the [NemoClaw Message Bus (NMB)](https://github.com/dpickem/nemoclaw_escapades/blob/main/docs/nmb_design.md)).
 
 ## M4 — Memory Orchestration
 

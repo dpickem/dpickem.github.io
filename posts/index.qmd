@@ -1,7 +1,10 @@
 ---
 title: "Layer by Layer"
 listing:
-  contents: .
+  # Only real posts (index.qmd or chapter notebooks). Excludes drafts like _*.md beside a post.
+  contents:
+    - "**/index.qmd"
+    - "**/*.ipynb"
   sort:
     - "date desc"
     - "title desc"

@@ -16,7 +16,7 @@ NVIDIA announced NemoClaw and OpenShell at GTC this year. The policy system and 
 
 I am announcing a blog series that walks through building that kind of system: as capable as OpenClaw or Hermes for automating and streamlining real workflows at work, but with high-powered guardrails so I am not one bad tool call away from deleting sensitive data or ruining my reputation.
 
-My goal is to decompose the system into individual components and describe each in a detailed post. Each milestone extends the running system in meaningful blocks. Over time the aim is a highly capable setup that mirrors a lot of what OpenClaw or Hermes can do, but exceeds them on safety and security because that is baked in from the start through OpenShell
+My goal is to decompose the system into individual components and describe each in a detailed post. Each milestone extends the running system in meaningful blocks. Over time the aim is a highly capable setup that mirrors a lot of what OpenClaw or Hermes can do, but exceeds them on safety and security because that is baked in from the start through OpenShell.
 
 The full series intro blog post is available here: https://layerbylayer.ai/posts/2026_04_04_building_agents_from_scratch/
 Open-source project (design + code as it lands): https://github.com/dpickem/nemoclaw_escapades

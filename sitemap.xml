@@ -1,91 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_4/chapter_04_gpt_from_scratch.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_10_06_open_ai_dev_day_recap/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2026_04_04_building_agents_from_scratch/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.234Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_2/chapter_02_dataset_creation.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_14_llms_from_scratch_part_1/chapter_01_tokenization.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_7/chapter_07_fine_tuning_to_follow_instructions.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_12_10_the_curious_world_of_mcp_servers/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_05_welcome/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_3/chapter_03_attention_mechanisms.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
     <loc>https://dpickem.github.io/publications/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.235Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.199Z</lastmod>
+    <lastmod>2026-04-09T16:38:39.417Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/about.html</loc>
-    <lastmod>2026-04-06T23:44:16.196Z</lastmod>
+    <lastmod>2026-04-09T16:38:39.374Z</lastmod>
   </url>
   <url>
-    <loc>https://dpickem.github.io/disclaimer/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.196Z</lastmod>
+    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_7/chapter_07_fine_tuning_to_follow_instructions.html</loc>
+    <lastmod>2026-04-09T16:38:39.379Z</lastmod>
   </url>
   <url>
-    <loc>https://dpickem.github.io/posts/2026_01_13_obsidian_note_taking_system/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.205Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_06_04_robust_autonomy_emerges_from_self_play/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_06_website_tech_stack/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_5/chapter_05_pretraining_on_unlabeled_data.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
+    <loc>https://dpickem.github.io/posts/2025_12_10_the_curious_world_of_mcp_servers/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.380Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.235Z</lastmod>
+    <lastmod>2026-04-09T16:38:39.417Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_14_llms_from_scratch_part_1/chapter_01_tokenization.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2026_04_04_building_agents_from_scratch/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.414Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2026_02_11_project_second_brain/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.212Z</lastmod>
+    <lastmod>2026-04-09T16:38:39.390Z</lastmod>
   </url>
   <url>
-    <loc>https://dpickem.github.io/posts/2025_05_13_llms_from_scratch/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
+    <loc>https://dpickem.github.io/posts/2025_05_05_welcome/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
   </url>
   <url>
-    <loc>https://dpickem.github.io/posts/2026_03_04_coding_agents/index.html</loc>
-    <lastmod>2026-04-06T23:44:16.233Z</lastmod>
+    <loc>https://dpickem.github.io/posts/2025_06_04_robust_autonomy_emerges_from_self_play/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_3/chapter_03_attention_mechanisms.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/disclaimer/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.374Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_5/chapter_05_pretraining_on_unlabeled_data.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_10_06_open_ai_dev_day_recap/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.379Z</lastmod>
   </url>
   <url>
     <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_6/chapter_06_fine_tuning_for_classification.html</loc>
-    <lastmod>2026-04-06T23:44:16.201Z</lastmod>
+    <lastmod>2026-04-09T16:38:39.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2026_03_04_coding_agents/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.413Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2026_01_13_obsidian_note_taking_system/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_13_llms_from_scratch/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_06_website_tech_stack/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_2/chapter_02_dataset_creation.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2026_04_08_building_agents_from_scratch_m1/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/posts/2025_05_16_llms_from_scratch_part_4/chapter_04_gpt_from_scratch.html</loc>
+    <lastmod>2026-04-09T16:38:39.378Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dpickem.github.io/index.html</loc>
+    <lastmod>2026-04-09T16:38:39.377Z</lastmod>
   </url>
 </urlset>

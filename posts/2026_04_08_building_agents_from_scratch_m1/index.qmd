@@ -3,7 +3,7 @@ title: "Building Agents from Scratch — M1: Foundation"
 author: "Daniel Pickem"
 date: "2026-04-08"
 categories: [AI, Agents, Series]
-image: series_announcement_linkedin.png
+image: series_announcement_linkedin_m1.png
 lightbox: true
 ---
 

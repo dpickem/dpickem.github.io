@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Pickem">
-<meta name="dcterms.date" content="2025-06-04">
+<meta name="dcterms.date" content="2026-04-15">
 
-<title>Robust Autonomy Emerges from Self-Play – Daniel Pickem</title>
+<title>What Is Authentic Writing (in the age of AI)? – Daniel Pickem</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,6 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-92ccca19d14c0bd04edafc1952284584.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -84,17 +87,17 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Robust Autonomy Emerges from Self-Play – Daniel Pickem">
+<meta property="og:title" content="What Is Authentic Writing (in the age of AI)? – Daniel Pickem">
 <meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta property="og:image" content="https://dpickem.github.io/images/robust_autonomy_emerges_from_self_play.png">
+<meta property="og:image" content="https://dpickem.github.io/posts/2026_04_15_what_is_authentic_writing/authentic_writing_cover.png">
 <meta property="og:site_name" content="Daniel Pickem">
-<meta property="og:image:height" content="350">
-<meta property="og:image:width" content="1108">
-<meta name="twitter:title" content="Robust Autonomy Emerges from Self-Play – Daniel Pickem">
+<meta property="og:image:height" content="768">
+<meta property="og:image:width" content="1376">
+<meta name="twitter:title" content="What Is Authentic Writing (in the age of AI)? – Daniel Pickem">
 <meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta name="twitter:image" content="https://dpickem.github.io/images/robust_autonomy_emerges_from_self_play.png">
-<meta name="twitter:image-height" content="350">
-<meta name="twitter:image-width" content="1108">
+<meta name="twitter:image" content="https://dpickem.github.io/posts/2026_04_15_what_is_authentic_writing/authentic_writing_cover.png">
+<meta name="twitter:image-height" content="768">
+<meta name="twitter:image-width" content="1376">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -142,18 +145,32 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-parallel-to-software-engineering" id="toc-a-parallel-to-software-engineering" class="nav-link active" data-scroll-target="#a-parallel-to-software-engineering">A Parallel to Software Engineering</a></li>
+  <li><a href="#extracting-my-writing-style" id="toc-extracting-my-writing-style" class="nav-link" data-scroll-target="#extracting-my-writing-style">Extracting My Writing Style</a></li>
+  <li><a href="#treating-blog-writing-like-software-engineering" id="toc-treating-blog-writing-like-software-engineering" class="nav-link" data-scroll-target="#treating-blog-writing-like-software-engineering">Treating Blog Writing Like Software Engineering</a></li>
+  <li><a href="#where-does-this-leave-us-with-authentic-writing-in-the-age-of-ai" id="toc-where-does-this-leave-us-with-authentic-writing-in-the-age-of-ai" class="nav-link" data-scroll-target="#where-does-this-leave-us-with-authentic-writing-in-the-age-of-ai">Where Does This Leave Us with Authentic Writing in the Age of AI?</a>
+  <ul class="collapse">
+  <li><a href="#the-concerns" id="toc-the-concerns" class="nav-link" data-scroll-target="#the-concerns">The Concerns</a></li>
+  <li><a href="#the-opportunities" id="toc-the-opportunities" class="nav-link" data-scroll-target="#the-opportunities">The Opportunities</a></li>
+  </ul></li>
+  <li><a href="#closing-thoughts" id="toc-closing-thoughts" class="nav-link" data-scroll-target="#closing-thoughts">Closing Thoughts</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Robust Autonomy Emerges from Self-Play</h1>
+<h1 class="title">What Is Authentic Writing (in the age of AI)?</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">paper-review</div>
-    <div class="quarto-category">autonomous-driving</div>
+    <div class="quarto-category">Writing</div>
+    <div class="quarto-category">AI</div>
   </div>
   </div>
 
@@ -171,7 +188,7 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 4, 2025</p>
+      <p class="date">April 15, 2026</p>
     </div>
   </div>
   
@@ -183,31 +200,120 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 </header>
 
 
-<p>A few weeks ago I came across a paper titled <a href="https://arxiv.org/pdf/2502.03349">“Robust Autonomy Emerges from Self-Play”</a> in the <a href="https://tldr.tech/">TLDR newsletter</a> (which is worth subscribing to if you want to stay on top of the latest news in AI, but that’s not the point of this post).</p>
-<p>The above paper was interesting for many reasons not the least of which was a sentimental one. It was published by former colleagues of mine at Apple and appears to be the latest (and last?) public artifact of <a href="https://en.wikipedia.org/wiki/Apple_car_project">Apples self-driving efforts</a>.</p>
-<p>Over ten authors contributed to the paper, but I’ve only had the pleasure of (tangentially) working with the following:</p>
+<div class="callout callout-style-simple callout-note no-icon callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>✍️ <em>Writing a polished blog post takes a lot of time.</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<p>I’ve been noticing more and more that my writing output is mostly constrained by execution (i.e.&nbsp;the actual writing of the blog post) rather than by the ideas I want to write about. I have a lot of observations, best practices, tutorials, and learnings I want to share, and the bottleneck for publishing is writing the post - not generating ideas or doing the actual implementation work my posts are based on.</p>
+<p>My recent project <a href="https://github.com/dpickem/nemoclaw_escapades">NemoClaw Escapades</a> in particular has made me acutely aware of this bottleneck. Claude can help me iterate on the design and crank out the implementation, but when it comes to writing the blog post it either generates AI slop that sounds like a sales pitch or completely dry design doc-style posts that I barely want to read myself.</p>
+<p>A few aspects in particular limit my writing output:</p>
 <ul>
-<li><a href="https://www.linkedin.com/in/brody-huval-35264428/">Brody Huval</a></li>
-<li><a href="https://www.linkedin.com/in/stuart-bowers/">Stuart Bowers</a></li>
-<li><a href="https://www.philkr.net/">Philipp Krähenbühl</a></li>
-<li><a href="https://www.linkedin.com/in/vladlenkoltun/">Vladlen Koltun</a></li>
+<li>Most of my posts are educational in nature, and as with all good teaching materials, they require a lot of thought for structure and content.</li>
+<li>All AI assistants write in their own particular style (most of which sound like they have been tuned for marketing and sales applications) which has very little overlap with my own writing style. It’s important to me that my writing is authentic - I don’t want to contribute to the sloppification of the internet. So authenticity and speedy publishing stand in direct conflict.</li>
+<li>Moreover, the most recent models have not been fine-tuned for high-quality prose writing but instead focus on verifiable tasks like code generation. High-quality prose writing, on the other hand, is subjective and usually requires a reward model for tuning (which in itself is subject to differing human preferences). So relying on AI to speed up my writing has not been feasible until now.</li>
 </ul>
-<p>In my opinion, the approach in the paper stands out for several reasons:</p>
+<p>Just as with software engineering (at least until recently), I’m constrained by execution rather than ideas. It occurred to me recently to apply what I’ve learned from completely rewiring my software engineering workflows to my writing. I am converting the process of writing into an engineering problem - somewhat.</p>
+<section id="a-parallel-to-software-engineering" class="level1">
+<h1>A Parallel to Software Engineering</h1>
+<p>Before setting up my new and streamlined writing process, I want to briefly introduce my workflow for generating high-signal, AI-generated code reviews. It’ll become clear in the next section why that software engineering practice matters for writing.</p>
+<ol type="1">
+<li><strong>Formalize the guidelines.</strong> I may have finally found a good solution for having AI assistants provide high-signal code reviews - formalizing repo-specific guidelines (style and coding patterns) in a CONTRIBUTING.md file (see for example the <a href="https://github.com/dpickem/nemoclaw_escapades/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for NemoClaw Escapades) that I can feed into my review agent. If the agent misses any key aspects in the review, I can add them to the CONTRIBUTING.md file and it improves the next cycle. So far, this setup has been working pretty well and produces reviews I am comfortable posting under my own name.</li>
+<li><strong>Let the agent review.</strong> My workflow is to use CLI tools to fetch a merge request / PR, have my agent review it according to these guidelines, and use another CLI tool for posting the comments (both inline and overall MR comments to a GitHub / GitLab style interface).</li>
+<li><strong>Iterate until done.</strong> My colleague’s agent (or another one of my own agents) then picks up those comments and addresses them, and we iterate until the code is done.</li>
+<li><strong>Compound the learnings.</strong> What makes this process so powerful is that it compounds naturally - anything this loop misses just gets added to the CONTRIBUTING.md file for the next cycle.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="code_review_loop.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The AI-assisted code review loop — guidelines feed the review agent, and missed patterns feed back into the guidelines"><img src="code_review_loop.svg" class="img-fluid figure-img" alt="The AI-assisted code review loop — guidelines feed the review agent, and missed patterns feed back into the guidelines"></a></p>
+<figcaption>The AI-assisted code review loop — guidelines feed the review agent, and missed patterns feed back into the guidelines</figcaption>
+</figure>
+</div>
+<p>In a sense, this is a fully agentic workflow for generating code of sufficient quality to ship to production - an iterative loop that is reminiscent of <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network">Generative Adversarial Networks</a> which pit a generator against a discriminator (similar to our code generator and code reviewer agent).</p>
+</section>
+<section id="extracting-my-writing-style" class="level1">
+<h1>Extracting My Writing Style</h1>
+<p>I am trying to apply this same pattern to writing blog posts. Step 1 of the process formalizes the style guide, so to speak. My starting point is the <a href="../../VOICE.html">VOICE.md</a> file which aims to capture my writing style. To create that file, I asked my agent to do the following:</p>
+<pre><code>Create a new VOICE.md file that analyzes past posts to extract features
+about how I write, the phrases I use, sentence constructions, vocabulary,
+flow, post setup, etc. Use only blog posts that are on the main branch
+and have been published. Only use posts up to the end of 2025.</code></pre>
+<p>I was not sure what to expect since the analysis was based on just 13 posts (only 6 of which are blog posts and 7 are heavily annotated Jupyter notebook tutorials). Surprisingly enough, the result was a pretty accurate description of my writing style for both blog posts and Jupyter notebook tutorials. There may be some confirmation bias on my part but I’ll roll with it for now.</p>
+<p>A few observations and notes about this analysis:</p>
+<ol type="1">
+<li>I asked it to analyze my posts from 2025 only because I wrote those completely without the help of any AI tools. During 2026, I’ve been guilty of including more and more AI-written components. I don’t want those to pollute my voice file.</li>
+<li>The agent identified a natural split of my posts into two types - descriptive blog posts and tutorials. It also identified specific attributes for both of those.</li>
+<li>I won’t repeat the full analysis here (see <a href="../../VOICE.html">VOICE.md</a> for that), but I do want to highlight the categories of findings.</li>
+</ol>
+<p>For example, the analysis reveals the overall tone of my posts as:</p>
 <ul>
-<li>The complete absence of transformers or any attention mechanism. The model only uses MLPs and pooling layers.</li>
-<li>The relatively small size of the model - it uses a total of just 6M parameters (3M for the actor and 3M for the critic), which seems tiny for a model controlling autonomous vehicles.</li>
-<li>The fairly minimalistic reward function formulation that combines a handful of components to encode good driving behavior.</li>
-<li>The enormous throughput of interactions with the simulation environment (4.4 billion state transitions per hour on an 8-GPU node).</li>
-<li>Last but not least, the emergence of realistic and robust driving behavior for a model that has never seen human-driving data.</li>
+<li><strong>Conversational and personal</strong></li>
+<li><strong>Enthusiastic but measured</strong></li>
+<li><strong>Opinionated yet humble</strong></li>
+<li><strong>Reflective</strong></li>
 </ul>
-<p>My favorite part about this paper, though, was the conditioning input C to the model which modulates the policy’s behavior and enables inference-time modifications of agent behavior by simply changing conditioning inputs. More aggressive driving? Simply modify the weights on some reward function components. You want a truck instead of a passenger vehicle behavior? Increase the agent’s dimensions and dynamics through C and it will behave like a truck. A single model can be used to simulate a diverse variety of agents and behaviors - which is a powerful capability for realistic agents in simulation (and possibly even for a policy that runs on-vehicle).</p>
-<p>I enjoyed reading the paper to the point where I put together the following slide deck and presented it for an autonomous driving reading group.</p>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRugrTXdLQ9hdwpNfXc85Q_cpR4GiLYYvMZW4Wl14zfA7pAa-ep150mhtJWdq75MfHHsY1_y91GrIl9/pubembed?start=false&amp;loop=false&amp;delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-</iframe>
-<p><em>Stay curious,</em></p>
+<p>But the analysis also contains insights about my preferred sentence constructions, characteristic phrases, vocabulary, post structure and flow, structural motifs, and my characteristic sign-offs. Here are a few cherry-picked examples I found particularly accurate:</p>
+<p><strong>Sentence construction</strong> — the analysis picked up on my tendency toward long, clause-rich sentences with parenthetical tangents:</p>
+<blockquote class="blockquote">
+<p>“…which was the style at the time (this is 2012 onwards but pre-ChatGPT).”</p>
+</blockquote>
+<p><strong>Characteristic phrases</strong> — it identified my go-to transitions and deferrals, like “but that’s a topic for another post”, “More specifically”, and “Last but not least.” It even flagged my hedging patterns:</p>
+<blockquote class="blockquote">
+<p>“I did not exactly know what to expect”</p>
+<p>“I’ve been somewhat skeptical”</p>
+</blockquote>
+<p><strong>Structural motifs</strong> — the analysis named patterns I hadn’t consciously noticed, like always opening with personal context, consistently including an “honest limitation” section, and crediting other people’s work generously.</p>
+<p><strong>Closing pattern</strong> — it correctly identified my signature sign-off: <em>“Stay curious,”</em> followed by <em>Daniel</em> on a new line.</p>
+<p>The full <a href="../../VOICE.html">VOICE.md</a> file is an interesting read (but I suspect more so for myself than for others).</p>
+</section>
+<section id="treating-blog-writing-like-software-engineering" class="level1">
+<h1>Treating Blog Writing Like Software Engineering</h1>
+<p>Going forward I will treat blog writing more like software engineering. More specifically (and that’s apparently one of my favorite phrases), I’ll have AI assist me in writing posts but refine the loop to prevent it from slopifying my output:</p>
+<ol type="1">
+<li><strong>Seed the post.</strong> Start with the ideas and thoughts I want to write about plus an overall topic.</li>
+<li><strong>Let AI draft and structure.</strong> Have AI formulate the post, add structure to it, and then use my new Cursor rule (<code>/danify</code>) to apply my VOICE.md file to the output.</li>
+<li><strong>Review everything personally.</strong> Just as I treat software engineering, nothing makes it into prod without me reading it first (yes, even in the age of AI-generated code and code reviews I read all code I commit - call me old-fashioned).</li>
+<li><strong>Iterate until it’s mine.</strong> I’ll read and iterate on the entire post until it represents me better and I am comfortable publishing it under my name.</li>
+<li><strong>Compound the learnings.</strong> Anything that feels off gets fed back into VOICE.md, just like with CONTRIBUTING.md.</li>
+</ol>
+<p>Does this capture my entire voice? Definitely not. It is very specific to my style of writing blog posts and tutorials. But it seems like a handful of manually written pieces of a given type are sufficient to extract the writing style for that type. So if I ever venture out into - say - writing short stories, I’ll definitely have to write a few of those by hand to capture my voice for that kind of writing.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="writing_loop.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The AI-assisted writing loop — VOICE.md feeds the drafting agent, and human review refines both the post and the voice guide"><img src="writing_loop.svg" class="img-fluid figure-img" alt="The AI-assisted writing loop — VOICE.md feeds the drafting agent, and human review refines both the post and the voice guide"></a></p>
+<figcaption>The AI-assisted writing loop — VOICE.md feeds the drafting agent, and human review refines both the post and the voice guide</figcaption>
+</figure>
+</div>
+</section>
+<section id="where-does-this-leave-us-with-authentic-writing-in-the-age-of-ai" class="level1">
+<h1>Where Does This Leave Us with Authentic Writing in the Age of AI?</h1>
+<section id="the-concerns" class="level2">
+<h2 class="anchored" data-anchor-id="the-concerns">The Concerns</h2>
+<p>I have been a lot more hesitant to include AI-assisted writing in my prose. <strong>It feels like I am giving up my authentic self in favor of increased output.</strong> But I realized that my concern was not about using AI’s help but more about producing AI slop that is of low quality, is not written in my voice, and lowers my standard (and possibly affects my reputation).</p>
+<p><strong>Will this setup lock me into a style of writing?</strong> The VOICE.md file contains my writing style as of the end of 2025. It’s conceivable that my style will mature and change as I keep on writing. Using an AI assistant to apply my writing style from EOY 2025 to all my future posts has the potential of locking in my style prematurely and preventing it from maturing over time. That is definitely a concern with this approach and one I have to actively address. I don’t have a better idea than to manually proofread all AI-generated output, keeping the proportion of AI-assisted writing small at first and only ramping it up as I become more familiar with the idiosyncrasies of that generation setup. I want to prevent losing my own voice, drowning it out, or just having it get stuck in 2025 when it could be living in 2026.</p>
+</section>
+<section id="the-opportunities" class="level2">
+<h2 class="anchored" data-anchor-id="the-opportunities">The Opportunities</h2>
+<p>Just like with software engineering, <strong>what I really need is not to manually write everything, but a compounding and improving quality control loop.</strong> Similar to my CONTRIBUTING.md files, my new VOICE.md file is formalizing that self-improvement loop for my prose writing. While a lot of writers pride themselves on not using any AI assistance at all for their writing - <strong>I will adopt AI assistance for writing but under carefully controlled conditions.</strong></p>
+<p>Does this take anything away from us as human writers? I used to think that way, but <strong>I’ve slowly come to see AI assistance as leverage</strong> not just for code but also for prose writing. Coming to terms with AI writing all my code on my behalf felt disempowering at first (after all, what was my contribution to software engineering if not writing code). But I view myself as operating at a more abstract level of the software engineering process - I am now the architect and designer instead of the implementer. And as uncomfortable as it is to let go of that same thinking for prose writing, I’ll give it a fair try and hope my writing improves in terms of quality as well as output volume.</p>
+</section>
+</section>
+<section id="closing-thoughts" class="level1">
+<h1>Closing Thoughts</h1>
+<p>I expect this setup to take a few iterations (or rather a continuous refinement loop) to get right, but my goal is to preserve my voice, avoid AI slop, and finally have a way to bring all my thoughts and observations to paper (or the screen).</p>
+<p>In the meantime, I’ll leave you with a <strong>provocative thought</strong>: Much like the Turing test, if you can’t tell whether a post was written by me or my AI assistant, does it really matter? The outcome is the same after all.</p>
+<p>So with all this in mind, (I’ll) keep writing, but I suspect that this will be (one of) my last fully manually written posts.</p>
 <p>Daniel</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -624,6 +730,38 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

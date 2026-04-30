@@ -543,6 +543,7 @@ Chroma also announced **Chroma Context-1**, a 20B model for fast retrieval. The 
 ![Jeff Huber Chroma Context-1 keynote](https://res.cloudinary.com/dwyrn3q4p/image/upload/w_800,q_auto,f_auto/IMG_0178_t74zkj.jpg){group="chroma-context-1"}
 
 ![Jeff Huber Chroma Context-1 keynote](https://res.cloudinary.com/dwyrn3q4p/image/upload/w_800,q_auto,f_auto/IMG_0179_fohsss.jpg){group="chroma-context-1"}
+
 ![Jeff Huber Chroma Context-1 keynote](https://res.cloudinary.com/dwyrn3q4p/image/upload/w_800,q_auto,f_auto/IMG_0180_vrwmix.jpg){group="chroma-context-1"}
 
 ![Jeff Huber Chroma Context-1 keynote](https://res.cloudinary.com/dwyrn3q4p/image/upload/w_800,q_auto,f_auto/IMG_0181_lsetvd.jpg){group="chroma-context-1"}

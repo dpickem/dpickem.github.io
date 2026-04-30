@@ -10,21 +10,21 @@ include-after-body:
   text: '<script src="/_assets/carousel/carousel.js"></script>'
 ---
 
-I've been a fan Andrew Ng and his work, companies, and educational outreach ever since he started DeepLearning.ai. I've taken some courses on DeepLearning.ai, and more recently diligently read his newsletter. So my natural next step was to attend DeepLearning.ai's [AI Dev 26 x SF - The AI Developer Conference](https://ai-dev.deeplearning.ai/) which took place at **Pier 48** in San Francisco, California (which is practically in my backyard).
+I've been a fan of Andrew Ng and his work, companies, and educational outreach ever since he started DeepLearning.AI. I've taken a few courses on DeepLearning.AI, and more recently I have been diligently reading his newsletter. So my natural next step was to attend DeepLearning.AI's [AI Dev 26 x SF - The AI Developer Conference](https://ai-dev.deeplearning.ai/), which took place at **Pier 48** in San Francisco, California (which is practically in my backyard).
 
-Apparently I signed up for the conference in January and forgot about it. So I was delighted to learn from my calendar last week that the conference is happening (announcements and reminders are definitely something DeepLearning.ai needs to improve on).
+Apparently I signed up for the conference in January and then completely forgot about it. So I was delighted to learn from my calendar last week that the conference was happening (announcements and reminders are definitely something DeepLearning.AI could improve on).
 
 Like many recent conferences in the Bay Area, this one is heavily focused on AI agents (next-gen tools, observability, reliability, safety/security, evaluation, search and context, and many other topics). The conference runs three parallel tracks across two days.
 
-I am splitting this recap into Day 1 and Day 2 and will summarize the sessions and presentations I attended. I tried to sample various topics across sessions. My initial plan was to mostly stick to stage 1, which has the most high-profile speakers. But throughout day 1, it became clear that I could derive more value from stage 2 or 3 which host more in-depth and technical talks.
+I've split this recap into Day 1 and Day 2. Below, I summarize the sessions and presentations I attended. I tried to sample a range of topics across sessions. My initial plan was to mostly stick to stage 1, which had the most high-profile speakers. But throughout day 1, it became clear that I could derive more value from stage 2 or 3, which hosted more in-depth technical talks.
 
-Day 1 had the classic conference structure: a morning plenary session with keynotes and a panel, followed by two afternoon breakout blocks across different stages. Day 2 just hosted 3 breakout blocks. My notes below are grouped to follow that same structure. I realize that this post has become quite lengthy. So if you just want the high-level summary of learnings and takeaways, you can just read the [Overall Reflections](#overall-reflections) section and have a pretty good idea of what the conference was about.
+Day 1 had the classic conference structure: a morning plenary session with keynotes and a panel, followed by two afternoon breakout blocks across different stages. Day 2 had three breakout blocks. My notes below follow that same structure. I also realize this post has become quite lengthy. So if you only want the high-level summary of learnings and takeaways, you can read the [Overall Reflections](#overall-reflections) section and still get a pretty good idea of what the conference was about.
 
 ## Overall Reflections
 
 ### Location
 
-Pier 48 is a cool venue. It has a more industrial and dated feel than Fort Mason, where OpenAI Dev Day was hosted, but it worked well for a large developer conference. It was also fun to see Andrew Ng in person. I have been following his work since the early DeepLearning.AI days. He is a always a pleasant and calm presence who acts as a counter-balance to all the hype around AI.
+Pier 48 is a cool venue. It has a more industrial and dated feel than Fort Mason, where OpenAI Dev Day was hosted, but it worked well for a large developer conference. It was also fun to see Andrew Ng in person. I have been following his work since the early DeepLearning.AI days, and he is always a pleasant and calm presence who acts as a counter-balance to all the hype around AI.
 
 ::: {.photo-carousel}
 :::: {.carousel-track}
@@ -45,12 +45,12 @@ Pier 48 is a cool venue. It has a more industrial and dated feel than Fort Mason
 
 The conference presented talks on a spectrum. On one end were the super technical, hands-on sessions: implementation details, architecture patterns, frameworks, failure modes, and lessons you could take away and apply to your own agent systems. On the other end were high-level, directional talks: where the industry is headed, what the big challenges are, what current approaches look like, and where the frontier seems to be moving.
 
-In my opinion, the strongest talks occupy these ends of the spectrum (and this was true for the good talks at this conference as well). Some of the weaker talks sat in the awkward middle: too product-portfolio-heavy to be useful as engineering guidance, but too shallow to work as a high-level synthesis. A few sessions felt more like startup or platform advertising than technical talks. That said, there were also several genuinely useful sessions - especially around durable agents, agent memory, context engineering, and multi-agent communication. Overall I found the quality of talks higher on the second day of the conference.
+In my opinion, the strongest talks occupy these ends of the spectrum (and this was true for the good talks at this conference as well). Some of the weaker talks sat in the awkward middle: too product-portfolio-heavy to be useful as engineering guidance, but too shallow to work as a high-level synthesis. A few sessions felt more like startup or platform advertising than technical talks. That said, there were also several genuinely useful sessions - especially around durable agents, agent memory, context engineering, and multi-agent communication. Overall, I found the quality of talks higher on the second day of the conference.
 
 ### Booths and Companies
 
-Usually I check out most booths by just walking through the booth areas and letting the posters and booth materials draw me in. At this conference, I let some of the talks inspire my booth/company selection. Michael Kirchhof captured that strategy nicely in a [recent Linkedin post](https://www.linkedin.com/posts/michael-kirchhof_advice-for-iclr-or-any-other-conference-share-7453028680550805504-fnCH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAP-zNkBZtOHQStBzAyYIqo_b2UGrJEp0uo): `Don't collect posters. Collect understanding.`
-So based on technical presentations I attended I've identified a few booths and companies I wanted to follow up on (most of them directly relevant to my [NemoClaw Escapades project](https://github.com/dpickem/nemoclaw_escapades/)): 
+Usually I check out most booths by just walking through the booth areas and letting the posters and booth materials draw me in. At this conference, I let some of the talks inspire my booth/company selection. Michael Kirchhof captured that strategy nicely in a [recent LinkedIn post](https://www.linkedin.com/posts/michael-kirchhof_advice-for-iclr-or-any-other-conference-share-7453028680550805504-fnCH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAP-zNkBZtOHQStBzAyYIqo_b2UGrJEp0uo): `Don't collect posters. Collect understanding.`
+Based on the technical presentations I attended, I identified a few booths and companies I wanted to follow up on (most of them directly relevant to my [NemoClaw Escapades project](https://github.com/dpickem/nemoclaw_escapades/)):
 
 - **Apify** - tools for agents
 - **Temporal** - durable execution
@@ -82,16 +82,11 @@ At the implementation level, the recurring topics were more concrete:
 
 ### The future of the software engineer
 
-A number of keynotes, panel discussions, and talks focused on the question of what it means to be a software engineer in this day and age, how the job function changes, which skills remain or are no longer relevant. A version of this argument (that you also often hear on X) was not that software engineers disappear, but that the job moves up a level of abstraction. The work shifts from typing code toward setting direction, decomposing ambiguous problems, designing systems, choosing constraints, evaluating outputs, and owning the consequences of what agents build.
+A number of keynotes, panel discussions, and talks focused on what it means to be a software engineer in this day and age: how the job function changes, which skills remain relevant, and which skills matter less than they used to. The better version of this argument (which you also often hear on X) is not that software engineers disappear, but that the job moves up a level of abstraction. The work shifts from typing code toward setting direction, decomposing ambiguous problems, designing systems, choosing constraints, evaluating outputs, and owning the consequences of what agents build.
 
 The durable traits look familiar, but become more important:
 
-- **Systems thinking** - understanding architecture, boundaries, failure modes, latency, security, and operational 
-constraints (this particular point reminded me of books like [Machine Learning System Design Interview](https://www.
-amazon.com/Machine-Learning-System-Design-Interview/dp/1736049127/) and [Generative AI System Design Interview]
-(https://www.amazon.com/Generative-AI-System-Design-Interview/dp/1736049143/) or just the classic [System Design 
-Interview – An Insider's Guide: Volume 2](https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/
-1736049119/))
+- **Systems thinking** - understanding architecture, boundaries, failure modes, latency, security, and operational constraints (this particular point reminded me of books like [Machine Learning System Design Interview](https://www.amazon.com/Machine-Learning-System-Design-Interview/dp/1736049127/), [Generative AI System Design Interview](https://www.amazon.com/Generative-AI-System-Design-Interview/dp/1736049143/), and the classic [System Design Interview - An Insider's Guide: Volume 2](https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119/)).
 - **Curiosity about the world** - the strongest builders seem to be naturally interested in how things work, what customers need, and where tools are headed.
 - **Learning ability and growth mindset** - nobody is truly keeping up with the entire space; the useful skill is learning quickly, staying humble, and jumping into new tools without treating the frontier as fixed.
 - **Reflection, not tokenmaxxing** - slowing down to process what you learned matters more than squeezing every last token out of the day and passing out at your computer at 3am.
@@ -101,10 +96,12 @@ Interview – An Insider's Guide: Volume 2](https://www.amazon.com/System-Design
 - **Product and customer fluency** - developers increasingly need to talk to customers, understand product trade-offs, and own outcomes rather than just implementation tasks.
 - **Automation mindset** - good engineers will keep spotting rote workflows and turning them into tools, scripts, agents, or durable processes.
 - **Agent management** - if we effectively have an infinite workforce, the question becomes whether you micromanage every worker or learn to manage agents thoughtfully through goals, constraints, review, and delegation.
-- **Communication about learning** - sharing what you tried, what worked, and what failed becomes part of the job; this resonates strongly with why I write posts like this one. Part of this is also documenting what you learn in a formal and shareable manner (not just for human but increasingly also for agent consumption - think agent skills)
+- **Communication about learning** - sharing what you tried, what worked, and what failed becomes part of the job; this resonates strongly with why I write posts like this one. Part of this is also documenting what you learn in a formal and shareable manner (not just for humans, but increasingly also for agent consumption - think agent skills).
 - **Taste** - Joe Reis called out taste as something you build through experience, exposure, and seeing many implementations and designs over time.
 
-The junior-engineer story is the least settled. Agents may let junior engineers take on harder work earlier, but they also threaten the old entry-level learning path where people built judgment by doing small implementation tasks. That makes mentoring, code review, and explicit teaching of engineering judgment more important, not less. In my opinion, the fate of future junior engineers was the weakest part of the argument. Sure, AI tools speed up the learning for new graduates but it does not replace experience they would gather when working at companies as junior engineers. I think the industry has to be careful to not remove the first stage of the talent pipeline - or at the very least reimagine what that first stage looks like.
+The junior-engineer story is the least settled. Agents may let junior engineers take on harder work earlier, but they also threaten the old entry-level learning path where people built judgment by doing small implementation tasks. That makes mentoring, code review, and explicit teaching of engineering judgment more important, not less. In my opinion, the fate of future junior engineers was the weakest part of the argument. AI tools can speed up learning for new graduates, but they do not replace the experience people gather by working inside real companies, with real codebases, real customers, and real constraints. I think the industry has to be careful not to remove the first stage of the talent pipeline - or at the very least reimagine what that first stage looks like.
+
+Besides the [Future of Software Engineering panel](#panel-discussion-future-of-software-engineering) on the first day, Brandon Middleton's [Vibe Coding Master Class](#vibe-coding-master-class---brandon-middleton-replit) was also highly relevant to this question.
 
 ---
 
@@ -299,10 +296,7 @@ On future skills, the panel emphasized:
 
 Michele's strongest point was that truth-seeking becomes a core skill. Models may hallucinate, contradict themselves, or confidently assert wrong things. You need to keep digging until you understand whether the answer is actually true.
 
-On the generalist-versus-specialist question, the most compelling answer was that both expand: generalists become broader, specialists become deeper, and specializations refresh on much shorter timelines. A specialization may no longer last decades; it may need to be updated every few months or years.
-
-TODO
-That combination made the panel more useful than a simple "AI changes jobs" discussion. The concrete takeaway was that engineering work becomes more judgment-heavy at the same time that the surrounding systems become more technical. You need enough generalism to connect product, data, AI, and systems concerns, but enough specialization to know when the generated answer is wrong, incomplete, unsafe, or built on a weak premise.
+On the generalist-versus-specialist question, the most compelling answer was that both expand: generalists become broader, specialists become deeper, and specializations refresh on much shorter timelines. A specialization may no longer last decades but may need to be updated every few months or years. The concrete takeaway was that engineering work becomes more judgment-heavy at the same time that the surrounding systems become more technical. You need enough generalism to connect product, data, AI, and systems concerns, but enough specialization to know when the generated answer is wrong, incomplete, unsafe, or built on a weak premise.
 
 ::: {.photo-carousel}
 :::: {.carousel-track}
@@ -310,10 +304,9 @@ That combination made the panel more useful than a simple "AI changes jobs" disc
 ::::
 :::
 
-
 #### Research To Reality With Google DeepMind - Paige Bailey, Google DeepMind
 
-**My take:** This talk was mostly a run-through of Google's AI product portfolio. This is something I can easily find in AI newsletters or on Google's blog. I was hoping for more in this talk.
+**My take:** This talk was mostly a run-through of Google's AI product portfolio. This is something I can easily find in AI newsletters or on Google's blog, so I was hoping for more from this talk.
 
 Paige Bailey, AI developer relations lead at Google DeepMind, framed Google's mission as building AI responsibly to benefit humanity. The core product direction was multimodality: models need to interact with the world, not just text.
 
@@ -346,7 +339,7 @@ Products and systems mentioned:
 
 Andrew Ng's keynote centered on AI coding and the changing shape of software teams. His starting point was that we now have many useful building blocks: models, tools, frameworks, APIs, coding agents, and context systems. AI coding lets us assemble those building blocks faster.
 
-One of the most interesting slides he showed was a comparison of time spent on software engineering when 80% or 100% of the code are written by AI. His argument being that the 20% of manual coding now take up a significant portion of your time such that you don't fully realize the benefits of AI-based code generation. He asked: how much code should we write with AI? His answer for his own work was blunt: **100%**.
+One of the most interesting slides he showed was a comparison of time spent on software engineering when 80% or 100% of the code is written by AI. His argument was that the remaining 20% of manual coding can take up such a large share of your time that you do not fully realize the benefits of AI-based code generation. He asked: how much code should we write with AI? His answer for his own work was blunt: **100%**.
 
 The next bottleneck, in his view, is no longer code generation. If humans must review every piece of generated code, code review becomes the bottleneck. So code review itself needs to become automated. All of these automations just push the bottleneck to the next feedback loop or organizational function:
 
@@ -397,7 +390,7 @@ One talk I could not attend because it was in parallel was Harrison Chase's **Th
 
 #### Building Personal AI Agents With Open-Source Models - Eda Zhou And Mahdi Ghodsi, AMD
 
-**My take:** Sadly, the Wi-Fi did not work well enough for me to go through the hands-on Jupyter notebook live. These are definitely worth checking out (if and when they are made available online). After signing up for the AMD developer program, you can run these tutorials in AMD's cloud environment using up to 100$ in GPU cloud credits.
+**My take:** Sadly, the Wi-Fi did not work well enough for me to go through the hands-on Jupyter notebook live. These are definitely worth checking out (if and when they are made available online). After signing up for the AMD developer program, you can run these tutorials in AMD's cloud environment using up to $100 in GPU cloud credits.
 
 This workshop focused on building, shaping, and extending an **OpenClaw** agent on AMD hardware. The setup ran on **MI325X GPUs** and used **vLLM** to serve an open-source model (a Qwen 122B MoE model) on AMD hardware via ROCm.
 
@@ -427,7 +420,7 @@ Two demos stood out:
 1. Debugging an example GitHub repo, then turning that debugging workflow into a reusable skill (a `pytest-debugger` skill).
 2. A 2D pixel office UI for visualizing agents, including a Kanban board of tasks and an "Agent Office" style interface (the UI looked similar to OpenClaw's web-based dashboard).
 
-The multi-agent setup was also interesting. OpenClaw can create named agents and invoke them from the main agent. One example was a **morning brief agent** that watches a set of GitHub repos, filters PR noise, and summarizes the important updates for the user. I've installed OpenClaw on a local machine before but this talk was the push I needed to complete the setup and focus on instantiating a first use-case. 
+The multi-agent setup was also interesting. OpenClaw can create named agents and invoke them from the main agent. One example was a **morning brief agent** that watches a set of GitHub repos, filters PR noise, and summarizes the important updates for the user. I've installed OpenClaw on a local machine before, but this talk was the push I needed to complete the setup and focus on instantiating a first use-case.
 
 ::: {.photo-carousel}
 :::: {.carousel-track}
@@ -457,7 +450,7 @@ The multi-agent setup was also interesting. OpenClaw can create named agents and
 
 **My take:** The tutorial seemed a bit dated. It referenced `gpt-3.5-turbo`, which has been deprecated for a while, and the architecture felt very close to classic RAG: embed chunks, store them in vector tables, and retrieve by similarity search. The six-layer memory system was interesting, but the implementation felt less current than agentic search and filesystem/context-oriented approaches. Nonetheless, the talk contained a few interesting slides that introduced agent memory at a higher level that I found quite useful.
 
-The workshop ran in Oracle Codespaces and required setting up an Oracle API key and a Hugging Face token. If you are curious, you can check out the Jupyter notebooks and tutorial files in this repo:[oracle-ai-developer-hub agent memory workshop](https://github.com/oracle-devrel/oracle-ai-developer-hub/tree/main/workshops/agent_memory_workshop/workshop). 
+The workshop ran in Oracle Codespaces and required setting up an Oracle API key and a Hugging Face token. If you are curious, you can check out the Jupyter notebooks and tutorial files in this repo: [oracle-ai-developer-hub agent memory workshop](https://github.com/oracle-devrel/oracle-ai-developer-hub/tree/main/workshops/agent_memory_workshop/workshop).
 
 The opening question was: why do AI agents need memory?
 
@@ -589,7 +582,7 @@ Temporal's answer to this problem is **durable execution**:
 The analogy was checkpoints in video games, but for code. Temporal wraps an agent workflow in a system that tracks state and event history:
 
 - Agent steps become **Temporal Activities**, such as LLM calls and tool calls.
-- Activities can be retried and their state is being tracked and persisted.
+- Activities can be retried, and their state is tracked and persisted.
 - Activities are composed into **Temporal Workflows**.
 - Python SDK support uses decorators, so it looked like a structured async workflow setup with durable state and retries.
 
@@ -635,7 +628,7 @@ Links to follow up:
 
 #### Herding Cats: The Hidden Challenges Of Multi-Agent Autonomy - Vlad Luzin, Thenvoi / BAND
 
-**My take:** This was one of the most relevant talks of the day for multi-agent systems. The thesis maps directly onto a problem I keep running into: right now the human often acts as the message bus between agents - I keep shuffling messages between a coding and a review agent (or have them interact via the Github comment/conversation mechanism). A real agent-to-agent communication layer would let agents coordinate directly, persist sessions, route messages, and survive crashes.
+**My take:** This was one of the most relevant talks of the day for multi-agent systems. The thesis maps directly onto a problem I keep running into: right now the human often acts as the message bus between agents - I keep shuffling messages between a coding and a review agent (or have them interact via the GitHub comment/conversation mechanism). A real agent-to-agent communication layer would let agents coordinate directly, persist sessions, route messages, and survive crashes. This may have been my favorite talk of the conference as it resonated the most with the problems I am working on in my own projects.
 
 Vlad Luzin's talk was about BAND, a platform and SDK for agent-to-agent communication. The simplest description is: a universal communication layer for agents.
 
@@ -660,9 +653,9 @@ The developer view was even more interesting because it applies more directly to
 - Tomorrow: agents converse with each other in real time.
 - The ideal shape is a connected mesh of humans and agents that come together around a task.
 
-He mentioned Linear as a strong task system for agent integration because of its API and workflow model (so I'll be definitely trying that out!)
+He mentioned Linear as a strong task system for agent integration because of its API and workflow model (so I will definitely be trying that out).
 
-The AI evolution slide was a useful taxonomy or rather a historical event timeline of capabilities:
+The AI evolution slide was a useful taxonomy, or rather a historical timeline of capabilities:
 
 - Sequential request/response processing
 - Agentic workflows as graphs
@@ -740,11 +733,11 @@ Follow-up:
 
 ### Breakout Session 1 - Software Development, Enterprise Agents, And Agent Safety
 
-I stayed in **Stage 1: Software Development in the Age of GenAI - 1**, mostly for the big names which featured talks from Cursor, Databricks, and Docker. This was probably the most practically relevant track of Day 2 because it focused on how coding agents are actually being deployed, governed, sandboxed, and integrated into engineering workflows.
+I stayed in **Stage 1: Software Development in the Age of GenAI - 1**, mostly because it featured big-name talks from Cursor, Databricks, and Docker. This was probably the most practically relevant track of Day 2 because it focused on how coding agents are actually being deployed, governed, sandboxed, and integrated into engineering workflows.
 
 #### 3rd Era Of Software Development: From Tab Completion To Cloud-Native Agent Factories - Amrita Venkatraman, Cursor
 
-**My take:** This was partly a Cursor product walkthrough, but the cloud-agent features looked genuinely useful for day-to-day engineering work. The main idea was that coding assistants are moving from local, synchronous helpers toward teams of remote agents that can plan, execute, verify, and return rich artifacts. Cloud agents are something every major lab is enabling or has enabled alreayd - the idea of decoupling agents from your local machine and make them truly async is a powerful force multiplier.
+**My take:** This was partly a Cursor product walkthrough, but the cloud-agent features looked genuinely useful for day-to-day engineering work. The main idea was that coding assistants are moving from local, synchronous helpers toward teams of remote agents that can plan, execute, verify, and return rich artifacts. Every major lab seems to be enabling some version of cloud agents already, and the idea of decoupling agents from your local machine and making them truly async is a powerful force multiplier.
 
 The framing followed the argument from Cursor's [third era of software development](https://cursor.com/blog/third-era) post:
 
@@ -771,7 +764,7 @@ The demos showed a workflow that Cursor apparently uses internally:
 - Have agents produce artifacts such as screenshots and screen recordings, not just diffs (to prove their work).
 - Publish plans to GitHub or Notion for human comments, then edit the plan directly or ask the agent to revise it.
 
-Cursor automations also looked promising. They are built on top of cloud agents and can be triggered by time, cron, GitHub/GitLab events, Slack messages, Sentry, PagerDuty, Datadog, and other systems via MCP. The notion of triggers that go beyond a user interacting with an agent was a recurring theme. A number of automations are event-triggered rather than human-triggered (Amrita went as far as saying that most agents should triggered by something other than the human user).
+Cursor automations also looked promising. They are built on top of cloud agents and can be triggered by time, cron, GitHub/GitLab events, Slack messages, Sentry, PagerDuty, Datadog, and other systems via MCP. The notion of triggers that go beyond a user interacting with an agent was a recurring theme. A number of automations are event-triggered rather than human-triggered (Amrita went as far as saying that most agents should be triggered by something other than the human user).
 
 ::: {.photo-carousel}
 :::: {.carousel-track}
@@ -801,7 +794,7 @@ Follow-up:
 
 #### The Coding Agent Multiverse Of Madness - Ankit Mathur, Databricks
 
-**My take:** This was one of the better enterprise adoption talks because it focused less on "agents are cool" and more on governance, model choice, auth, cost control, MCP catalogs, and how to let developers move fast without making IT teams lose control of the environment (or their minds).
+**My take:** This was one of the better enterprise adoption talks because it focused less on the agent hype and more on governance, model choice, auth, cost control, MCP catalogs, and how to let developers move fast without making IT teams lose control of the environment (or their minds).
 
 Ankit's framing was that everyone is building agents, not only for coding but for personal assistant and business workflows too. But coding remains the place where adoption is highest, with usage roughly 10-100x higher than other agentic use cases.
 
@@ -863,7 +856,7 @@ The adoption lessons were concrete:
 
 #### Shipping Agents Safely: Boundaries That Actually Work - Tushar Jain, Docker
 
-**My take:** This overlapped heavily with the problems I care about in OpenShell: sandboxing, scoped access, egress controls, credential handling, and policy layers that are enforced outside the model. NVIDIA's OpenShell seems to be further along in terms of capabilities (policies for example allow precise tool / service-level egress control).
+**My take:** This overlapped heavily with the problems I care about in my use of OpenShell: sandboxing, scoped access, egress controls, credential handling, and policy layers that are enforced outside the model. NVIDIA's OpenShell seems to be further along in terms of capabilities (policies for example allow precise tool / service-level egress control).
 
 Tushar's core message was simple: to unlock autonomy, you need safety. Many agents today run directly on a developer's machine, which means they may have access to local files, SSH keys, API keys, `.env` files, and the network. He showed Claude using a skill to collect all available secrets (the level of access and permissions we afford our coding assistants was quite eye-opening to see). Claude auto-mode is a step in the right direction, but model-driven safety is not a sufficient enforcement layer.
 
@@ -911,7 +904,7 @@ The early afternoon block ran from 1:00 PM to 3:15 PM. I stayed in **Stage 1: So
 
 **My take:** This was a surprisingly good education talk. Brandon teaches at Stanford and framed AI coding not just as a developer productivity shift, but as a job-readiness and education problem.
 
-His central argument was that education is not keeping up with the labor market. Students are already using AI heavily, but faculty fluency is much lower. That creates a gap: instructors are still asking whether to ban AI, grade it, teach with it, or quit, while students are already using it as part of their work.
+His central argument was that education is not keeping up with the labor market. Students are already using AI heavily, but faculty fluency is much lower. That creates a gap: instructors are still asking whether to ban AI, grade with it, teach with it, or quit, while students are already using it as part of their work.
 
 The most useful framing was the shift from writer to reviewer:
 
@@ -967,7 +960,7 @@ Concrete suggestions:
 
 #### Deploying AI Code Review At Scale: Turning AI Velocity Into A Reliable Quality Gate - Erik Thorelli, CodeRabbit
 
-**My take:** The talk had useful pieces, but the overall story felt a little scattered. The slides looked good, though unfortunately they were not shown on the side screens, which made them hard to read from the room.
+**My take:** The talk had useful pieces, but the overall story felt a little scattered. The slides looked good, though unfortunately they were not shown on the side screens, which made them hard to read from the room. Erik kept his slides anchored in reporting about AI in the media and heavily quoted influential voices in the industry.
 
 The main problem CodeRabbit is attacking is straightforward: AI coding increases the number of PRs, which increases review load and bug risk. Erik cited a 30% increase in PR volume and a 40% increase in critical bugs.
 
@@ -978,7 +971,7 @@ Several failure modes were useful:
 - **Test, do not assume.** Evaluation needs to answer whether a change works on your repos and whether it improves quality, latency, cost, hallucination rate, or prompt behavior.
 - **Every change is a hypothesis until proven.** If many changes land in a probabilistic system at once, failures become hard to bisect.
 - **Benchmarks are not your product.** Public benchmarks can be an early signal, but teams need repo- and product-specific evals.
-- **Beware of benchmarketing.**
+- **Beware of benchmarketing.** Clearly benchmarks only tell part of the story. Evaluate any given model or system in the context of your data, product, and organization.
 
 The deployment model was the most concrete part:
 
@@ -1019,7 +1012,7 @@ The strongest eval point was that invariants matter. You need to know which beha
 
 **My take:** This was a good counterweight to the more optimistic coding-agent talks. The core claim was not that LLMs cannot generate useful code. It was that enterprise and mission-critical systems require a level of quality that agents do not reach reliably without guidance, verification, and deterministic quality gates.
 
-Tom cited a CMU study where LLM and agentic tools initially increased developer velocity, but those gains faded after three to five months as code complexity and static analysis warnings increased.
+Tom cited a [CMU study](https://arxiv.org/pdf/2511.04427v2) where LLM and agentic tools initially increased developer velocity, but those gains faded after three to five months as code complexity and static analysis warnings increased.
 
 The quality gap was the main frame:
 
@@ -1029,7 +1022,7 @@ The quality gap was the main frame:
 
 Sonar built a benchmark called the **SonarQube LLM Benchmark** with roughly 4,000 tasks measuring dimensions such as correctness, unsolved tasks, security, reliability, and maintainability. Tom also discussed **SlopCodeBench**, which measures how code quality degrades across multi-step application-building workflows. The worrying pattern was that code got sloppier as iteration count increased, including very large functions and growing complexity.
 
-The human review section was one of the better parts. He quoted a 2026 Wharton paper:
+The human review section was one of the better parts. He quoted a 2026 Wharton paper, [Thinking Fast, Slow, and Artificial](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646):
 
 > Whereas cognitive offloading is a strategic delegation of deliberation, using tool to aid one's own reasoning, cognitive surrender is an uncritical abdication of reasoning itself.
 
@@ -1098,15 +1091,15 @@ The final block ran from 3:30 PM to 5:30 PM. I stayed in **Stage 1: AI Systems**
 
 #### Code Vs. Staff Vs. Quality: The Shift To Agentic Engineering - Paul Everitt, JetBrains
 
-**My take:** This had a skeptical tone about AI and its labor-market impact, but the most useful message was right: if you want to stay valuable, go back to first principles and master systems engineering. Agentic engineering is not just "more code with fewer engineers"; it is building the thing that builds the thing.
+**My take:** This had a skeptical tone about AI and its labor-market impact, but the most useful message was right: if you want to stay valuable, go back to first principles and master systems engineering. Agentic engineering is not just "more code with fewer engineers"; it is building the thing that builds the thing (and that was the phrase Paul kept repeating a lot).
 
 Paul drew heavily on Simon Willison, Grady Booch, The Pragmatic Engineer, Hamel Husain, Harrison Chase, and others. The strongest framing was that we need software engineering for agents, not just vibe coding.
 
-The practical checklist was familiar but important:
+The practical checklist looked quite familiar:
 
 - **Spec-driven development**, where the spec gives the human a way to steer agent work.
-- **Evals**, including Hamel Husain's framing of evals as "the revenge of the data scientist."
-- **Harness engineering**, with the Harrison Chase line: "your harness, your memory."
+- **Evals**, including Hamel Husain's framing of evals as ["the revenge of the data scientist"](https://hamel.dev/blog/posts/revenge/).
+- **Harness engineering**, with Harrison Chase's line ["your harness, your memory"](https://www.langchain.com/blog/your-harness-your-memory).
 - **Tooling**, because agents need reliable tools and execution environments.
 - **Testing**, especially red/green TDD so the agent learns the team's testing style and success criteria.
 - **Modularity**, so codebases become easier to parallelize across agents.
@@ -1128,8 +1121,9 @@ The leadership/culture point was important. Leadership may hear "AI" and transla
 
 Follow-up:
 
-- Follow Simon Willison's writing on agentic engineering.
-- Read Hamel Husain's evals work from PyAI 2026.
+- Follow Simon Willison's writing on [agentic engineering patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
+- Read Hamel Husain's evals work from PyAI 2026: ["the revenge of the data scientist"](https://hamel.dev/blog/posts/revenge/).
+- Read Harrison Chase's blog post on ["your harness, your memory"](https://www.langchain.com/blog/your-harness-your-memory).
 
 #### The Next 100 Agents: Building The Agent-Native Office - Diamond Bishop, Datadog
 
@@ -1141,7 +1135,7 @@ Diamond described three AI focus areas at Datadog:
 - Datadog for AI systems.
 - AI agent infrastructure.
 
-The "agents as users" idea implies a new kind of AX/UX: agent experience and user experience. Products need to ask whether features are accessible to non-browser-based agents, whether APIs are complete enough, and whether workflows are designed for code-first or agent-first interaction. The Bezos API mandate came up as a useful analogy.
+The "agents as users" idea implies a new kind of AX/UX: agent experience and user experience. Products need to ask whether features are accessible to non-browser-based agents, whether APIs are complete enough, and whether workflows are designed for code-first or agent-first interaction. The [Bezos API mandate](https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/) came up as a useful analogy.
 
 A second theme was that agents should be proactive, not only reactive:
 
@@ -1150,7 +1144,7 @@ A second theme was that agents should be proactive, not only reactive:
 - Durable execution matters for long-running workflows.
 - Agents need appropriate sandboxing.
 
-Her eval and observability advice was simple but correct: every time you create an agent, create the associated evaluation. Evals should be offline, online, and living.
+His eval and observability advice was simple but correct: every time you create an agent, create the associated evaluation. Evals should be offline, online, and living.
 
 The "agent-level bitter lesson" was to keep the harness simple, make models swappable, and build systems that can be rebuilt quickly. The labs keep leapfrogging each other, so model lock-in is a bad bet. Framework lock-in can also become expensive, although she still recommended using agent frameworks rather than reinventing all the plumbing.
 
@@ -1161,7 +1155,7 @@ Frameworks mentioned:
 - Datadog / LangChain tooling
 - Pydantic AI
 
-The predictions were interesting:
+Diamond concluded his talk with a handful of predictions:
 
 - Companies should start logging domain/customer-specific agent interaction data now, even if RL training on it is not yet practical.
 - Agents will learn from human observations and demonstrations.
@@ -1243,6 +1237,14 @@ The predictions were interesting:
 
 ---
 
-Keep building!
+## Conclusion
+
+Overall, AI Dev 26 x SF felt like a conference about software engineering growing up around agents. Unlike earlier conferences and events around agents, recent conferences are all about making agentic systems robust and reliable. The consensus was that these systems need to move beyond flashy demos but work reliably in production. That was reflected in the conference's talks, which focused on agents' memory, context, evals, observability, sandboxing, durable execution, code review, and governance. In other words, the agent itself is only one part of the system. The harness, tools, policies, and feedback loops around it are quickly becoming just as important.
+
+One of the big takeaways from the conference is that the job of software engineering is changing but not necessarily becoming less technical. The code-writing layer is getting compressed, but the surrounding work - deciding what to build, decomposing ambiguous problems, setting constraints, verifying outputs, understanding customers, and designing systems that can survive real-world failure modes - is getting more important.
+
+The best talks also reinforced something I keep running into in my own projects: speed is only useful if you can close the loop. Faster implementation creates pressure on review, testing, CI, product, security, and operations. If those loops do not speed up as well, the bottleneck just moves somewhere else. That is probably the lesson I will carry forward from this conference: build agents, but also build the loops, guardrails, and verification systems that make them useful. If anything, I am becoming more convinced that closing these loops - and automating the feedback paths around them - is where a lot of the next real leverage will come from.
+
+So with all that in mind, stay curious, keep building, and close the loop!
 
 Daniel

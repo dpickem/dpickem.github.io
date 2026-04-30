@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniel Pickem">
-<meta name="dcterms.date" content="2025-10-06">
 
-<title>OpenAI Dev Day 2025 Recap – Daniel Pickem</title>
+<title>pre_flight_checklist – Daniel Pickem</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,15 +81,13 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="OpenAI Dev Day 2025 Recap – Daniel Pickem">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Daniel Pickem">
 <meta property="og:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta property="og:image" content="https://www.zdnet.com/a/img/resize/48ddbc33cdc4af4576e648f2e899238627af3742/2025/10/06/63706bfd-8a4a-410a-976d-e799ce507aee/img-1178-1.jpg?auto=webp&amp;width=1280">
 <meta property="og:site_name" content="Daniel Pickem">
-<meta name="twitter:title" content="OpenAI Dev Day 2025 Recap – Daniel Pickem">
+<meta name="twitter:title" content="Daniel Pickem">
 <meta name="twitter:description" content="Daniel Pickem is currently a Staff Software Engineer at NVIDIA, where he focuses on developing scalable evaluation systems for autonomous vehicles. His passion, however, lies in LLMs, multimodal models, agentic AI, and frontier / foundation models in general.">
-<meta name="twitter:image" content="https://www.zdnet.com/a/img/resize/48ddbc33cdc4af4576e648f2e899238627af3742/2025/10/06/63706bfd-8a4a-410a-976d-e799ce507aee/img-1178-1.jpg?auto=webp&amp;width=1280">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -101,7 +97,7 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Daniel Pickem</span>
     </a>
   </div>
@@ -112,19 +108,19 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications"> 
+    <a class="nav-link" href="./publications"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts"> 
+    <a class="nav-link" href="./posts"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -138,66 +134,104 @@ gtag('config', 'G-DGMKGL1EBP', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#post-pre-flight-checklist" id="toc-post-pre-flight-checklist" class="nav-link active" data-scroll-target="#post-pre-flight-checklist">Post Pre-Flight Checklist</a>
+  <ul class="collapse">
+  <li><a href="#editorial-pass" id="toc-editorial-pass" class="nav-link" data-scroll-target="#editorial-pass">Editorial Pass</a></li>
+  <li><a href="#technical-accuracy" id="toc-technical-accuracy" class="nav-link" data-scroll-target="#technical-accuracy">Technical Accuracy</a></li>
+  <li><a href="#structure-and-flow" id="toc-structure-and-flow" class="nav-link" data-scroll-target="#structure-and-flow">Structure And Flow</a></li>
+  <li><a href="#media-and-formatting" id="toc-media-and-formatting" class="nav-link" data-scroll-target="#media-and-formatting">Media And Formatting</a></li>
+  <li><a href="#metadata-and-publishing" id="toc-metadata-and-publishing" class="nav-link" data-scroll-target="#metadata-and-publishing">Metadata And Publishing</a></li>
+  <li><a href="#final-validation" id="toc-final-validation" class="nav-link" data-scroll-target="#final-validation">Final Validation</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">OpenAI Dev Day 2025 Recap</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">OpenAI</div>
-    <div class="quarto-category">Dev Day</div>
-  </div>
-  </div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniel Pickem </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 6, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>After a full day of talks, demos, and AMAs I just wanted to provide a little more color and detail about Open AI’s dev day 2025. I did not exactly know what to expect from this event but it felt like Open AI’s WWDC where a ton of new products were announced and demo’ed - glued together by talks and stage conversations from OpenAI leadership. I’ll just mention the ones that left the biggest impression of me:</p>
+<section id="post-pre-flight-checklist" class="level1">
+<h1>Post Pre-Flight Checklist</h1>
+<p>Use this checklist before publishing a new post.</p>
+<section id="editorial-pass" class="level2">
+<h2 class="anchored" data-anchor-id="editorial-pass">Editorial Pass</h2>
 <ul>
-<li><a href="https://openai.github.io/openai-agents-python">Agents SDK</a>: To be quite frank here, my opinion of agents was that they are overrated - a solution looking for a problem. However, the new agents SDK and the accompanying web drag-and-drop UI together with powerful eval and deployment tooling is changing my mind a bit. This SDK will definitely make agents more accessible beyond the software engineering agent use-case. See the Agent Builder UI below: <img src="https://framerusercontent.com/images/Kfshs2OnHh8k132zZRinKo7e9mY.png?width=1200&amp;height=696" class="img-fluid" alt="Agent Builder UI"></li>
-<li><a href="https://developers.openai.com/apps-sdk">Apps SDK</a>: This SDK enables apps to be directly integrated into ChatGPT’s main web (or mobile) UI. Two aspects I want to highlight here are the direct integration of apps into the ChatGPT UI, which enables a seamless experience between chat/reasoning and app-specific interaction and customizable UI elements or widgets as they OpenAI called them (such as maps). The other aspect is the power of MCP extensions that Codex and chat can take advantage of to, for example, take control of physical devices like onstage lighting, cameras, and audio systems. The Codex SDK took this even further where the Codex agent was directly integrated into a mobile fitness tracker app such that the app could “self-evolve” and be changed on-the-fly (triggered by a user prompt to add more trend plots for example)
-<ul>
-<li><a href="https://developers.openai.com/codex/sdk/">Codex SDK</a></li>
-<li><a href="https://developers.openai.com/apps-sdk">Apps SDK</a></li>
-<li><a href="https://github.com/openai/openai-apps-sdk-examples">Officlal example apps</a> and <a href="https://developers.openai.com/apps-sdk/build/examples">full end-to-end example</a> <img src="https://developers.openai.com/images/apps-sdk/pizzaz-map.png" class="img-fluid" alt="Pizzaz Map"></li>
-</ul></li>
-<li>Codex everywhere - in CLI, IDE, and web. Not just for writing code but also for powerful code review capabilities. I’ve seen before how automated code review can introduce a lot of noise with overzealous commenting. Codex review, on the other hand, focuses on providing fewer but higher signal comments. These are supposedly based on Codex writing tests and scripts to “pen test” the PR under review in a sense. In a sense, Codex is writing the code while another Codex instance (with a separate context) is reviewing it. Definitely something I am excited to try out to address the code review bottleneck. Code review was shown via the Codex CLI (via ) but also the Github web UI (see the <a href="https://developers.openai.com/codex/cloud/code-review">Code review setup guide</a>). <img src="https://developers.openai.com/images/codex/code-review/review-example.png" class="img-fluid" alt="Codex Review"></li>
-<li>Codex with Figma MCP integration and also Chrome dev-tools MCP for performance optimization. I enjoyed this demo quite a bit too for the main reason that it almost entirely automated the web-app development - from designs in Figma, to MVP implementation, to performance tuning via the Chrome dev tools MCP server. What’s more, Codex can take screenshots via Playwright to verify that the implementation stays faithful to the original design. A highly practical demonstration of agentic workflows and the reasoning and tool calling power of gpt-5-codex. The demo app “Wanderlust” - an app that proposes travel itineraries in a sleek web UI - has been recreated in this (unofficial?) <a href="https://github.com/ACHultman/wanderlust">repo</a>. See the photo below (borrowed from Simon Willison’s <a href="https://simonwillison.net/2024/Oct/1/openai-devday-2024-live-blog/">blog</a>) <img src="https://static.simonwillison.net/static/2024/wanderlust.jpg" class="img-fluid" alt="Wanderlust"></li>
-<li><a href="https://openai.com/index/introducing-gpt-oss/">gpt-oss</a>: My main takeaway of this talk was the impressive possibilities of running powerful reasoning and agentic models directly on-device. Even the 120B version of the model can run on consumer hardware like a MacBook (via Ollama). This is not unique to OpenAI’s GPT gpt-oss but it was nonetheless impressive to see a demo using tool calling (including outsourcing web UI development to the more capable but cloud-based gpt-5). I’ll definitely be trying out gpt-oss for on device applications. The only thing I wish gpt-oss supported was multimodal (in particular image) inputs.</li>
-<li>Last but not least, the conversation between Sam and Jony Ive was refreshing to listen to. No big product reveals but they did hint at a “product family” and that they have 15-20 promising ideas. That leaves much to speculation as to what the supposed wearable is going to be.</li>
+<li>Check for spelling and grammatical errors.</li>
+<li>Check for odd sentence constructions.</li>
+<li>Check for repeated words, filler phrases, and awkward transitions.</li>
+<li>Check for a lack of flow between paragraphs.</li>
+<li>Check that each section has a clear purpose and does not drift.</li>
+<li>Check for illogical arguments, unsupported claims, or conclusions that do not follow from the evidence.</li>
+<li>Check that strong opinions are framed as opinions unless they are backed by clear evidence.</li>
+<li>Check that the introduction sets up the post and the conclusion resolves it.</li>
+<li>Check that headings accurately describe the sections they introduce.</li>
+<li>Check that lists are parallel, concise, and not doing work that prose would do better.</li>
 </ul>
-<p>OpenAI covered a lot of ground during the dev day and any of the topics above warrants more in-depth experimentation and discussions - stay tuned for those in follow-up blog posts.</p>
-<p>Stay curious!</p>
-<p>Daniel</p>
+</section>
+<section id="technical-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="technical-accuracy">Technical Accuracy</h2>
+<ul>
+<li>Verify names, titles, companies, tools, dates, and locations.</li>
+<li>Verify quoted numbers, benchmarks, timelines, and claims.</li>
+<li>Check that technical terms are used consistently.</li>
+<li>Check that links point to the intended source.</li>
+<li>Check that code snippets, commands, and examples still work or are clearly illustrative.</li>
+</ul>
+</section>
+<section id="structure-and-flow" class="level2">
+<h2 class="anchored" data-anchor-id="structure-and-flow">Structure And Flow</h2>
+<ul>
+<li>Read the post top-to-bottom once without editing to check the overall arc.</li>
+<li>Check that sections appear in a logical order.</li>
+<li>Check that transitions explain why the next section follows from the previous one.</li>
+<li>Remove duplicated points unless repetition is intentional.</li>
+<li>Make sure the key takeaway is visible without reading every detail.</li>
+</ul>
+</section>
+<section id="media-and-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="media-and-formatting">Media And Formatting</h2>
+<ul>
+<li>Check that the hero image renders correctly.</li>
+<li>Check that all local images exist and have useful alt text.</li>
+<li>Check that image carousels render horizontally and have correct groups.</li>
+<li>Check that tables are readable on narrow screens.</li>
+<li>Check that Markdown, Quarto callouts, fenced divs, and code blocks are properly closed.</li>
+<li>Check that headings use the expected hierarchy.</li>
+</ul>
+</section>
+<section id="metadata-and-publishing" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-and-publishing">Metadata And Publishing</h2>
+<ul>
+<li>Check frontmatter: title, author, date, categories, image, lightbox, CSS, and scripts.</li>
+<li>Check that the slug/date folder matches the intended publish date.</li>
+<li>Check that internal links and anchors work.</li>
+<li>Check that external links are not private, expired, or accidentally pointing to drafts.</li>
+<li>Check that no secrets, private credentials, internal-only links, or sensitive screenshots are included.</li>
+<li>Check that draft TODOs, placeholders, and scratch notes have been removed.</li>
+</ul>
+</section>
+<section id="final-validation" class="level2">
+<h2 class="anchored" data-anchor-id="final-validation">Final Validation</h2>
+<ul>
+<li>Search for <code>TODO</code>, <code>FIXME</code>, <code>TBD</code>, and placeholder text.</li>
+<li>Run the site/post render command.</li>
+<li>Review the rendered page in a browser.</li>
+<li>Check mobile layout.</li>
+<li>Check browser console errors if the post uses custom JavaScript.</li>
+<li>Run spellcheck or a writing assistant pass if available.</li>
+<li>Review the git diff and make sure only intentional files changed.</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
